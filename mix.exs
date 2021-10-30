@@ -48,7 +48,15 @@ defmodule ElixirNewbie.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:mox, "~> 1.0", only: :test},
+      {:faker, "~> 0.16", only: :test},
+      {:surface, git: "https://github.com/surface-ui/surface.git", override: true},
+      {:surface_markdown, github: "surface-ui/surface_markdown"},
+      {:surface_catalogue, github: "surface-ui/surface_catalogue"},
+      {:earmark, "~> 1.4"},
+      {:makeup_elixir, "~> 0.15.1"},
+      {:makeup, "~> 1.0.4"}
     ]
   end
 
