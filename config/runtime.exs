@@ -38,15 +38,20 @@ if config_env() == :prod do
       """
 
   config :elixir_newbie, ElixirNewbieWeb.Endpoint,
-    http: [
-      # Enable IPv6 and bind on all interfaces.
-      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
-      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-      ip: {0, 0, 0, 0, 0, 0, 0, 0},
-      http: [:inet6, port: System.get_env("PORT") || 4000]
-    ],
-    secret_key_base: secret_key_base
+    server: true,
+    http: [port: {:system, "PORT"}],
+    url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+
+  # config :elixir_newbie, ElixirNewbieWeb.Endpoint,
+  #   http: [
+  #     # Enable IPv6 and bind on all interfaces.
+  #     # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
+  #     # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
+  #     # for details about using IPv6 vs IPv4 and loopback vs public addresses.
+  #     ip: {0, 0, 0, 0, 0, 0, 0, 0},
+  #     http: [:inet6, port: System.get_env("PORT") || 4000]
+  #   ],
+  #   secret_key_base: secret_key_base
 
   # config :elixir_newbie_web, BobVersionsWeb.Endpoint,
   #   secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
