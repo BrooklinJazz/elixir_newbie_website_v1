@@ -1,0 +1,65 @@
+.blogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "... blog-list ...";
+  padding: 20px 0;
+}
+
+.blog-list {
+  grid-area: blog-list;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog {
+  background-color: var(--surface0);
+  padding: var(--blog-spacing);
+}
+
+.blog > h2 {
+  font-size: var(--header2);
+  color: var(--foreground);
+}
+
+.blog > h3 {
+  font-size: var(--header3);
+  margin: var(--blog-spacing) 0;
+  color: var(--foreground);
+}
+
+.blog > p {
+  color: var(--foreground);
+  margin: var(--blog-spacing) 0;
+  font-size: var(--paragraph);
+}
+
+.blog > ul {
+  margin: var(--blog-spacing) 0;
+}
+
+.blog > ul > li {
+  list-style-type: disc;
+  font-size: var(--paragraph);
+  margin-left: 50px;
+  color: var(--foreground);
+}
+
+.blog > ul > li > p {
+  color: var(--foreground);
+}
+
+.blog > ul > li > strong {
+  color: var(--foreground);
+  font-weight: bold;
+}
+
+.blog > p > img {
+  margin: var(--blog-spacing) 0;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+.highlight {
+  font-size: var(--code-size);
+}

@@ -6,6 +6,11 @@ import Config
 # and secrets from environment variables or elsewhere. Do not define
 # any compile-time configuration in here, as it won't be applied.
 # The block below contains prod specific runtime configuration.
+
+config :elixir_newbie,
+  rss_token: System.get_env("RSS_FEED_TOKEN"),
+  blog_api_key: System.get_env("DEVTO_TOKEN")
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
