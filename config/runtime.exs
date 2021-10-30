@@ -39,8 +39,8 @@ if config_env() == :prod do
 
   config :elixir_newbie, ElixirNewbieWeb.Endpoint,
     server: true,
-    http: [port: {:system, "PORT"}],
-    url: [host: "elixir-newbie.gigalixirapp.com", port: 443, scheme: "https"]
+    url: [host: "elixir-newbie.gigalixirapp.com", port: 443, scheme: "https"],
+    check_origin: ["//elixir-newbie.gigalixirapp.com"]
 
   # config :elixir_newbie, ElixirNewbieWeb.Endpoint,
   #   http: [
