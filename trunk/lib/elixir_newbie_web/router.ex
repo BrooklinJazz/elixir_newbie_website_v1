@@ -17,7 +17,10 @@ defmodule ElixirNewbieWeb.Router do
   if Mix.env() in [:prod] do
     scope "/", ElixirNewbieWeb do
       pipe_through :browser
-      live "/", ComingSoonLive
+      # live "/", ComingSoonLive
+      live "/", HomeLive
+      live "/blog", BlogLive
+      live "/podcast", PodcastLive
     end
   end
 
