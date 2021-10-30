@@ -1,0 +1,17 @@
+/* This file is for your main application CSS */
+@import "./navigation.css";
+
+:root {
+  --background: #1b001c;
+  --surface0: #0e0e10;
+  --foreground: white;
+  --primary: #a800a1;
+  --twitter: #1da1f2;
+  --linkedin: #3b5998;
+  --mobile-size: 600px;
+  --blog-spacing: 20px;
+  --header2: 2em;
+  --header3: 1.5em;
+  --paragraph: 1em;
+  --code-size: 1.3em;
+}

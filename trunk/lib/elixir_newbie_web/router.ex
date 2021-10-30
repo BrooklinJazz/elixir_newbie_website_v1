@@ -14,10 +14,21 @@ defmodule ElixirNewbieWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ElixirNewbieWeb do
-    pipe_through :browser
+  if Mix.env() in [:prod] do
+    scope "/", ElixirNewbieWeb do
+      pipe_through :browser
+      live "/", ComingSoonLive
+    end
+  end
 
-    get "/", PageController, :index
+  if Mix.env() in [:dev, :test] do
+    scope "/", ElixirNewbieWeb do
+      pipe_through :browser
+
+      live "/", HomeLive
+      live "/blog", BlogLive
+      live "/podcast", PodcastLive
+    end
   end
 
   # Other scopes may use custom stacks.

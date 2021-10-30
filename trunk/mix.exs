@@ -56,7 +56,9 @@ defmodule ElixirNewbie.MixProject do
       {:surface_catalogue, github: "surface-ui/surface_catalogue"},
       {:earmark, "~> 1.4"},
       {:makeup_elixir, "~> 0.15.1"},
-      {:makeup, "~> 1.0.4"}
+      {:makeup, "~> 1.0.4"},
+      {:json, "~> 1.4"},
+      {:httpoison, "~> 1.8"}
     ]
   end
 

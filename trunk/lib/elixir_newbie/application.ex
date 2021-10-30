@@ -15,9 +15,9 @@ defmodule ElixirNewbie.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ElixirNewbie.PubSub},
       # Start the Endpoint (http/https)
-      ElixirNewbieWeb.Endpoint
+      ElixirNewbieWeb.Endpoint,
       # Start a worker by calling: ElixirNewbie.Worker.start_link(arg)
-      # {ElixirNewbie.Worker, arg}
+      {ElixirNewbie.BlogCache, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
