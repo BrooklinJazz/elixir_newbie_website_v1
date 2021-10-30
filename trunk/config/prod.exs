@@ -10,18 +10,11 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :elixir_newbie, ElixirNewbieWeb.Endpoint,
-  server: true,
-  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+  url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
-
-# config :elixir_newbie_web, ElixirNewbieWeb.Endpoint,
-#   http: [:inet6, port: System.get_env("PORT") || 4000],
-#   url: [scheme: "https", port: 443],
-#   force_ssl: [rewrite_on: [:x_forwarded_proto], host: nil],
-#   check_origin: ["//*.gigalixirapp.com"]
 
 # ## SSL Support
 #
