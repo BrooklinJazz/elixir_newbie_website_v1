@@ -25,7 +25,15 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
   secret_key_base: "i9XGIXSZGuSyzrAdkT7ZnwMH8XXl09X183r3gCZ+ywsFR62vCERxWeGnD7z8D9Iq",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support
