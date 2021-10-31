@@ -1,6 +1,7 @@
 .content {
   grid-area: content;
 }
+
 @media (min-width: 601px) {
   .page {
     display: grid;

@@ -1,9 +1,17 @@
 .blogs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 10% 1fr 1% 1.5fr 10%;
   grid-template-rows: 1fr;
-  grid-template-areas: "... blog-list ...";
+  grid-template-areas: "... blog-index ... blog-list ...";
   padding: 20px 0;
+}
+
+.blog-index {
+  grid-area: blog-index;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface0);
+  padding-top: var(--blog-spacing);
 }
 
 .blog-list {
@@ -13,13 +21,12 @@
 }
 
 .blog {
-  background-color: var(--surface0);
   padding: var(--blog-spacing);
+  background-color: var(--surface0);
 }
 
 .blog > h2 {
-  font-size: var(--header2);
-  color: var(--foreground);
+  @apply text-white text-3xl;
 }
 
 .blog > h3 {

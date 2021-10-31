@@ -58,7 +58,8 @@ defmodule ElixirNewbie.MixProject do
       {:makeup_elixir, "~> 0.15.1"},
       {:makeup, "~> 1.0.4"},
       {:json, "~> 1.4"},
-      {:httpoison, "~> 1.8"}
+      {:httpoison, "~> 1.8"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 

@@ -1,4 +1,3 @@
-/* This file is for your main application CSS */
 @import "./navigation.css";
 
 :root {
@@ -10,7 +9,7 @@
   --linkedin: #3b5998;
   --mobile-size: 600px;
   --blog-spacing: 20px;
-  --header2: 2em;
+  --header2: 1.875em;
   --header3: 1.5em;
   --paragraph: 1em;
   --code-size: 1.3em;

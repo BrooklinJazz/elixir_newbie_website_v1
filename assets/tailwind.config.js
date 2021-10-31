@@ -19,6 +19,7 @@ module.exports = {
       yellow: colors.amber,
     }
   },
+  "headwind.runOnSave": false,
   variants: {},
   plugins: []
 };
