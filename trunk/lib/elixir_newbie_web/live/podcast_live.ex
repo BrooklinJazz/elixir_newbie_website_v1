@@ -28,7 +28,7 @@ defmodule ElixirNewbieWeb.PodcastLive do
         {#for episode <- @episodes}
           <article
           :on-click={"set-active-episode"}
-          phx-value-title={episode.title}
+          phx-value-episode-number={episode.episode_number}
           class={
             "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer "
             <> "transition duration-300 ease-in-out hover:bg-primary "
@@ -54,13 +54,13 @@ defmodule ElixirNewbieWeb.PodcastLive do
     """
   end
 
-  def handle_event("set-active-episode", %{"title" => title}, socket) do
-    %{episodes: episodes} = socket.assigns
-    episode = Enum.find_index(episodes, fn each -> each.title === title end)
-
+  def handle_event("set-active-episode", %{"episode-number" => episode_number}, socket) do
     {:noreply,
      push_patch(socket,
-       to: Routes.live_path(socket, ElixirNewbieWeb.PodcastLive, episode: episode)
+       to:
+         Routes.live_path(socket, ElixirNewbieWeb.PodcastLive,
+           episode: String.to_integer(episode_number)
+         )
      )}
   end
 
@@ -73,13 +73,14 @@ defmodule ElixirNewbieWeb.PodcastLive do
     {:noreply, socket}
   end
 
-  def mount(%{"episode" => episode}, _session, socket) do
+  def mount(%{"episode" => episode_number}, _session, socket) do
     episodes = PodcastAPI.get()
 
     {:ok,
      assign(socket,
        episodes: episodes,
-       active_episode: Enum.at(episodes, -String.to_integer(episode))
+       active_episode:
+         Enum.find(episodes, &(&1.episode_number === String.to_integer(episode_number)))
      )}
   end
 
