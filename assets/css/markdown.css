@@ -1,67 +1,45 @@
-.blogs {
-  display: grid;
-  grid-template-columns: 10% 1fr 1% 1.5fr 10%;
-  grid-template-rows: 1fr;
-  grid-template-areas: "... blog-index ... blog-list ...";
-  padding: 20px 0;
-}
-
-.blog-index {
-  grid-area: blog-index;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--surface0);
-  padding-top: var(--blog-spacing);
-}
-
-.blog-list {
-  grid-area: blog-list;
-  display: flex;
-  flex-direction: column;
-}
-
-.blog {
+.markdown {
   padding: var(--blog-spacing);
   background-color: var(--surface0);
 }
 
-.blog > h2 {
-  @apply text-white text-3xl;
+.markdown > h2 {
+  @apply text-3xl text-white;
 }
 
-.blog > h3 {
+.markdown > h3 {
   font-size: var(--header3);
   margin: var(--blog-spacing) 0;
   color: var(--foreground);
 }
 
-.blog > p {
+.markdown > p {
   color: var(--foreground);
   margin: var(--blog-spacing) 0;
   font-size: var(--paragraph);
 }
 
-.blog > ul {
+.markdown > ul {
   margin: var(--blog-spacing) 0;
 }
 
-.blog > ul > li {
+.markdown > ul > li {
   list-style-type: disc;
   font-size: var(--paragraph);
   margin-left: 50px;
   color: var(--foreground);
 }
 
-.blog > ul > li > p {
+.markdown > ul > li > p {
   color: var(--foreground);
 }
 
-.blog > ul > li > strong {
+.markdown > ul > li > strong {
   color: var(--foreground);
   font-weight: bold;
 }
 
-.blog > p > img {
+.markdown > p > img {
   margin: var(--blog-spacing) 0;
   max-height: 500px;
   margin: 0 auto;
