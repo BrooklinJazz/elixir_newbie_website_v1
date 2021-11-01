@@ -1,6 +1,6 @@
 defmodule ElixirNewbieWeb.BlogLive do
   use Surface.LiveView
-  alias ElixirNewbieWeb.Components.{Page}
+  alias ElixirNewbieWeb.Components.{Page, Feed}
   alias ElixirNewbie.{BlogCache, Syntax}
   import Phoenix.HTML, only: [raw: 1]
   # require Makeup.Styles.HTML.StyleMap
@@ -11,9 +11,9 @@ defmodule ElixirNewbieWeb.BlogLive do
   def render(assigns) do
     ~F"""
     <Page>
-    <section class="blogs">
-      <section class="blog-index">
-        <h2 class="text-3xl text-white pb-4 pl-4 border-b-2 border-solid border-primary">All Blog Posts</h2>
+      <Feed>
+        <:items>
+        <h2 class="pb-4 pl-4 text-3xl text-white border-b-2 border-solid border-primary">All Blog Posts</h2>
         {#for blog <- @blogs}
           <article
             :on-click={"set_active_blog"}
@@ -26,14 +26,14 @@ defmodule ElixirNewbieWeb.BlogLive do
             <h3 class="text-xl text-white">{blog.title}</h3>
           </article>
         {/for}
-      </section>
-      <section class="blog-list">
-        <div class="blog">
-          <h2>{@active_blog.title}</h2>
-          {@active_blog.body_html}
-        </div>
-      </section>
-    </section>
+        </:items>
+        <:active_item>
+          <article class="p-4 markdown bg-surface">
+            <h2>{@active_blog.title}</h2>
+            {@active_blog.body_html}
+          </article>
+        </:active_item>
+      </Feed>
     </Page>
     """
   end

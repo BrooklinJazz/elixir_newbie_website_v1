@@ -1,6 +1,6 @@
 defmodule ElixirNewbieWeb.PodcastLive do
   use Surface.LiveView
-  alias ElixirNewbieWeb.Components.{Page}
+  alias ElixirNewbieWeb.Components.{Page, Feed}
   alias ElixirNewbie.PodcastAPI
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
@@ -23,23 +23,22 @@ defmodule ElixirNewbieWeb.PodcastLive do
   def render(assigns) do
     ~F"""
     <Page>
-    <section class="grid grid-cols-5 grid-rows-1 px-20 pt-4 gap-x-10">
-       <section class="col-span-2 pt-4 bg-surface">
-          <h2 class="pb-4 pl-4 text-3xl text-white border-b-2 border-solid border-primary">All Episodes</h2>
-          {#for episode <- @episodes}
+      <Feed>
+      <:items>
+        {#for episode <- @episodes}
           <article
-            :on-click={"set-active-episode"}
-            phx-value-title={episode.title}
-            class={
+          :on-click={"set-active-episode"}
+          phx-value-title={episode.title}
+          class={
             "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer "
             <> "transition duration-300 ease-in-out hover:bg-primary "
             <> "#{episode.title === @active_episode.title && "bg-primary"} "
             }>
             <h3 class="text-xl text-white">{episode.title}</h3>
           </article>
-          {/for}
-      </section>
-      <section class="col-span-3">
+        {/for}
+      </:items>
+      <:active_item>
         <article class="p-4 text-white bg-surface">
           <h2 class="pb-4 text-3xl text-white">{@active_episode.title}</h2>
           {raw(@active_episode.description)}
@@ -49,8 +48,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
           </audio>
           <p>{Enum.at(@months, @active_episode.published_at.month)} {@active_episode.published_at.day} {@active_episode.published_at.year}</p>
         </article>
-      </section>
-    </section>
+      </:active_item>
+      </Feed>
     </Page>
     """
   end
@@ -68,6 +67,10 @@ defmodule ElixirNewbieWeb.PodcastLive do
   def handle_params(%{"episode" => episode}, _url, socket) do
     %{episodes: episodes} = socket.assigns
     {:noreply, assign(socket, active_episode: Enum.at(episodes, -String.to_integer(episode)))}
+  end
+
+  def handle_params(_params, _url, socket) do
+    {:noreply, socket}
   end
 
   def mount(%{"episode" => episode}, _session, socket) do
