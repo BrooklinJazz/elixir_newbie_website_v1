@@ -1,4 +1,4 @@
-defmodule ElixirNewbie.PodcastFeed do
+defmodule ElixirNewbie.PodcastAPI do
   alias ElixirNewbie.PodcastEpisode
   @feed_url "https://www.buzzsprout.com/api/1840381/episodes.json"
   def get do
@@ -13,7 +13,7 @@ defmodule ElixirNewbie.PodcastFeed do
          {:ok, episodes} <- JSON.decode(body) do
       episodes
       |> Enum.map(&PodcastEpisode.cast/1)
-      |> Enum.filter(&(&1.published_at < DateTime.utc_now()))
+      |> Enum.filter(&(DateTime.compare(&1.published_at, DateTime.utc_now()) === :lt))
     end
   end
 end
