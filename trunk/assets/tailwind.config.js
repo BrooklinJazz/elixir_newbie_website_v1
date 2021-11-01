@@ -11,12 +11,9 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       primary: '#a800a1',
+      surface: '#0e0e10',
       black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.amber,
     }
   },
   "headwind.runOnSave": false,
