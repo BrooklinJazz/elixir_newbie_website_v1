@@ -1,6 +1,7 @@
 .markdown {
   padding: var(--blog-spacing);
   background-color: var(--surface0);
+  color: var(--foreground);
 }
 
 .markdown > h2 {
@@ -47,4 +48,5 @@
 
 .highlight {
   font-size: var(--code-size);
+  overflow: scroll;
 }
