@@ -1,7 +1,19 @@
-defmodule ElixirNewbie.BlogCache do
-  alias ElixirNewbie.BlogAPI
+defmodule ElixirNewbie.Blogs do
   use GenServer
+
+  alias ElixirNewbie.BlogAPI
+  alias ElixirNewbie.Syntax
+  alias Phoenix.HTML
+
   @hydrate_interval 1000 * 60 * 5
+
+  def get(server \\ __MODULE__) do
+    GenServer.call(server, {:get})
+  end
+
+  def as_highlighted_html(blog) do
+    blog.body_markdown |> Earmark.as_html!() |> Syntax.highlight() |> HTML.raw()
+  end
 
   def start_link(opts) do
     server_name = Access.get(opts, :name, __MODULE__)
@@ -11,10 +23,6 @@ defmodule ElixirNewbie.BlogCache do
   def init(_args) do
     :timer.send_interval(@hydrate_interval, self(), :hydrate)
     {:ok, %{blogs: BlogAPI.get()}}
-  end
-
-  def get(server \\ __MODULE__) do
-    GenServer.call(server, {:get})
   end
 
   def handle_call({:get}, _from, state) do
