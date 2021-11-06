@@ -20,6 +20,12 @@
   font-size: var(--paragraph);
 }
 
+.markdown > blockquote {
+  color: var(--foreground);
+  margin: var(--blog-spacing) 0;
+  font-size: var(--paragraph);
+}
+
 .markdown > ul {
   margin: var(--blog-spacing) 0;
 }
