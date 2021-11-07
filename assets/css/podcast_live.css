@@ -1,0 +1,4 @@
+.podcast-description > p > a {
+  color: var(--secondary);
+  text-decoration: underline;
+}
