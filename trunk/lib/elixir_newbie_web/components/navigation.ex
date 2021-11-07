@@ -19,7 +19,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/brand.png")}/>
       <LiveRedirect
         class={
-          "navigation__link navigation__link--podcast text-white"
+          "text-3xl navigation__link--podcast text-white"
           <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
         }
         label="Podcast"
@@ -27,7 +27,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         />
       <LiveRedirect
         class={
-          "navigation__link navigation__link--blog text-white"
+          "text-3xl navigation__link navigation__link--blog text-white"
           <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
         }
         label="Blog"
@@ -38,18 +38,18 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         target="_blank"
         class={
           "navigation__icon--twitter text-white "
-          <> "transition duration-300 ease-in-out transform hover:scale-150 hover:text-twitter"
+          <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
         }>
-          <i class="text-2xl fab fa-twitter"/>
+          <i class="text-3xl fab fa-twitter"/>
         </a>
       <a
         href="https://www.linkedin.com/in/brooklinmyers/"
         target="_blank"
         class={
           "navigation__icon--linkedin text-white "
-          <> "transition duration-300 ease-in-out transform hover:scale-150 hover:text-linkedin"
+          <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin"
         }>
-          <i class="text-2xl fab fa-linkedin-in"/>
+          <i class="text-3xl fab fa-linkedin-in"/>
         </a>
     </nav>
     """
