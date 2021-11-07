@@ -6,6 +6,7 @@
 
 .markdown > h2 {
   @apply text-3xl text-white;
+  margin: var(--blog-spacing) 0;
 }
 
 .markdown > h3 {
