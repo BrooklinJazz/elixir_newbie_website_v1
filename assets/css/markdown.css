@@ -61,6 +61,12 @@
   margin: 0 auto;
 }
 
+.highlight::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .highlight {
   font-size: var(--code-size);
   overflow: scroll;
