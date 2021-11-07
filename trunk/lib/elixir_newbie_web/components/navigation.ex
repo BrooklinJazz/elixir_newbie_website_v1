@@ -5,6 +5,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.Endpoint
+  alias ElixirNewbieWeb.CSS
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
@@ -21,6 +22,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         class={
           "text-3xl navigation__link--podcast text-white"
           <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
+          <> " hidden md:block "
         }
         label="Podcast"
         to={Routes.live_path(Endpoint, PodcastLive)}
@@ -29,6 +31,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         class={
           "text-3xl navigation__link navigation__link--blog text-white"
           <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
+          <> " hidden md:block "
         }
         label="Blog"
         to={Routes.live_path(Endpoint, BlogLive)}
@@ -39,6 +42,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         class={
           "navigation__icon--twitter text-white "
           <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
+          <> " hidden md:block "
         }>
           <i class="text-3xl fab fa-twitter"/>
         </a>
@@ -48,6 +52,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         class={
           "navigation__icon--linkedin text-white "
           <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin"
+          <> " hidden md:block "
         }>
           <i class="text-3xl fab fa-linkedin-in"/>
         </a>
