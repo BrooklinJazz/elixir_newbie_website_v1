@@ -1,5 +1,4 @@
 .markdown {
-  padding: var(--blog-spacing);
   background-color: var(--surface0);
   color: var(--foreground);
 }

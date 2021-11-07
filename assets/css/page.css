@@ -1,20 +1,25 @@
 .content {
   grid-area: content;
+  height: 100%;
+  overflow: scroll;
 }
 
-@media (min-width: 601px) {
+.page {
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
   .page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: "navigation" "content";
-    height: 100vh;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .page {
-    height: 100vh;
+    max-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
