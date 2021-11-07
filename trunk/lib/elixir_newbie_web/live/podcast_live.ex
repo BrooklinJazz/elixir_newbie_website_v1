@@ -22,26 +22,36 @@ defmodule ElixirNewbieWeb.PodcastLive do
   )
 
   def render(assigns) do
+    IO.inspect(assigns.selected_podcast_on_mobile, label: "SELECTED PODCAST")
+
     ~F"""
     <Page>
       <Feed>
       <:items>
-        <h2 class="pb-4 pl-4 text-3xl text-white border-b-2 border-solid border-primary">All Blog Posts</h2>
+        <h2 class={
+          "pb-4 pl-4 text-3xl text-white border-b-2 border-solid sm:pt-8 md:pt-0 border-primary sm:hidden md:block "
+          <> "hidden md:block"
+        }>Podcast Episodes</h2>
         {#for episode <- @episodes}
           <article
           :on-click={"set-active-episode"}
           phx-value-episode-number={episode.episode_number}
           class={
-            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer text-white"
-            <> " border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
-            <> "#{episode.title === @active_episode.title && "border-secondary border-b-8 text-secondary"} "
+            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer text-white "
+            <> "border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
+            <> "#{episode.title === @active_episode.title && "md:border-secondary md:border-b-8 md:text-secondary"} "
+            <> "#{@selected_podcast_on_mobile && "hidden md:flex"} "
             }>
             <h3 class="text-xl">{episode.title}</h3>
           </article>
         {/for}
       </:items>
       <:active_item>
-        <article class="p-4 text-white bg-surface">
+        <article
+          class={
+            "p-4 text-white bg-surface "
+            <> "#{!@selected_podcast_on_mobile && "hidden md:block"} "
+          }>
           <h2 class="pb-4 text-3xl text-white">{@active_episode.title}</h2>
           <figure class="podcast-description">
           {raw(@active_episode.description)}
@@ -70,7 +80,12 @@ defmodule ElixirNewbieWeb.PodcastLive do
 
   def handle_params(%{"episode" => episode}, _url, socket) do
     %{episodes: episodes} = socket.assigns
-    {:noreply, assign(socket, active_episode: Enum.at(episodes, -String.to_integer(episode)))}
+
+    {:noreply,
+     assign(socket,
+       selected_podcast_on_mobile: true,
+       active_episode: Enum.at(episodes, -String.to_integer(episode))
+     )}
   end
 
   def handle_params(_params, _url, socket) do
@@ -83,6 +98,7 @@ defmodule ElixirNewbieWeb.PodcastLive do
     {:ok,
      assign(socket,
        episodes: episodes,
+       selected_podcast_on_mobile: true,
        active_episode:
          Enum.find(episodes, &(&1.episode_number === String.to_integer(episode_number)))
      )}
@@ -91,6 +107,11 @@ defmodule ElixirNewbieWeb.PodcastLive do
   def mount(_params, _session, socket) do
     episodes = PodcastAPI.get()
 
-    {:ok, assign(socket, episodes: episodes, active_episode: List.first(episodes))}
+    {:ok,
+     assign(socket,
+       selected_podcast_on_mobile: false,
+       episodes: episodes,
+       active_episode: List.first(episodes)
+     )}
   end
 end

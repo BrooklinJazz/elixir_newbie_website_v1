@@ -1,4 +1,4 @@
-@media (min-width: 601px) {
+@media (min-width: 768px) {
   .navigation {
     grid-area: navigation;
     background-color: var(--surface0);
@@ -54,7 +54,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .navigation {
     grid-area: navigation;
     background-color: var(--background);
