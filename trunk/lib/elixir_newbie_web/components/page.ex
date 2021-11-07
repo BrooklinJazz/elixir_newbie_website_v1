@@ -1,21 +1,21 @@
 defmodule ElixirNewbieWeb.Components.Page do
   use Surface.Component
   alias ElixirNewbieWeb.Components.{Footer, Navigation}
-  slot(default, required: true)
+  slot default, required: true
+  prop loading, :boolean, required: true
 
   def render(assigns) do
     ~F"""
-    <section class="page">
-      <Navigation id={:navigation}/>
-      <section class="content">
-        <#slot/>
-      </section>
-      <Footer id={:footer}/>
+    <section class="page bg-background">
+    {#if @loading}
+    {#else}
+        <Navigation id={:navigation}/>
+        <section class="content bg-background">
+          <#slot/>
+        </section>
+        <Footer id={:footer}/>
+    {/if}
     </section>
     """
-  end
-
-  def mount(_params, _session, socket) do
-    {:ok, socket}
   end
 end

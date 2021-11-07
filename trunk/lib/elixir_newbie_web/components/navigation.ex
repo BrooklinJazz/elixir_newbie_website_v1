@@ -10,7 +10,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
 
   def render(assigns) do
     ~F"""
-    <nav class="navigation">
+    <nav class="navigation bg-header">
       <img
         :on-click="home"
         class={
