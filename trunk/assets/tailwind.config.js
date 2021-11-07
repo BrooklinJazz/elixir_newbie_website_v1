@@ -11,16 +11,11 @@ module.exports = {
       twitter: "#1da1f2",
       primary: "#a801a1",
       secondary: "#5BDFE4",
-      background: "#1C1B1D",
       // background: "#1C1B1D",
-      header: "#1C1B1D",
-      // header: "#1b001c",
-      footer: "#1C1B1D",
-      surface: "#1C1B1D",
-      // kent dodds inspired: #1F2028
-      // dark purple #1b001c
-      // underjord inspired dark: #1C1B1D
-      // surface: '#0e0e10',
+      background: "#1F2028",
+      header: "#1F2028",
+      footer: "#1F2028",
+      surface: "#1F2028",
       black: colors.black,
       white: colors.white,
     },
