@@ -28,12 +28,6 @@
     overflow: hidden;
   }
 
-  .navigation__link {
-    font-size: 2em;
-    overflow: hidden;
-    text-decoration: none;
-  }
-
   .navigation__icon {
     font-size: 2em;
     min-width: 1em;
