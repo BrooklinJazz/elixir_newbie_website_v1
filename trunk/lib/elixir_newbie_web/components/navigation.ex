@@ -5,12 +5,11 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.Endpoint
-  alias ElixirNewbieWeb.CSS
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
     ~F"""
-    <nav class="navigation bg-header">
+    <nav class="border-b-2 navigation bg-header border-secondary">
       <img
         :on-click="home"
         class={

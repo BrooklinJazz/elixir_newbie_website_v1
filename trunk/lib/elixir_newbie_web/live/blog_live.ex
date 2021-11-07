@@ -21,7 +21,7 @@ defmodule ElixirNewbieWeb.BlogLive do
             :on-click={"set-active-blog"}
             phx-value-title={blog.title}
             class={
-            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer text-white "
+            "w-full h-20 flex pl-4 items-center border-b-2 border-secondary cursor-pointer text-white "
             <> "border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
             <> "#{blog.title === @active_blog.title && "md:border-secondary md:border-b-8 md:text-secondary"} "
             <> "#{@selected_blog_on_mobile && "hidden md:flex"} "

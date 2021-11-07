@@ -35,7 +35,7 @@ defmodule ElixirNewbieWeb.PodcastLive do
           :on-click={"set-active-episode"}
           phx-value-episode-number={episode.episode_number}
           class={
-            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer text-white "
+            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-secondary cursor-pointer text-white "
             <> "border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
             <> "#{episode.title === @active_episode.title && "md:border-secondary md:border-b-8 md:text-secondary"} "
             <> "#{@selected_podcast_on_mobile && "hidden md:flex"} "
