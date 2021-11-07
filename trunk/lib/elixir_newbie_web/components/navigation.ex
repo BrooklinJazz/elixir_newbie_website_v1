@@ -20,7 +20,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
       <LiveRedirect
         class={
           "navigation__link navigation__link--podcast text-white"
-          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary"
+          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
         }
         label="Podcast"
         to={Routes.live_path(Endpoint, PodcastLive)}
@@ -28,7 +28,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
       <LiveRedirect
         class={
           "navigation__link navigation__link--blog text-white"
-          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary"
+          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
         }
         label="Blog"
         to={Routes.live_path(Endpoint, BlogLive)}
@@ -37,16 +37,20 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         href="https://twitter.com/BrooklinJMyers"
         target="_blank"
         class={
-          "fab fa-twitter navigation__icon navigation__icon--twitter "
-          <> "transition duration-300 ease-in-out transform hover:scale-110"
-          }/>
+          "navigation__icon--twitter text-white "
+          <> "transition duration-300 ease-in-out transform hover:scale-150 hover:text-twitter"
+        }>
+          <i class="text-2xl fab fa-twitter"/>
+        </a>
       <a
         href="https://www.linkedin.com/in/brooklinmyers/"
         target="_blank"
         class={
-          "fab fa-linkedin-in navigation__icon navigation__icon--linkedin "
-          <> "transition duration-300 ease-in-out transform hover:scale-110"
-        }/>
+          "navigation__icon--linkedin text-white "
+          <> "transition duration-300 ease-in-out transform hover:scale-150 hover:text-linkedin"
+        }>
+          <i class="text-2xl fab fa-linkedin-in"/>
+        </a>
     </nav>
     """
   end

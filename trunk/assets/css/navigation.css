@@ -37,6 +37,7 @@
   .navigation__icon {
     font-size: 2em;
     min-width: 1em;
+    min-height: 1em;
     text-decoration: none;
     border-radius: 50%;
     padding: 10px;
@@ -45,12 +46,10 @@
 
   .navigation__icon--twitter {
     grid-area: twitter-link;
-    background-color: var(--twitter);
   }
 
   .navigation__icon--linkedin {
     grid-area: linkedin-link;
-    background-color: var(--linkedin);
   }
 }
 
