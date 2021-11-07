@@ -21,8 +21,8 @@ defmodule ElixirNewbieWeb.Components.Navigation do
         label="Blog"
         to={Routes.live_path(Endpoint, BlogLive)}
        />
-      <a href="#" class="fab fa-twitter navigation__icon navigation__icon--twitter"></a>
-      <a href="#" class="fab fa-linkedin-in navigation__icon navigation__icon--linkedin"></a>
+      <a href="https://twitter.com/BrooklinJMyers" target="_blank" class="fab fa-twitter navigation__icon navigation__icon--twitter"></a>
+      <a href="https://www.linkedin.com/in/brooklinmyers/" target="_blank" class="fab fa-linkedin-in navigation__icon navigation__icon--linkedin"></a>
     </nav>
     """
   end
