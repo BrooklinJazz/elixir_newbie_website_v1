@@ -21,6 +21,14 @@
   font-size: var(--paragraph);
 }
 
+.markdown > a {
+  color: var(--secondary);
+}
+
+.markdown > a:hover {
+  text-decoration: underline;
+}
+
 .markdown > blockquote {
   color: var(--foreground);
   margin: var(--blog-spacing) 0;

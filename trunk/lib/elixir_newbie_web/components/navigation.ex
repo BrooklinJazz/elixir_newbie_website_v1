@@ -10,19 +10,43 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   def render(assigns) do
     ~F"""
     <nav class="navigation">
-      <img :on-click="home" class="navigation__brand" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/brand.png")}/>
+      <img
+        :on-click="home"
+        class={
+          "navigation__brand cursor-pointer "
+          <> "transition duration-300 ease-in-out transform hover:scale-110"
+        }
+        src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/brand.png")}/>
       <LiveRedirect
-        class="navigation__link navigation__link--podcast"
+        class={
+          "navigation__link navigation__link--podcast text-white"
+          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary"
+        }
         label="Podcast"
         to={Routes.live_path(Endpoint, PodcastLive)}
         />
       <LiveRedirect
-        class="navigation__link navigation__link--blog"
+        class={
+          "navigation__link navigation__link--blog text-white"
+          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary"
+        }
         label="Blog"
         to={Routes.live_path(Endpoint, BlogLive)}
        />
-      <a href="https://twitter.com/BrooklinJMyers" target="_blank" class="fab fa-twitter navigation__icon navigation__icon--twitter"></a>
-      <a href="https://www.linkedin.com/in/brooklinmyers/" target="_blank" class="fab fa-linkedin-in navigation__icon navigation__icon--linkedin"></a>
+      <a
+        href="https://twitter.com/BrooklinJMyers"
+        target="_blank"
+        class={
+          "fab fa-twitter navigation__icon navigation__icon--twitter "
+          <> "transition duration-300 ease-in-out transform hover:scale-110"
+          }/>
+      <a
+        href="https://www.linkedin.com/in/brooklinmyers/"
+        target="_blank"
+        class={
+          "fab fa-linkedin-in navigation__icon navigation__icon--linkedin "
+          <> "transition duration-300 ease-in-out transform hover:scale-110"
+        }/>
     </nav>
     """
   end

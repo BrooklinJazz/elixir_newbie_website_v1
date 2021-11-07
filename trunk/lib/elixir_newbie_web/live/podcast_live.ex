@@ -4,7 +4,7 @@ defmodule ElixirNewbieWeb.PodcastLive do
   alias ElixirNewbie.PodcastAPI
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
-  data months, :list,
+  data(months, :list,
     default: [
       "January",
       "February",
@@ -19,29 +19,33 @@ defmodule ElixirNewbieWeb.PodcastLive do
       "November",
       "December"
     ]
+  )
 
   def render(assigns) do
     ~F"""
     <Page>
       <Feed>
       <:items>
+        <h2 class="pb-4 pl-4 text-3xl text-white border-b-2 border-solid border-primary">All Blog Posts</h2>
         {#for episode <- @episodes}
           <article
           :on-click={"set-active-episode"}
           phx-value-episode-number={episode.episode_number}
           class={
-            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer "
-            <> "transition duration-300 ease-in-out hover:bg-primary "
-            <> "#{episode.title === @active_episode.title && "bg-primary"} "
+            "w-full h-20 flex pl-4 items-center border-b-2 border-solid border-primary cursor-pointer text-white"
+            <> " border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
+            <> "#{episode.title === @active_episode.title && "border-secondary border-b-8 text-secondary"} "
             }>
-            <h3 class="text-xl text-white">{episode.title}</h3>
+            <h3 class="text-xl">{episode.title}</h3>
           </article>
         {/for}
       </:items>
       <:active_item>
         <article class="p-4 text-white bg-surface">
           <h2 class="pb-4 text-3xl text-white">{@active_episode.title}</h2>
+          <figure class="podcast-description">
           {raw(@active_episode.description)}
+          </figure>
           <audio class="w-full my-4" controls>
             <source src={@active_episode.audio_url} type="audio/mpeg">
             Your browser does not support the audio element.
