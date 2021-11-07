@@ -10,7 +10,6 @@
     height: 80px;
     grid-area: footer;
     width: 100%;
-    background-color: var(--primary);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "home-link blog-link podcast-link";
@@ -18,11 +17,9 @@
   }
   .footer_link {
     border: none;
-    color: var(--foreground);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--surface0);
     flex-direction: column;
   }
   .footer_link--home {

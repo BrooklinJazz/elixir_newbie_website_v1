@@ -5,23 +5,32 @@ defmodule ElixirNewbieWeb.Components.Footer do
 
   def render(assigns) do
     ~F"""
-    <nav class="footer">
+    <nav class="footer bg-footer">
       <button
-        class="footer_link footer_link--home"
+        class={
+        "footer_link footer_link--home "
+        <> "#{assigns.socket.view === ElixirNewbieWeb.HomeLive  && " text-secondary" || "text-white"}"
+        }
         :on-click="home"
         >
         <i class="fas fa-home"></i>
         Home
         </button>
       <button
-        class="footer_link footer_link--blog"
+        class={
+        "footer_link footer_link--blog "
+        <> "#{assigns.socket.view === ElixirNewbieWeb.BlogLive  && " text-secondary" || "text-white"}"
+        }
         :on-click="blog"
         >
         <i class="fas fa-blog"></i>
         Blog
         </button>
       <button
-        class="footer_link footer_link--podcast"
+        class={
+        "footer_link footer_link--podcast "
+        <> "#{assigns.socket.view === ElixirNewbieWeb.PodcastLive  && " text-secondary" || "text-white"}"
+        }
         :on-click="podcast"
        >
       <i class="fas fa-podcast"></i>

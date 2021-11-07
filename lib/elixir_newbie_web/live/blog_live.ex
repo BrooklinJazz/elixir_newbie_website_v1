@@ -8,15 +8,13 @@ defmodule ElixirNewbieWeb.BlogLive do
   @topic "update blogs"
 
   def render(assigns) do
-    IO.inspect(assigns.selected_blog_on_mobile, label: "BLOG")
-
     ~F"""
-    <Page>
+    <Page loading={@loading}>
       <Feed>
         <:items>
         <h2 class={
           "pb-4 pl-4 text-3xl text-white border-b-2 border-solid sm:pt-8 md:pt-0 border-primary "
-          <> "hidden md:flex"
+          <> "hidden md:flex "
         } >Blog Posts</h2>
         {#for blog <- @blogs}
           <article
@@ -78,7 +76,8 @@ defmodule ElixirNewbieWeb.BlogLive do
      assign(socket,
        blogs: blogs,
        selected_blog_on_mobile: true,
-       active_blog: Enum.find(blogs, &(&1.title === title))
+       active_blog: Enum.find(blogs, &(&1.title === title)),
+       loading: !connected?(socket)
      )}
   end
 
@@ -87,7 +86,12 @@ defmodule ElixirNewbieWeb.BlogLive do
     blogs = Blogs.get()
 
     {:ok,
-     assign(socket, blogs: blogs, selected_blog_on_mobile: false, active_blog: List.first(blogs))}
+     assign(socket,
+       blogs: blogs,
+       selected_blog_on_mobile: false,
+       active_blog: List.first(blogs),
+       loading: !connected?(socket)
+     )}
   end
 
   def handle_info({:update_blogs, blogs}, socket),

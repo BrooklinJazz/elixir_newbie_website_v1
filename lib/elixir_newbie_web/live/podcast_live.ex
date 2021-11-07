@@ -22,10 +22,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
   )
 
   def render(assigns) do
-    IO.inspect(assigns.selected_podcast_on_mobile, label: "SELECTED PODCAST")
-
     ~F"""
-    <Page>
+    <Page loading={@loading}>
       <Feed>
       <:items>
         <h2 class={
@@ -100,7 +98,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
        episodes: episodes,
        selected_podcast_on_mobile: true,
        active_episode:
-         Enum.find(episodes, &(&1.episode_number === String.to_integer(episode_number)))
+         Enum.find(episodes, &(&1.episode_number === String.to_integer(episode_number))),
+       loading: !connected?(socket)
      )}
   end
 
@@ -111,7 +110,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
      assign(socket,
        selected_podcast_on_mobile: false,
        episodes: episodes,
-       active_episode: List.first(episodes)
+       active_episode: List.first(episodes),
+       loading: !connected?(socket)
      )}
   end
 end
