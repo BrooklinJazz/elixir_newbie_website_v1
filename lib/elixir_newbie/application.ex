@@ -17,7 +17,8 @@ defmodule ElixirNewbie.Application do
       # Start the Endpoint (http/https)
       ElixirNewbieWeb.Endpoint,
       # Start a worker by calling: ElixirNewbie.Worker.start_link(arg)
-      {ElixirNewbie.Blogs, []}
+      {ElixirNewbie.Blogs, []},
+      {ElixirNewbie.Podcast, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
