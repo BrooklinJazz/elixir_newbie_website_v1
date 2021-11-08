@@ -37,19 +37,20 @@ defmodule ElixirNewbieWeb.HomeLive do
   def render(assigns) do
     ~F"""
     <Page loading={@loading}>
-      <section class="flex justify-center pt-8 md:px-20">
-        <article class="w-2/4 col-span-1 animate-fade-in">
-          <figure class="text-4xl text-white">
-          Hi, I’m Brooklin Myers.<br/><br/>
-          I help aspiring developers learn Elixir, and break into the programming industry.<br/><br/>
-          I do that through <span class="text-primary">{Enum.at(@words, @current_word)}.</span>
+      <section class="flex justify-center h-full mt-12">
+        <article class="md:w-3/4 lg:w-3/5 animate-fade-in">
+          <figure class="text-3xl text-white md:text-4xl">
+          <p class="mt-12">Hi, I’m Brooklin Myers.</p>
+          <p class="mt-12">I help aspiring developers learn Elixir, and break into the programming industry.</p>
+          <p class="mt-12">I do that through <span class="text-primary">{Enum.at(@words, @current_word)}.</span></p>
           </figure>
-          <figure class="flex justify-between pr-12 mt-8">
+          <figure class="flex hidden mt-8 md:flex">
               <LiveRedirect
                 to={Routes.live_path(Endpoint, BlogLive)}
                 class={
                   "cursor-pointer py-4 text-2xl text-center text-white border-2 border-secondary rounded-full w-72 "
-                  <> "transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary"
+                  <> " transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary "
+                  <> " mr-12"
                 }>
               Read the Blog
               </LiveRedirect>
@@ -57,7 +58,8 @@ defmodule ElixirNewbieWeb.HomeLive do
                 to={Routes.live_path(Endpoint, PodcastLive)}
                 class={
                   "cursor-pointer py-4 text-2xl text-center text-white border-2 border-secondary rounded-full w-72 "
-                  <> "transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary"
+
+                  <> " transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary"
                 }>
                 Listen to the Podcast
               </LiveRedirect>

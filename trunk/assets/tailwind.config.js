@@ -31,9 +31,20 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
       animation: {
         "fade-in": "fade-in 1s",
+        "gradient-x": "gradient-x 9s ease infinite",
       },
     },
   },
