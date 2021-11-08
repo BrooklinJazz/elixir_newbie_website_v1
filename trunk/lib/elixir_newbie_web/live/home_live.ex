@@ -49,7 +49,7 @@ defmodule ElixirNewbieWeb.HomeLive do
                 to={Routes.live_path(Endpoint, BlogLive)}
                 class={
                   "cursor-pointer py-4 text-2xl text-center text-white border-2 border-secondary rounded-full w-72 "
-                  <> " transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary "
+                  <> " transition duration-500 ease-in-out transform hover:scale-110  "
                   <> " mr-12"
                 }>
               Read the Blog
@@ -59,7 +59,7 @@ defmodule ElixirNewbieWeb.HomeLive do
                 class={
                   "cursor-pointer py-4 text-2xl text-center text-white border-2 border-secondary rounded-full w-72 "
 
-                  <> " transition duration-500 ease-in-out hover:border-primary transform hover:scale-110 hover:text-primary"
+                  <> " transition duration-500 ease-in-out transform hover:scale-110 "
                 }>
                 Listen to the Podcast
               </LiveRedirect>
