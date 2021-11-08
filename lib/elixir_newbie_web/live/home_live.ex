@@ -44,7 +44,7 @@ defmodule ElixirNewbieWeb.HomeLive do
           <p class="mt-12">I help aspiring developers learn Elixir, and break into the programming industry.</p>
           <p class="mt-12">I do that through <span class="text-primary">{Enum.at(@words, @current_word)}.</span></p>
           </figure>
-          <figure class="flex hidden mt-8 md:flex">
+          <figure class="flex hidden mt-12 md:flex">
               <LiveRedirect
                 to={Routes.live_path(Endpoint, BlogLive)}
                 class={
