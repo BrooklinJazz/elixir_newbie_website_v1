@@ -2,3 +2,7 @@
   color: var(--secondary);
   text-decoration: underline;
 }
+
+::-webkit-media-controls-enclosure {
+  background-color: var(--secondary);
+}
