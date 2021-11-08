@@ -1,10 +1,12 @@
 defmodule ElixirNewbieWeb.PodcastLive do
   use Surface.LiveView
   alias ElixirNewbieWeb.Components.{Page, Feed}
-  alias ElixirNewbie.PodcastAPI
+  alias ElixirNewbie.Podcast
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
+  alias Phoenix.PubSub
+  @topic "update episodes"
 
-  data(months, :list,
+  data months, :list,
     default: [
       "January",
       "February",
@@ -19,7 +21,6 @@ defmodule ElixirNewbieWeb.PodcastLive do
       "November",
       "December"
     ]
-  )
 
   def render(assigns) do
     ~F"""
@@ -91,7 +92,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
   end
 
   def mount(%{"episode" => episode_number}, _session, socket) do
-    episodes = PodcastAPI.get()
+    PubSub.subscribe(ElixirNewbie.PubSub, @topic)
+    episodes = Podcast.get()
 
     {:ok,
      assign(socket,
@@ -104,7 +106,8 @@ defmodule ElixirNewbieWeb.PodcastLive do
   end
 
   def mount(_params, _session, socket) do
-    episodes = PodcastAPI.get()
+    PubSub.subscribe(ElixirNewbie.PubSub, @topic)
+    episodes = Podcast.get()
 
     {:ok,
      assign(socket,
