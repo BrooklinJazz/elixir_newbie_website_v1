@@ -3,7 +3,7 @@
     %{
       name: "default",
       files: %{
-        included: ["lib/"],
+        included: ["lib/", "test/"],
         excluded: []
       },
       plugins: [],

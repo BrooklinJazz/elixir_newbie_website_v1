@@ -1,6 +1,7 @@
 defmodule ElixirNewbie.DevToAPITest do
   use ExUnit.Case
-  alias ElixirNewbie.{DevToAPI, BlogPost}
+  alias ElixirNewbie.BlogPost
+  alias ElixirNewbie.DevToAPI
 
   @tag :prod
   test "get" do
