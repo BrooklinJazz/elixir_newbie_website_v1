@@ -1,8 +1,14 @@
 defmodule ElixirNewbie.BlogsTest do
+  @moduledoc """
+  Blogs Test
+  """
   use ExUnit.Case
-  alias ElixirNewbie.Blogs
-  alias ElixirNewbie.BlogPost
+
   import Mox
+
+  alias ElixirNewbie.BlogPost
+  alias ElixirNewbie.Blogs
+
   setup :set_mox_from_context
   setup :verify_on_exit!
 
