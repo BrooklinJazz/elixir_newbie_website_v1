@@ -1,6 +1,11 @@
 defmodule ElixirNewbieWeb.Components.Page do
+  @moduledoc """
+  Page component
+  Use for pages that need navigation and footer.
+  """
   use Surface.Component
-  alias ElixirNewbieWeb.Components.{Footer, Navigation}
+  alias ElixirNewbieWeb.Components.Footer
+  alias ElixirNewbieWeb.Components.Navigation
   slot default, required: true
   prop loading, :boolean, required: true
 

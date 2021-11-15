@@ -1,10 +1,12 @@
 defmodule ElixirNewbieWeb.Components.Feed do
+  @moduledoc """
+  Generic Reusable Feed Component for Blogs and Podcasts
+  """
   use Surface.Component
   slot active_item, required: true
   slot items, required: true
 
   def render(assigns) do
-
     ~F"""
     <section class={
       "grid md:grid-cols-5 md:grid-rows-1 md:px-20 md:pt-4 md:gap-x-10 "

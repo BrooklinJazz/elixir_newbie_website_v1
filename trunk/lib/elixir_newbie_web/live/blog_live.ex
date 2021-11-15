@@ -1,8 +1,12 @@
 defmodule ElixirNewbieWeb.BlogLive do
+  @moduledoc """
+  Display List of Blogs
+  """
   use Surface.LiveView
-  alias ElixirNewbieWeb.Components.{Page, Feed}
-  alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias ElixirNewbie.Blogs
+  alias ElixirNewbieWeb.Components.Feed
+  alias ElixirNewbieWeb.Components.Page
+  alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
 
   @topic "update blogs"

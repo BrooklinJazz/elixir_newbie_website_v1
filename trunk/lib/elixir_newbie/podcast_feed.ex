@@ -1,4 +1,7 @@
 defmodule ElixirNewbie.PodcastAPI do
+  @moduledoc """
+  API for retrieving Podcast Episodes
+  """
   alias ElixirNewbie.PodcastEpisode
   @feed_url "https://www.buzzsprout.com/api/1840381/episodes.json"
   def get do

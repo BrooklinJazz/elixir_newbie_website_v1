@@ -1,11 +1,15 @@
 defmodule ElixirNewbieWeb.Components.Navigation do
+  @moduledoc """
+  Navigation Header
+  """
   use Surface.LiveComponent
-  alias Surface.Components.LiveRedirect
+
   alias ElixirNewbieWeb.BlogLive
-  alias ElixirNewbieWeb.PodcastLive
-  alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.Endpoint
+  alias ElixirNewbieWeb.HomeLive
+  alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
+  alias Surface.Components.LiveRedirect
 
   def render(assigns) do
     ~F"""

@@ -1,4 +1,8 @@
 defmodule ElixirNewbie.BlogPost do
+  @moduledoc """
+  Schema used to cast blogs from API into consistent structs
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
