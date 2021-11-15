@@ -1,4 +1,7 @@
 defmodule ElixirNewbie.PodcastEpisode do
+  @moduledoc """
+  Podcast Episode Schema for casting Podcast API data into structs
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

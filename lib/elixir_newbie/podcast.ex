@@ -1,4 +1,8 @@
 defmodule ElixirNewbie.Podcast do
+  @moduledoc """
+  Client Interface Functions for Podcast.
+  Handles Caching and Hydrating Podcast Episodes.
+  """
   use GenServer
 
   alias ElixirNewbie.PodcastAPI

@@ -1,7 +1,12 @@
 defmodule ElixirNewbieWeb.PodcastLive do
+  @moduledoc """
+  Display Podcast Episodes
+  """
   use Surface.LiveView
-  alias ElixirNewbieWeb.Components.{Page, Feed}
+
   alias ElixirNewbie.Podcast
+  alias ElixirNewbieWeb.Components.Feed
+  alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
   @topic "update episodes"

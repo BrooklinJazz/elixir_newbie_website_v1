@@ -1,4 +1,8 @@
 defmodule ElixirNewbie.Blogs do
+  @moduledoc """
+  Client Interface Functions for retrieving blogs.
+  Handles Caching and Hydrating Blogs.
+  """
   use GenServer
 
   alias ElixirNewbie.BlogAPI

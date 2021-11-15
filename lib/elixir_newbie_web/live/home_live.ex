@@ -1,11 +1,14 @@
 defmodule ElixirNewbieWeb.HomeLive do
+  @moduledoc """
+  Home Page
+  """
   use Surface.LiveView
-  alias ElixirNewbieWeb.Endpoint
-  alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.BlogLive
-  alias Surface.Components.LiveRedirect
+  alias ElixirNewbieWeb.Components.Page
+  alias ElixirNewbieWeb.Endpoint
+  alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
+  alias Surface.Components.LiveRedirect
   # https://gist.github.com/BrooklinJazz/86b7ca1cd58db2012ca0f1c3a4aabd39.js
   data current_word, :integer, default: 0
 

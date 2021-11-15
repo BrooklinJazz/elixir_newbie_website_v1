@@ -1,4 +1,7 @@
 defmodule ElixirNewbie.Syntax do
+  @moduledoc """
+  Highlight Code Snippets
+  """
   def highlight(source) do
     Regex.replace(
       ~r/<code class=\".*\">(?s)(.*?)<\/code>/,

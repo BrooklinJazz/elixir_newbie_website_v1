@@ -1,6 +1,12 @@
 defmodule ElixirNewbieWeb.Components.Footer do
+  @moduledoc """
+  Footer component
+  """
   use Surface.LiveComponent
-  alias ElixirNewbieWeb.{Endpoint, HomeLive, PodcastLive, BlogLive}
+  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.Endpoint
+  alias ElixirNewbieWeb.HomeLive
+  alias ElixirNewbieWeb.PodcastLive
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
