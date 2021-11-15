@@ -7,7 +7,7 @@ defmodule ElixirNewbie.BlogsTest do
   setup :verify_on_exit!
 
   describe "Blogs" do
-    test "get only calls API once" do
+    test "get _ called twice with no changes should only call API once" do
       ElixirNewbie.MockBlogAPI
       |> expect(:get, fn -> [%BlogPost{}] end)
 
@@ -16,7 +16,7 @@ defmodule ElixirNewbie.BlogsTest do
       assert [%BlogPost{}] == Blogs.get(cache)
     end
 
-    test "get - API raises error" do
+    test "get _ API raises error" do
       ElixirNewbie.MockBlogAPI
       |> expect(:get, fn -> [%BlogPost{}] end)
       |> expect(:get, fn -> raise "API ERROR" end)
