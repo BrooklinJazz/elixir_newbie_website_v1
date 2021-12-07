@@ -55,7 +55,7 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
     ~F"""
       <button
         class={
-        "text-4xl text-white flex flex-1 items-center",
+        "text-2xl text-white flex flex-1 items-center",
         @class
         }>
         <span class={

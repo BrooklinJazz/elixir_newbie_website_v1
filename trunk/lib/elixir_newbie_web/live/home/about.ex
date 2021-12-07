@@ -1,16 +1,17 @@
 defmodule ElixirNewbieWeb.Live.Home.About do
   use Surface.Component
   alias ElixirNewbieWeb.Live.Components.Paragraph
+  alias ElixirNewbieWeb.Live.Components.Section
   alias ElixirNewbieWeb.Live.Components.IconButton
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
     ~F"""
-      <section class="grid lg:pt-48 sm:grid-cols-1 lg:grid-cols-2 sm:grid-rows-2 lg:grid-rows-1 gap-y-24 xl:px-60 sm:px-8 md:px-12">
-        <article>
+      <Section>
+        <article class="items-center xs:flex xs:flex-col sm:block">
           <img
             class={
-            "animage-fade-in md:w-3/4"
+            "animage-fade-in md:w-3/4 m-auto lg:m-0"
             }
             src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/dragons.png")}/>
           <IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton>
@@ -26,7 +27,7 @@ defmodule ElixirNewbieWeb.Live.Home.About do
           <Paragraph>I write, I podcast, and I play way too much rocket league.</Paragraph>
           <Paragraph>I'm available for collaboration, technical writing, and Elixir dev work.</Paragraph>
         </article>
-      </section>
+      </Section>
     """
   end
 end

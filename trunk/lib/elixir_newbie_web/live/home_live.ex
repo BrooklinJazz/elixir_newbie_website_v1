@@ -4,8 +4,10 @@ defmodule ElixirNewbieWeb.HomeLive do
   """
   use Surface.LiveView
   alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.Live.Home.Landing
   alias ElixirNewbieWeb.Live.Home.About
+  alias ElixirNewbieWeb.Live.Home.Blog
+  alias ElixirNewbieWeb.Live.Home.Footer
+  alias ElixirNewbieWeb.Live.Home.Landing
   alias ElixirNewbieWeb.Live.Home.Podcast
 
   def render(assigns) do
@@ -14,6 +16,8 @@ defmodule ElixirNewbieWeb.HomeLive do
       <Landing/>
       <About/>
       <Podcast/>
+      <Blog/>
+      <Footer id={:footer} />
     </Page>
     """
   end
