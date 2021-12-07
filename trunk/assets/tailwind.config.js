@@ -13,7 +13,7 @@ module.exports = {
         primary: "#a801a1",
         secondary: "#5BDFE4",
         // background: "#1C1B1D",
-        background: "#1F2028",
+        background: "#4D3E62",
         header: "#1F2028",
         footer: "#1F2028",
         surface: "#1F2028",
@@ -21,7 +21,7 @@ module.exports = {
         white: colors.white,
       },
       keyframes: {
-        "fade-in": {
+        "fade-down": {
           "0%": {
             opacity: "0",
             transform: "translateY(-30px)",
@@ -43,7 +43,7 @@ module.exports = {
         },
       },
       animation: {
-        "fade-in": "fade-in 1s",
+        "fade-down": "fade-down 1s",
         "gradient-x": "gradient-x 9s ease infinite",
       },
     },
