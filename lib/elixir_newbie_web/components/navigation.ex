@@ -13,7 +13,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
 
   def render(assigns) do
     ~F"""
-    <nav class="navigation bg-header">
+    <nav class="navigation bg-background">
       <img
         :on-click="home"
         class={
@@ -24,7 +24,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
       <LiveRedirect
         class={
           "text-3xl navigation__link--podcast text-white"
-          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
+          <> " border-primary duration-300 ease-in-out transform hover:scale-110"
           <> " hidden md:block "
         }
         label="Podcast"
@@ -33,7 +33,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
       <LiveRedirect
         class={
           "text-3xl navigation__link navigation__link--blog text-white "
-          <> " border-primary duration-300 ease-in-out hover:border-b-4 hover:border-t-4 hover:text-secondary transform hover:scale-110"
+          <> " border-primary duration-300 ease-in-out transform hover:scale-110"
           <> " hidden md:block "
         }
         label="Blog"
