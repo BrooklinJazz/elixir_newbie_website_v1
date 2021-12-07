@@ -13,10 +13,10 @@ defmodule ElixirNewbieWeb.Live.Home.About do
             "animage-fade-in md:w-3/4"
             }
             src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/dragons.png")}/>
-        <IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton>
-        <IconButton icon={:mail}>brooklin@elixirnewbie.com</IconButton>
-        <IconButton icon={:twitter}>@BrooklinJMyers</IconButton>
-        <IconButton rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
+          <IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton>
+          <IconButton icon={:mail}>brooklin@elixirnewbie.com</IconButton>
+          <IconButton icon={:twitter}>@BrooklinJMyers</IconButton>
+          <IconButton rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
         </article>
         <article>
           <Paragraph>I love programming as much as I do dungeons and dragons.</Paragraph>
