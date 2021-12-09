@@ -7,7 +7,7 @@ defmodule ElixirNewbieWeb.Live.Home.About do
 
   def render(assigns) do
     ~F"""
-      <Section>
+      <Section scroll_id={"about"}>
         <article class="items-center xs:flex xs:flex-col sm:block">
           <img
             class={
@@ -17,10 +17,10 @@ defmodule ElixirNewbieWeb.Live.Home.About do
           <IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton>
           <IconButton icon={:mail}>brooklin@elixirnewbie.com</IconButton>
           <IconButton icon={:twitter}>@BrooklinJMyers</IconButton>
-          <IconButton rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
+          <IconButton id="about what I make" hook="ScrollTo" value="podcast" rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
         </article>
         <article>
-          <Paragraph>I love programming as much as I do dungeons and dragons.</Paragraph>
+          <Paragraph>I love programming as much as I do dungeons & dragons.</Paragraph>
           <Paragraph>I started programming when I found out that Wizard wasn't a viable career path (still trying) and programming was the next best thing.</Paragraph>
           <Paragraph>We learn arcane languages, cast spells, and create magic (hopefully the good kind).</Paragraph>
           <Paragraph>I also love teaching and sharing what I know. I believe in creating a supportive environment on any team or project I take part in where everyone can learn and grow together.</Paragraph>

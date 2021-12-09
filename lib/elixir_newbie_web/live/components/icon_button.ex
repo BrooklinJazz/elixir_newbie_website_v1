@@ -1,11 +1,15 @@
 defmodule ElixirNewbieWeb.Live.Components.IconButton do
   use Surface.Component
 
-  slot(default, required: true)
-  prop(class, :css_class)
-  prop(rounded, :boolean)
-  prop(container_class, :css_class)
-  prop(icon, :string, values!: [:left_arrow, :mail])
+  slot default, required: true
+  prop class, :css_class
+  prop rounded, :boolean
+  prop container_class, :css_class
+  prop icon, :string, values!: [:left_arrow, :mail]
+  prop click, :event
+  prop hook, :string
+  prop value, :string
+  prop id, :string
 
   @icons %{
     down_arrow: "M19 14l-7 7m0 0l-7-7m7 7V3",
@@ -16,14 +20,9 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
     linkedin: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
     right_arrow: "M14 5l7 7m0 0l-7 7m7-7H3"
   }
+  
   def draw_icon(icon) do
     @icons[icon]
-  end
-
-  def sub(assigns) do
-    ~F"""
-    test
-    """
   end
 
   def base_icon(assigns) do
@@ -54,6 +53,10 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
   def render(assigns) do
     ~F"""
       <button
+        id={@id}
+        phx-hook={@hook}
+        :on-click={@click}
+        data-value={@value}
         class={
         "text-2xl text-white flex flex-1 items-center",
         @class
