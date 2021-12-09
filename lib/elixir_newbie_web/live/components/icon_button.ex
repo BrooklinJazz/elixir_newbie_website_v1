@@ -1,11 +1,11 @@
 defmodule ElixirNewbieWeb.Live.Components.IconButton do
   use Surface.Component
 
-  slot default, required: true
-  prop class, :css_class
-  prop rounded, :boolean
-  prop container_class, :css_class
-  prop icon, :string, values!: [:left_arrow, :mail]
+  slot(default, required: true)
+  prop(class, :css_class)
+  prop(rounded, :boolean)
+  prop(container_class, :css_class)
+  prop(icon, :string, values!: [:left_arrow, :mail])
 
   @icons %{
     down_arrow: "M19 14l-7 7m0 0l-7-7m7 7V3",
