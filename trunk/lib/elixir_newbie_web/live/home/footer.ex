@@ -39,13 +39,13 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
             {#for episode <- @highlighted_episodes}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, PodcastLive)}>
+                  to={Routes.live_path(Endpoint, PodcastLive, episode: episode.episode_number)}>
                   {episode.title}
                 </LiveRedirect>
               </li>
             {/for}
           </ul>
-          <IconButton rounded={true} icon={:right_arrow} class={"mt-6"}>More Episodes</IconButton>
+          <IconButton click="to_podcast" rounded={true} icon={:right_arrow} class={"mt-6"}>More Episodes</IconButton>
         </article>
         <article class="flex flex-col">
           <Title class="text-center">Blog</Title>
@@ -53,13 +53,13 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
             {#for article <- @highlighted_blogs}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, BlogLive)}>
+                  to={Routes.live_path(Endpoint, BlogLive, title: article.title)}>
                   {article.title}
                 </LiveRedirect>
               </li>
             {/for}
           </ul>
-          <IconButton rounded={true} icon={:right_arrow} class={"mt-6"}>More Articles</IconButton>
+          <IconButton click="to_blog" id={"footer-button"} rounded={true} icon={:right_arrow} class={"mt-6"}>More Articles</IconButton>
         </article>
       </section>
     """
@@ -71,5 +71,13 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
        highlighted_episodes: Enum.take(Podcast.get(), 5),
        highlighted_blogs: Enum.take(Blogs.get(), 5)
      )}
+  end
+
+  def handle_event("to_blog", _, socket) do
+    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogLive))}
+  end
+
+  def handle_event("to_podcast", _, socket) do
+    {:noreply, redirect(socket, to: Routes.live_path(socket, PodcastLive))}
   end
 end

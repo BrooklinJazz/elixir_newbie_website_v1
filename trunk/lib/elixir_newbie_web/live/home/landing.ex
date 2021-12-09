@@ -1,5 +1,5 @@
 defmodule ElixirNewbieWeb.Live.Home.Landing do
-  use Surface.Component
+  use Surface.LiveComponent
   alias ElixirNewbieWeb.BlogLive
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.Live.Components.IconButton
@@ -40,7 +40,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
                 "animage-fade-in md:w-3/4"
               }
               src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/magic_home_swirls.png")}/>
-        <IconButton class="mt-12 lg:mt-0" rounded={true} icon={:down_arrow}>Learn More</IconButton>
+        <IconButton id="landing learn more" hook="ScrollTo" value="about" class="mt-12 lg:mt-0" rounded={true} icon={:down_arrow}>Learn More</IconButton>
         </article>
       </Section>
     """

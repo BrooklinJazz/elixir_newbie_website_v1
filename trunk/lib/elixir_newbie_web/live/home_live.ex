@@ -13,10 +13,10 @@ defmodule ElixirNewbieWeb.HomeLive do
   def render(assigns) do
     ~F"""
     <Page loading={@loading}>
-      <Landing/>
+      <Landing id={:landing}/>
       <About/>
-      <Podcast/>
-      <Blog/>
+      <Podcast id={:podcast}/>
+      <Blog id={:blog}/>
       <Footer id={:footer} />
     </Page>
     """
