@@ -53,7 +53,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
             {#for article <- @highlighted_blogs}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, BlogLive, title: article.title)}>
+                  to={Routes.live_path(Endpoint, BlogLive, slug: article.slug)}>
                   {article.title}
                 </LiveRedirect>
               </li>
@@ -69,7 +69,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
     {:ok,
      assign(socket,
        highlighted_episodes: Enum.take(Podcast.get(), 5),
-       highlighted_blogs: Enum.take(Blogs.get(), 5)
+       highlighted_blogs: Enum.take(Blogs.all(), 5)
      )}
   end
 

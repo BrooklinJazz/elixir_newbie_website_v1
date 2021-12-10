@@ -20,7 +20,7 @@ defmodule ElixirNewbie.MixProject do
   def application do
     [
       mod: {ElixirNewbie.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :yamerl]
     ]
   end
 
@@ -51,16 +51,17 @@ defmodule ElixirNewbie.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:mox, "~> 1.0", only: :test},
       {:faker, "~> 0.16", only: :test},
-      {:surface, git: "https://github.com/surface-ui/surface.git", override: true},
-      {:surface_markdown, github: "surface-ui/surface_markdown"},
-      {:surface_catalogue, github: "surface-ui/surface_catalogue"},
+      {:surface, "~> 0.6.0"},
       {:earmark, "~> 1.4"},
       {:makeup_elixir, "~> 0.15.1"},
       {:makeup, "~> 1.0.4"},
       {:json, "~> 1.4"},
       {:httpoison, "~> 1.8"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:html_entities, "~> 0.5"}
+      {:html_entities, "~> 0.5"},
+      {:yamerl, github: "yakaz/yamerl"},
+      {:nimble_publisher, "~> 0.1.2"},
+      {:makeup_erlang, "~> 0.1.1"}
     ]
   end
 

@@ -2,9 +2,9 @@ defmodule ElixirNewbie.BlogAPI do
   @moduledoc """
   API for retrieving Blogs.
   """
-  @callback get() :: [ElixirNewbie.BlogPost]
+  @callback all() :: [ElixirNewbie.Post]
 
-  def get, do: impl().get()
+  def all, do: impl().all()
   defp impl, do: Application.get_env(:elixir_newbie, :blog_api, ElixirNewbie.DevToAPI)
 end
 
@@ -13,12 +13,12 @@ defmodule ElixirNewbie.DevToAPI do
   Fetches Data from the DevToApi.
   Should Never Be Used Directly, only through the BlogAPI module
   """
-  alias ElixirNewbie.BlogPost
+  alias ElixirNewbie.Post
   @feed_url "https://dev.to/api/articles/me/published"
 
-  def get do
+  def all do
     get_json()
-    |> Enum.map(&BlogPost.cast/1)
+    |> Enum.map(&Post.cast/1)
     |> Enum.filter(& &1.published)
   end
 

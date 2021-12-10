@@ -4,100 +4,94 @@ defmodule ElixirNewbieWeb.BlogLive do
   """
   use Surface.LiveView
   alias ElixirNewbie.Blogs
-  alias ElixirNewbieWeb.Components.Feed
   alias ElixirNewbieWeb.Components.Page
+  alias ElixirNewbieWeb.Live.Components.Icon
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
+  alias Surface.Components.Form
+  alias Surface.Components.Form.Field
+  alias Surface.Components.Form.TextInput
+  alias Surface.Components.Form.Label
 
   @topic "update blogs"
 
-  def render(assigns) do
-    ~F"""
-    <Page loading={@loading}>
-      <Feed>
-        <:items>
-        <h2 class={
-          "pb-4 pl-4 text-3xl text-white border-b-2 border-solid sm:pt-8 md:pt-0 border-primary "
-          <> "hidden md:flex "
-        } >Blog Posts</h2>
-        {#for blog <- @blogs}
-          <article
-            :on-click={"set-active-blog"}
-            phx-value-title={blog.title}
-            class={
-            "w-full h-20 flex pl-4 items-center border-b-2 border-secondary cursor-pointer text-white "
-            <> "border-secondary duration-300 ease-in-out hover:border-b-8 hover:text-secondary "
-            <> "#{blog.title === @active_blog.title && "md:border-secondary md:border-b-8 md:text-secondary"} "
-            <> "#{@selected_blog_on_mobile && "hidden md:flex"} "
-            }>
-            <h3 class="text-xl text-white">{blog.title}</h3>
-          </article>
-        {/for}
-        </:items>
-        <:active_item>
-          <article class={
-          "p-4 text-white bg-surface "
-          <> "#{!@selected_blog_on_mobile && "hidden md:block"} "
-          }>
-          <h2 class="pb-4 text-3xl text-white">{@active_blog.title}</h2>
-          <figure class="markdown">
-            <img src={@active_blog.cover_image}/>
-            {Blogs.as_highlighted_html(@active_blog)}
-          </figure>
-          </article>
-        </:active_item>
-      </Feed>
-    </Page>
-    """
-  end
-
-  def handle_event("set-active-blog", %{"title" => title}, socket) do
-    {:noreply,
-     push_patch(socket,
-       to: Routes.live_path(socket, ElixirNewbieWeb.BlogLive, title: title)
-     )}
-  end
-
-  def handle_params(%{"title" => title}, _url, socket) do
-    %{blogs: blogs} = socket.assigns
-
-    {:noreply,
-     assign(socket,
-       selected_blog_on_mobile: true,
-       active_blog: Enum.find(blogs, &(&1.title === title))
-     )}
-  end
-
-  def handle_params(_params, _url, socket) do
+  def handle_event("filter", %{"filter" => %{"search" => search}}, socket) do
+    # TODO IMPLEMENT SEARCH
     {:noreply, socket}
-  end
-
-  def mount(%{"title" => title}, _session, socket) do
-    PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-    blogs = Blogs.get()
-
-    {:ok,
-     assign(socket,
-       blogs: blogs,
-       selected_blog_on_mobile: true,
-       active_blog: Enum.find(blogs, &(&1.title === title)),
-       loading: !connected?(socket)
-     )}
   end
 
   def mount(_params, _session, socket) do
     PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-    blogs = Blogs.get()
+    blogs = Blogs.all()
 
     {:ok,
      assign(socket,
        blogs: blogs,
        selected_blog_on_mobile: false,
        active_blog: List.first(blogs),
-       loading: !connected?(socket)
+       loading: !connected?(socket),
+       search: ""
      )}
   end
 
-  def handle_info({:update_blogs, blogs}, socket),
-    do: {:noreply, assign(socket, blogs: blogs)}
+  def render(assigns) do
+    ~F"""
+    <Page loading={@loading}>
+      <section class="mx-12 my-6">
+        <Form for={:filter} change="filter" class="text-white" opts={autocomplete: "off"}>
+        <Field name="search" class="flex items-center px-8 py-4 border-2 border-gray-600 rounded-full focus-within:border-secondary w-96">
+          <Icon icon={:search} class="text-gray-400"/>
+          <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow h-8 p-4 placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
+          <p>{length(@blogs)}</p>
+        </Field>
+        </Form>
+      </section>
+      <section class="grid gap-12 px-12 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1">
+      {#for blog <- @blogs}
+        <article class="text-white">
+        <img class="object-contain w-full bg-black rounded-lg h-60 max-h-60" src={Routes.static_path(ElixirNewbieWeb.Endpoint, blog.cover_image || "/images/default.png")}/>
+        <p class="mt-6 text-2xl leading-relaxed">{blog.title}</p>
+        <p class="mt-2 text-base italic leading-relaxed">{blog.subtitle}</p>
+        <p class="mt-2 text-base leading-relaxed">{blog.description}</p>
+        <p class="mt-2 text-gray-300">{Calendar.strftime(NaiveDateTime.new!(blog.published_at, Time.utc_now()), "%B %d %Y")}</p>
+        </article>
+      {/for}
+      </section>
+    </Page>
+    """
+  end
+
+  # def handle_event("set-active-blog", %{"slug" => slug}, socket) do
+  #   {:noreply,
+  #    push_patch(socket,
+  #      to: Routes.live_path(socket, ElixirNewbieWeb.BlogLive, slug: slug)
+  #    )}
+  # end
+
+  # def handle_params(%{"slug" => slug}, _url, socket) do
+  #   %{blogs: blogs} = socket.assigns
+
+  #   {:noreply,
+  #    assign(socket,
+  #      selected_blog_on_mobile: true,
+  #      active_blog: Enum.find(blogs, &(&1.slug === slug))
+  #    )}
+  # end
+
+  # def handle_params(_params, _url, socket) do
+  #   {:noreply, socket}
+  # end
+
+  # def mount(%{"slug" => slug}, _session, socket) do
+  #   PubSub.subscribe(ElixirNewbie.PubSub, @topic)
+  #   blogs = Blogs.all()
+
+  #   {:ok,
+  #    assign(socket,
+  #      blogs: blogs,
+  #      selected_blog_on_mobile: true,
+  #      active_blog: Enum.find(blogs, &(&1.slug === slug)),
+  #      loading: !connected?(socket)
+  #    )}
+  # end
 end
