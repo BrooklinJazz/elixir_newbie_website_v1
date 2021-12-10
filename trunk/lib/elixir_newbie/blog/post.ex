@@ -1,5 +1,5 @@
 defmodule ElixirNewbie.Blog.Post do
-  @enforce_keys [:id, :title, :body, :description, :tags, :date]
+  @enforce_keys [:id, :title, :cover_image, :body, :description, :tags, :date]
   defstruct @enforce_keys
 
   def build(filename, attrs, body) do
