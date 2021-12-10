@@ -4,7 +4,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   """
   use Surface.LiveComponent
 
-  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.PodcastLive
@@ -37,7 +37,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
           <> " hidden md:block "
         }
         label="Blog"
-        to={Routes.live_path(Endpoint, BlogLive)}
+        to={Routes.live_path(Endpoint, BlogList)}
        />
       <a
         href="https://twitter.com/BrooklinJMyers"

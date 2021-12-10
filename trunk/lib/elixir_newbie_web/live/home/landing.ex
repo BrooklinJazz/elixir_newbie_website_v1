@@ -1,6 +1,6 @@
 defmodule ElixirNewbieWeb.Live.Home.Landing do
   use Surface.LiveComponent
-  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.Live.Components.IconButton
   alias ElixirNewbieWeb.Live.Components.Title
@@ -18,7 +18,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
           <SubTitle class="mt-12">Welcome to Elixir Newbie, where I help people adopt Elixir and grow as developers</SubTitle>
           <SubTitle class="mt-6">I do this by documenting and sharing my experience in the Elixir industry</SubTitle>
           <LiveRedirect
-            to={Routes.live_path(Endpoint, BlogLive)}
+            to={Routes.live_path(Endpoint, BlogList)}
             class={
               "text-3xl border-2 p-6 rounded-full bg-white text-black mt-8 cursor-pointer font-medium "
               <> " transition duration-500 ease-in-out transform hover:scale-105 "

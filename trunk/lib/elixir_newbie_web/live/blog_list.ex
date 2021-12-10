@@ -1,28 +1,26 @@
-defmodule ElixirNewbieWeb.BlogLive do
+defmodule ElixirNewbieWeb.BlogList do
   @moduledoc """
   Display List of Blogs
   """
   use Surface.LiveView
-  alias ElixirNewbie.Blogs
+  alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Live.Components.Icon
+  alias ElixirNewbieWeb.BlogShow
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
-  alias Phoenix.PubSub
   alias Surface.Components.Form
+  alias Surface.Components.LiveRedirect
   alias Surface.Components.Form.Field
   alias Surface.Components.Form.TextInput
   alias Surface.Components.Form.Label
 
-  @topic "update blogs"
-
   def handle_event("filter", %{"filter" => %{"search" => search}}, socket) do
-    # TODO IMPLEMENT SEARCH
+    # TODO
     {:noreply, socket}
   end
 
   def mount(_params, _session, socket) do
-    PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-    blogs = Blogs.all()
+    blogs = Blog.all_posts()
 
     {:ok,
      assign(socket,
@@ -48,50 +46,19 @@ defmodule ElixirNewbieWeb.BlogLive do
       </section>
       <section class="grid gap-12 px-12 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1">
       {#for blog <- @blogs}
+        <LiveRedirect
+          to={Routes.live_path(ElixirNewbieWeb.Endpoint, BlogShow, blog.id)}
+        >
         <article class="text-white">
-        <img class="object-contain w-full bg-black rounded-lg h-60 max-h-60" src={Routes.static_path(ElixirNewbieWeb.Endpoint, blog.cover_image || "/images/default.png")}/>
+        <img class="object-contain w-full bg-black rounded-lg h-60 max-h-60" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/default.png")}/>
         <p class="mt-6 text-2xl leading-relaxed">{blog.title}</p>
-        <p class="mt-2 text-base italic leading-relaxed">{blog.subtitle}</p>
         <p class="mt-2 text-base leading-relaxed">{blog.description}</p>
-        <p class="mt-2 text-gray-300">{Calendar.strftime(NaiveDateTime.new!(blog.published_at, Time.utc_now()), "%B %d %Y")}</p>
+        <p class="mt-2 text-gray-300">{Calendar.strftime(NaiveDateTime.new!(blog.date, Time.utc_now()), "%B %d %Y")}</p>
         </article>
+        </LiveRedirect>
       {/for}
       </section>
     </Page>
     """
   end
-
-  # def handle_event("set-active-blog", %{"slug" => slug}, socket) do
-  #   {:noreply,
-  #    push_patch(socket,
-  #      to: Routes.live_path(socket, ElixirNewbieWeb.BlogLive, slug: slug)
-  #    )}
-  # end
-
-  # def handle_params(%{"slug" => slug}, _url, socket) do
-  #   %{blogs: blogs} = socket.assigns
-
-  #   {:noreply,
-  #    assign(socket,
-  #      selected_blog_on_mobile: true,
-  #      active_blog: Enum.find(blogs, &(&1.slug === slug))
-  #    )}
-  # end
-
-  # def handle_params(_params, _url, socket) do
-  #   {:noreply, socket}
-  # end
-
-  # def mount(%{"slug" => slug}, _session, socket) do
-  #   PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-  #   blogs = Blogs.all()
-
-  #   {:ok,
-  #    assign(socket,
-  #      blogs: blogs,
-  #      selected_blog_on_mobile: true,
-  #      active_blog: Enum.find(blogs, &(&1.slug === slug)),
-  #      loading: !connected?(socket)
-  #    )}
-  # end
 end
