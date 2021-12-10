@@ -3,7 +3,7 @@ defmodule ElixirNewbieWeb.Components.Footer do
   Footer component
   """
   use Surface.LiveComponent
-  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.PodcastLive
@@ -25,7 +25,7 @@ defmodule ElixirNewbieWeb.Components.Footer do
       <button
         class={
         "footer_link footer_link--blog "
-        <> "#{assigns.socket.view === ElixirNewbieWeb.BlogLive  && " text-secondary" || "text-white"}"
+        <> "#{assigns.socket.view === ElixirNewbieWeb.BlogList  && " text-secondary" || "text-white"}"
         }
         :on-click="blog"
         >
@@ -55,7 +55,7 @@ defmodule ElixirNewbieWeb.Components.Footer do
   end
 
   def handle_event("blog", _params, socket) do
-    {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, BlogLive))}
+    {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, BlogList))}
   end
 
   def handle_event("podcast", _params, socket) do

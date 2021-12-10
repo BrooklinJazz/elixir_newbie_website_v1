@@ -26,7 +26,8 @@ defmodule ElixirNewbieWeb.Router do
       pipe_through :browser
 
       live "/", HomeLive
-      live "/blog", BlogLive
+      live "/blog", BlogList
+      live "/blog/:id", BlogShow
       live "/podcast", PodcastLive
     end
   end

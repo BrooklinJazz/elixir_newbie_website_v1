@@ -1,6 +1,6 @@
 defmodule ElixirNewbieWeb.Live.Home.Blog do
   use Surface.LiveComponent
-  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Live.Components.IconButton
   alias ElixirNewbieWeb.Live.Components.Section
   alias ElixirNewbieWeb.Live.Components.SubTitle
@@ -22,6 +22,6 @@ defmodule ElixirNewbieWeb.Live.Home.Blog do
   end
 
   def handle_event("to_blog", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogLive))}
+    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogList))}
   end
 end

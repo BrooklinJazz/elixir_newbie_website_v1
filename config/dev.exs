@@ -70,7 +70,8 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/elixir_newbie_web/(live|views)/.*(ex)$",
-      ~r"lib/elixir_newbie_web/templates/.*(eex)$"
+      ~r"lib/elixir_newbie_web/templates/.*(eex)$",
+      ~r"posts/*/.*(md)$"
     ]
   ]
 

@@ -16,8 +16,6 @@ defmodule ElixirNewbie.Application do
       {Phoenix.PubSub, name: ElixirNewbie.PubSub},
       # Start the Endpoint (http/https)
       ElixirNewbieWeb.Endpoint,
-      # Start a worker by calling: ElixirNewbie.Worker.start_link(arg)
-      {ElixirNewbie.Blogs, []},
       {ElixirNewbie.Podcast, []}
     ]
 

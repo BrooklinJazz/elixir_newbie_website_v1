@@ -1,10 +1,11 @@
 defmodule ElixirNewbieWeb.Live.Home.Footer do
   use Surface.LiveView
 
-  alias ElixirNewbie.Blogs
+  alias ElixirNewbie.Blog
   alias ElixirNewbie.Podcast
 
-  alias ElixirNewbieWeb.BlogLive
+  alias ElixirNewbieWeb.BlogList
+  alias ElixirNewbieWeb.BlogShow
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.Live.Components.Paragraph
   alias ElixirNewbieWeb.Live.Components.Title
@@ -50,11 +51,11 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
         <article class="flex flex-col">
           <Title class="text-center">Blog</Title>
           <ul class="w-full mt-6 text-xl leading-relaxed text-white underline list-disc list-inside">
-            {#for article <- @highlighted_blogs}
+            {#for blog <- @highlighted_blogs}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, BlogLive, slug: article.slug)}>
-                  {article.title}
+                  to={Routes.live_path(Endpoint, BlogShow, blog.id)}>
+                  {blog.title}
                 </LiveRedirect>
               </li>
             {/for}
@@ -69,12 +70,12 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
     {:ok,
      assign(socket,
        highlighted_episodes: Enum.take(Podcast.get(), 5),
-       highlighted_blogs: Enum.take(Blogs.all(), 5)
+       highlighted_blogs: Enum.take(Blog.all_posts(), 5)
      )}
   end
 
   def handle_event("to_blog", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogLive))}
+    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogList))}
   end
 
   def handle_event("to_podcast", _, socket) do
