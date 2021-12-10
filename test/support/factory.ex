@@ -2,11 +2,11 @@ defmodule Factory do
   @moduledoc """
   Factory handles data creation for tests.
   """
-  alias ElixirNewbie.BlogPost
+  alias ElixirNewbie.Post
 
   def string, do: Faker.String.base64()
 
   def blog_post do
-    %BlogPost{title: string()}
+    %Post{title: string()}
   end
 end

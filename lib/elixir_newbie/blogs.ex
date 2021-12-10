@@ -5,18 +5,18 @@ defmodule ElixirNewbie.Blogs do
   """
   use GenServer
 
-  alias ElixirNewbie.BlogAPI
+  alias ElixirNewbie.MarkdownBlogs
   alias ElixirNewbie.Syntax
   alias Phoenix.HTML
 
   @hydrate_interval 1000 * 60 * 5
 
-  def get(server \\ __MODULE__) do
-    GenServer.call(server, {:get})
+  def all(server \\ __MODULE__) do
+    GenServer.call(server, {:all})
   end
 
   def as_highlighted_html(blog) do
-    blog.body_markdown |> Earmark.as_html!() |> Syntax.highlight() |> HTML.raw()
+    blog.markdown |> Earmark.as_html!() |> Syntax.highlight() |> HTML.raw()
   end
 
   def start_link(opts) do
@@ -26,17 +26,17 @@ defmodule ElixirNewbie.Blogs do
 
   def init(_args) do
     :timer.send_interval(@hydrate_interval, self(), :hydrate)
-    {:ok, %{blogs: BlogAPI.get()}}
+    {:ok, %{blogs: MarkdownBlogs.all()}}
   end
 
-  def handle_call({:get}, _from, state) do
+  def handle_call({:all}, _from, state) do
     {:reply, state.blogs, state}
   end
 
   def handle_info(:hydrate, state) do
     blogs =
       try do
-        BlogAPI.get()
+        MarkdownBlogs.all()
       rescue
         RuntimeError -> state.blogs
       end

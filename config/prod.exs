@@ -16,6 +16,9 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :elixir_newbie,
+  display_drafts: false
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

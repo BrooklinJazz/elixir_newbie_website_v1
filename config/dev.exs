@@ -36,6 +36,9 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
     ]
   ]
 
+config :elixir_newbie,
+  display_drafts: true
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
