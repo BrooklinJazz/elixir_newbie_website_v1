@@ -17,6 +17,24 @@ defmodule ElixirNewbie.Blog do
 
   def all_posts, do: @posts
 
+  def all_posts(filters) do
+    Enum.reduce(filters, all_posts(), fn
+      {:search, value}, acc ->
+        Enum.filter(acc, fn post ->
+          String.contains?(String.downcase(post.title), String.downcase(value))
+        end)
+
+      {:selected_tags, []}, acc ->
+        acc
+
+      {:selected_tags, tags}, acc ->
+        Enum.filter(acc, fn post -> Enum.any?(post.tags, fn tag -> tag in tags end) end)
+
+      _, acc ->
+        acc
+    end)
+  end
+
   def all_tags, do: @tags
 
   def get_post_by_id!(id) do
