@@ -6,28 +6,6 @@
 }
 ---
 
-Readable test code matters.
-===========================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----e46cc5c411bb-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----e46cc5c411bb-----------------------------------)[
-
-Jun 26·7 min read
-
-](https://medium.com/readable-test-code-matters-e46cc5c411bb?source=post_page-----e46cc5c411bb-----------------------------------)
-
-How to structure your tests using Phoenix and Elixir examples.
-
-![](https://miro.medium.com/max/1400/1*uPJ7uTAebGATuTEO5M2VVg.jpeg)
-
-Readable code matters
-=====================
-
 Developers spend much more of their time reading than writing.
 
 > Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. …\[Therefore,\] making it easy to read makes it easier to write. — Bob Martin
@@ -36,7 +14,7 @@ Developers spend as much time maintaining and testing their code as they do writ
 
 [A report](https://thenewstack.io/how-much-time-do-developers-spend-actually-writing-code/) found developers spend 39% of their time on new features and 40% of their time on testing, maintenance, and security issues.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*T-iaVmd\_\_4DS0bWvNDoC1g.png" width="700" height="530" srcSet="https://miro.medium.com/max/552/1\*T-iaVmd\_\_4DS0bWvNDoC1g.png 276w, https://miro.medium.com/max/1104/1\*T-iaVmd\_\_4DS0bWvNDoC1g.png 552w, https://miro.medium.com/max/1280/1\*T-iaVmd\_\_4DS0bWvNDoC1g.png 640w, https://miro.medium.com/max/1400/1\*T-iaVmd\_\_4DS0bWvNDoC1g.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*T-iaVmd__4DS0bWvNDoC1g.png" width="700" height="530" srcSet="https://miro.medium.com/max/552/1*T-iaVmd__4DS0bWvNDoC1g.png 276w, https://miro.medium.com/max/1104/1*T-iaVmd__4DS0bWvNDoC1g.png 552w, https://miro.medium.com/max/1280/1*T-iaVmd__4DS0bWvNDoC1g.png 640w, https://miro.medium.com/max/1400/1*T-iaVmd__4DS0bWvNDoC1g.png 700w" sizes="700px" role="presentation"/>
 
 So, now that you know the importance of readable tests, how do you do it?
 
@@ -54,7 +32,7 @@ The three common elements are:
 Here’s an example:
 
 ```
-test "User.signIn \_ user is already signed in \_ redirect to home"
+test "User.signIn _ user is already signed in _ redirect to home"
 ```
 
 Here’s a breakdown
@@ -71,12 +49,12 @@ The important piece to remember is not following a particular standard. Instead,
 For the test above.
 
 ```
-test "User.signIn \_ user is already signed in \_ redirect to home"
+test "User.signIn _ user is already signed in _ redirect to home"
 ```
 
 Here’s a similar test in Phoenix/Elixir. It doesn’t follow the same naming convention, but it still captures the information nicely.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*uPGwt7jd8yFaVQQEulrBCA.png" width="700" height="142" srcSet="https://miro.medium.com/max/552/1\*uPGwt7jd8yFaVQQEulrBCA.png 276w, https://miro.medium.com/max/1104/1\*uPGwt7jd8yFaVQQEulrBCA.png 552w, https://miro.medium.com/max/1280/1\*uPGwt7jd8yFaVQQEulrBCA.png 640w, https://miro.medium.com/max/1400/1\*uPGwt7jd8yFaVQQEulrBCA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*uPGwt7jd8yFaVQQEulrBCA.png" width="700" height="142" srcSet="https://miro.medium.com/max/552/1*uPGwt7jd8yFaVQQEulrBCA.png 276w, https://miro.medium.com/max/1104/1*uPGwt7jd8yFaVQQEulrBCA.png 552w, https://miro.medium.com/max/1280/1*uPGwt7jd8yFaVQQEulrBCA.png 640w, https://miro.medium.com/max/1400/1*uPGwt7jd8yFaVQQEulrBCA.png 700w" sizes="700px" role="presentation"/>
 
 Do not worry about understanding the syntax or the internals of the test. The important information is:
 
@@ -116,9 +94,9 @@ There are many common naming conventions for tests. Most if not all of them try 
 
 Here are some example conventions.
 
-*   _Given \_ state under test \_ when \_ system under test \_ then \_ expected behavior_
-*   Should \_ expected behavior \_ when \_ state under test
-*   _The system under test \_ state under test\_ expected behavior_
+*   _Given _ state under test _ when _ system under test _ then _ expected behavior_
+*   Should _ expected behavior _ when _ state under test
+*   _The system under test _ state under test_ expected behavior_
 
 Here’s a good [list of naming conventions](https://dzone.com/articles/7-popular-unit-test-naming) if you’re curious.
 
@@ -137,9 +115,9 @@ Names Change
 Tests can become out of date is due to renaming. Here’s some pseudo-code to illustrate renaming a method from `login` to `signin` and a class from `UserClass` to `AuthClass`.
 
 ```
-test "UserClass.login \_ renders log in page"  
+test "UserClass.login _ renders log in page"  
    AuthClass.signin()  
-   assert current\_route === "/login"
+   assert current_route === "/login"
 ```
 
 Matching the system name with the test is ultimately up to the discipline of your team. There is likely no easy answer.
@@ -158,18 +136,18 @@ When the behavior of your test changes, you need to make sure the name reflects 
 Take the example where we redirect an already signed-in user to home.
 
 ```
-test "User.signIn \_ user is already signed in \_ redirect to home"  
+test "User.signIn _ user is already signed in _ redirect to home"  
    UserClass.signin()  
-   assert current\_route === "/"
+   assert current_route === "/"
 ```
 
 But now, instead of sending the user back to the home page, you want to send them to a page where they can sign in with a different account.
 
 ```
 # "redirect to home" should be "log in as different account"  
-test "User.signIn \_ user is already signed in \_ redirect to home"  
+test "User.signIn _ user is already signed in _ redirect to home"  
    UserClass.signin()  
-   assert current\_route === "/log\_in\_as\_different\_account"
+   assert current_route === "/log_in_as_different_account"
 ```
 
 Once again, this imposes a demand on your team to maintain good discipline when refactoring or renaming tests.
@@ -187,7 +165,7 @@ You may choose to use a pattern that doesn’t include the expected behavior in 
 Take the scenario where a user who already signed in should be redirected to the home page.
 
 ```
-test "UserClass.signin \_ user already signed in"  
+test "UserClass.signin _ user already signed in"  
    UserClass.signin()  
    expectRedirectedToHome()
 ```
@@ -195,7 +173,7 @@ test "UserClass.signin \_ user already signed in"
 Now if the behavior changes, you change the expectRedirectedToHome() method into expectRedirectedToChooseAnotherAccount()
 
 ```
-test "UserClass.signin \_ user already signed in"  
+test "UserClass.signin _ user already signed in"  
    UserClass.signin()  
    expectRedirectedToChooseAnotherAccount()
 ```
@@ -205,13 +183,13 @@ Consider putting the system under test in the describe block
 
 For tests sharing the same system under test, consider grouping them, so you only have to refactor the name in one place.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1174/1\*5S3fy8PT-ueG7jd1redHkg.png" width="587" height="515" srcSet="https://miro.medium.com/max/552/1\*5S3fy8PT-ueG7jd1redHkg.png 276w, https://miro.medium.com/max/1104/1\*5S3fy8PT-ueG7jd1redHkg.png 552w, https://miro.medium.com/max/1174/1\*5S3fy8PT-ueG7jd1redHkg.png 587w" sizes="587px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1174/1*5S3fy8PT-ueG7jd1redHkg.png" width="587" height="515" srcSet="https://miro.medium.com/max/552/1*5S3fy8PT-ueG7jd1redHkg.png 276w, https://miro.medium.com/max/1104/1*5S3fy8PT-ueG7jd1redHkg.png 552w, https://miro.medium.com/max/1174/1*5S3fy8PT-ueG7jd1redHkg.png 587w" sizes="587px" role="presentation"/>
 
 In the example above, you’ll notice there’s the main system under test. The `AuthorSessionController` and then several subsystems under test.
 
 Inside of each subsystem, some tests specify the state under test and the expected behavior.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*lJ6Y1bGL4Mv5cgsxWt22UA.png" width="700" height="232" srcSet="https://miro.medium.com/max/552/1\*lJ6Y1bGL4Mv5cgsxWt22UA.png 276w, https://miro.medium.com/max/1104/1\*lJ6Y1bGL4Mv5cgsxWt22UA.png 552w, https://miro.medium.com/max/1280/1\*lJ6Y1bGL4Mv5cgsxWt22UA.png 640w, https://miro.medium.com/max/1400/1\*lJ6Y1bGL4Mv5cgsxWt22UA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*lJ6Y1bGL4Mv5cgsxWt22UA.png" width="700" height="232" srcSet="https://miro.medium.com/max/552/1*lJ6Y1bGL4Mv5cgsxWt22UA.png 276w, https://miro.medium.com/max/1104/1*lJ6Y1bGL4Mv5cgsxWt22UA.png 552w, https://miro.medium.com/max/1280/1*lJ6Y1bGL4Mv5cgsxWt22UA.png 640w, https://miro.medium.com/max/1400/1*lJ6Y1bGL4Mv5cgsxWt22UA.png 700w" sizes="700px" role="presentation"/>
 
 This might be easier to maintain than having several tests with the name of the system under test. Like so:
 

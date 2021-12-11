@@ -1,29 +1,13 @@
 %{
   title: "The Growing Senior-Only Problem in the Software Industry.",
   tags: ~w(jobs),
-  description: "The First Run of the Ladder is Too High and That's a Problem For Everyone.",
+  description: "The First Rung of the Ladder is Too High and That's a Problem For Everyone.",
   cover_image: "07-15-the-growing-senior-only-problem-in-the-software-industry.jpeg"
 }
 ---
 
 The Growing Senior-Only Problem in the Software Industry.
 =========================================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----808db9fb564a-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----808db9fb564a-----------------------------------)[
-
-Jul 15·2 min read
-
-](https://medium.com/failing-to-provide-opportunities-for-new-developers-is-the-reason-you-cant-find-senior-talent-808db9fb564a?source=post_page-----808db9fb564a-----------------------------------)
-
-The First Run of the Ladder is Too High and That's a Problem For Everyone.
-
-![](https://miro.medium.com/max/1400/1*a_FobS6ozuL1XK2I8BXGlQ.jpeg)
 
 Once you get into it, software engineering is an opportunity-filled industry with ample room for advancement and growth. The demand for software engineers is high and likely will be for some time.
 

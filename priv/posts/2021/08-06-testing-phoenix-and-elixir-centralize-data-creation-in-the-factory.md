@@ -6,25 +6,9 @@
 }
 ---
 
-Testing Phoenix and Elixir: Centralize Data Creation in the Factory.
-====================================================================
-
-How to Centralize Data Creation in Your Factory With Examples.
---------------------------------------------------------------
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/96/96/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://brooklinmyers.medium.com/?source=post_page-----8c6d4faa996d-----------------------------------)[Brooklin Myers](https://brooklinmyers.medium.com/?source=post_page-----8c6d4faa996d-----------------------------------)Follow
-
-[Aug 6](https://medium.com/codex/testing-phoenix-and-elixir-centralize-data-creation-in-the-factory-8c6d4faa996d?source=post_page-----8c6d4faa996d-----------------------------------) · 5 min read
-
 > Jeffrey Matthias, the coauthor with Andrea Leopardi of [Testing Elixir: Effective and Robust Testing for Elixir and its Ecosystem](https://pragprog.com/titles/lmelixir/testing-elixir/), hosted a recent talk on building maintainable test factories that I had the pleasure to attend.
 > 
 > This article expands on a point originally discussed in my previous article: [How to Build Maintainable Test Factories in Elixir and Phoenix.](https://brooklinmyers.medium.com/how-to-build-maintainable-test-factories-in-elixir-and-phoenix-84312998f7e7)
-
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*XsVH-C-VdE1y6p8knuOKsA.jpeg" width="700" height="394" srcSet="https://miro.medium.com/max/552/1\*XsVH-C-VdE1y6p8knuOKsA.jpeg 276w, https://miro.medium.com/max/1104/1\*XsVH-C-VdE1y6p8knuOKsA.jpeg 552w, https://miro.medium.com/max/1280/1\*XsVH-C-VdE1y6p8knuOKsA.jpeg 640w, https://miro.medium.com/max/1400/1\*XsVH-C-VdE1y6p8knuOKsA.jpeg 700w" sizes="700px" role="presentation"/>
-
-Photo by [Hunter Harritt](https://unsplash.com/@hharritt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 What is a Factory?
 ==================
@@ -55,7 +39,7 @@ How do you centralize data creation?
 
 If you are working on a Phoenix or Elixir project and using factories, you may have multiple places where you generate the same type of data differently.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*YECeOxlko9KoOJNw8RNm3A.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*YECeOxlko9KoOJNw8RNm3A.jpeg 276w, https://miro.medium.com/max/1104/1\*YECeOxlko9KoOJNw8RNm3A.jpeg 552w, https://miro.medium.com/max/1280/1\*YECeOxlko9KoOJNw8RNm3A.jpeg 640w, https://miro.medium.com/max/1400/1\*YECeOxlko9KoOJNw8RNm3A.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*YECeOxlko9KoOJNw8RNm3A.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1*YECeOxlko9KoOJNw8RNm3A.jpeg 276w, https://miro.medium.com/max/1104/1*YECeOxlko9KoOJNw8RNm3A.jpeg 552w, https://miro.medium.com/max/1280/1*YECeOxlko9KoOJNw8RNm3A.jpeg 640w, https://miro.medium.com/max/1400/1*YECeOxlko9KoOJNw8RNm3A.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [Alina Grubnyak](https://unsplash.com/@alinnnaaaa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -68,27 +52,27 @@ For example, on my current project, we have multiple ways of creating emails in 
 
 Commonly we use ExMachina’s sequence method to create a list of emails (email-1@test.com, email-2@test.com, etc.) in order.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*PUgge7y1Ohk2fNPnWhuEaw.png" width="700" height="179" srcSet="https://miro.medium.com/max/552/1\*PUgge7y1Ohk2fNPnWhuEaw.png 276w, https://miro.medium.com/max/1104/1\*PUgge7y1Ohk2fNPnWhuEaw.png 552w, https://miro.medium.com/max/1280/1\*PUgge7y1Ohk2fNPnWhuEaw.png 640w, https://miro.medium.com/max/1400/1\*PUgge7y1Ohk2fNPnWhuEaw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*PUgge7y1Ohk2fNPnWhuEaw.png" width="700" height="179" srcSet="https://miro.medium.com/max/552/1*PUgge7y1Ohk2fNPnWhuEaw.png 276w, https://miro.medium.com/max/1104/1*PUgge7y1Ohk2fNPnWhuEaw.png 552w, https://miro.medium.com/max/1280/1*PUgge7y1Ohk2fNPnWhuEaw.png 640w, https://miro.medium.com/max/1400/1*PUgge7y1Ohk2fNPnWhuEaw.png 700w" sizes="700px" role="presentation"/>
 
 In the same project, we also sometimes use Faker for emails. Faker is a library that provides utility methods for generating fake data.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*k4oOsaH4D-l0T\_iVsfawjA.png" width="700" height="156" srcSet="https://miro.medium.com/max/552/1\*k4oOsaH4D-l0T\_iVsfawjA.png 276w, https://miro.medium.com/max/1104/1\*k4oOsaH4D-l0T\_iVsfawjA.png 552w, https://miro.medium.com/max/1280/1\*k4oOsaH4D-l0T\_iVsfawjA.png 640w, https://miro.medium.com/max/1400/1\*k4oOsaH4D-l0T\_iVsfawjA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*k4oOsaH4D-l0T_iVsfawjA.png" width="700" height="156" srcSet="https://miro.medium.com/max/552/1*k4oOsaH4D-l0T_iVsfawjA.png 276w, https://miro.medium.com/max/1104/1*k4oOsaH4D-l0T_iVsfawjA.png 552w, https://miro.medium.com/max/1280/1*k4oOsaH4D-l0T_iVsfawjA.png 640w, https://miro.medium.com/max/1400/1*k4oOsaH4D-l0T_iVsfawjA.png 700w" sizes="700px" role="presentation"/>
 
 We also sometimes use static values for emails.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*4ps4dNHcD2YDdPJq45gyKQ.png" width="700" height="41" srcSet="https://miro.medium.com/max/552/1\*4ps4dNHcD2YDdPJq45gyKQ.png 276w, https://miro.medium.com/max/1104/1\*4ps4dNHcD2YDdPJq45gyKQ.png 552w, https://miro.medium.com/max/1280/1\*4ps4dNHcD2YDdPJq45gyKQ.png 640w, https://miro.medium.com/max/1400/1\*4ps4dNHcD2YDdPJq45gyKQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*4ps4dNHcD2YDdPJq45gyKQ.png" width="700" height="41" srcSet="https://miro.medium.com/max/552/1*4ps4dNHcD2YDdPJq45gyKQ.png 276w, https://miro.medium.com/max/1104/1*4ps4dNHcD2YDdPJq45gyKQ.png 552w, https://miro.medium.com/max/1280/1*4ps4dNHcD2YDdPJq45gyKQ.png 640w, https://miro.medium.com/max/1400/1*4ps4dNHcD2YDdPJq45gyKQ.png 700w" sizes="700px" role="presentation"/>
 
 However, to centralize data generation, you ideally want a single method for generating a type of data. In this case, an email.
 
 To start, I added the following method to our Factory. I chose to use Faker for emails instead of sequence because it provides more randomization.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*pfsj0h8DVJlqWycSxiERcA.png" width="700" height="59" srcSet="https://miro.medium.com/max/552/1\*pfsj0h8DVJlqWycSxiERcA.png 276w, https://miro.medium.com/max/1104/1\*pfsj0h8DVJlqWycSxiERcA.png 552w, https://miro.medium.com/max/1280/1\*pfsj0h8DVJlqWycSxiERcA.png 640w, https://miro.medium.com/max/1400/1\*pfsj0h8DVJlqWycSxiERcA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*pfsj0h8DVJlqWycSxiERcA.png" width="700" height="59" srcSet="https://miro.medium.com/max/552/1*pfsj0h8DVJlqWycSxiERcA.png 276w, https://miro.medium.com/max/1104/1*pfsj0h8DVJlqWycSxiERcA.png 552w, https://miro.medium.com/max/1280/1*pfsj0h8DVJlqWycSxiERcA.png 640w, https://miro.medium.com/max/1400/1*pfsj0h8DVJlqWycSxiERcA.png 700w" sizes="700px" role="presentation"/>
 
 And now, whenever we need to generate an email, we can use this method. Here’s the same user code from before but using the Factory Method.
 
 > side note: I haven’t yet extracted the name value, only the email.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1360/1\*r6PvKI-PnoHi1qL0tRb9Gw.png" width="680" height="171" srcSet="https://miro.medium.com/max/552/1\*r6PvKI-PnoHi1qL0tRb9Gw.png 276w, https://miro.medium.com/max/1104/1\*r6PvKI-PnoHi1qL0tRb9Gw.png 552w, https://miro.medium.com/max/1280/1\*r6PvKI-PnoHi1qL0tRb9Gw.png 640w, https://miro.medium.com/max/1360/1\*r6PvKI-PnoHi1qL0tRb9Gw.png 680w" sizes="680px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1360/1*r6PvKI-PnoHi1qL0tRb9Gw.png" width="680" height="171" srcSet="https://miro.medium.com/max/552/1*r6PvKI-PnoHi1qL0tRb9Gw.png 276w, https://miro.medium.com/max/1104/1*r6PvKI-PnoHi1qL0tRb9Gw.png 552w, https://miro.medium.com/max/1280/1*r6PvKI-PnoHi1qL0tRb9Gw.png 640w, https://miro.medium.com/max/1360/1*r6PvKI-PnoHi1qL0tRb9Gw.png 680w" sizes="680px" role="presentation"/>
 
 Now the way we create emails is consistent throughout the application. If our understanding of valid and invalid emails changes, then we only need to change the data generation method in a single place rather than many.
 
@@ -99,7 +83,7 @@ Factory Templates.
 
 If you have multiple factories in your application, you might consider extracting your data generation methods into a single factory template module so that your factories can share that code.
 
-<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1\*N-ZPiTUGV0MBRlCayfLrWQ.jpeg" width="700" height="412" srcSet="https://miro.medium.com/max/552/1\*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 276w, https://miro.medium.com/max/1104/1\*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 552w, https://miro.medium.com/max/1280/1\*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 640w, https://miro.medium.com/max/1400/1\*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v jb aj" src="https://miro.medium.com/max/1400/1*N-ZPiTUGV0MBRlCayfLrWQ.jpeg" width="700" height="412" srcSet="https://miro.medium.com/max/552/1*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 276w, https://miro.medium.com/max/1104/1*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 552w, https://miro.medium.com/max/1280/1*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 640w, https://miro.medium.com/max/1400/1*N-ZPiTUGV0MBRlCayfLrWQ.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [Aleksey Boev](https://unsplash.com/@alanveob?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/stamp?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 

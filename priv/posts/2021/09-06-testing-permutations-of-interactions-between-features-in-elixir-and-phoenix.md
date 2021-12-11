@@ -6,25 +6,6 @@
 }
 ---
 
-Testing Permutations of Interactions Between Features in Elixir and Phoenix.
-============================================================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----2ce4dad8373a-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----2ce4dad8373a-----------------------------------)[
-
-Sep 6·5 min read
-
-](https://medium.com/testing-permutations-of-interactions-between-features-in-elixir-and-phoenix-2ce4dad8373a?source=post_page-----2ce4dad8373a-----------------------------------)
-
-Learn How to Maximize Test Coverage Using a Book Search Example.
-
-![](https://miro.medium.com/max/1400/1*IWlkLDHkJjHMVDSKJ6ewmQ.jpeg)Photo by [Crawford Jolly](https://unsplash.com/@crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/knot?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
 Testing Interactions Between Features.
 --------------------------------------
 
@@ -39,7 +20,7 @@ What does that mean? Well, imagine you have to test a single feature. For exampl
 
 Written in an Elixir/Phoenix project, those test cases might look like:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*KPN-MdrfmCyxIoWVWahn3w.png" width="700" height="304" srcSet="https://miro.medium.com/max/552/1\*KPN-MdrfmCyxIoWVWahn3w.png 276w, https://miro.medium.com/max/1104/1\*KPN-MdrfmCyxIoWVWahn3w.png 552w, https://miro.medium.com/max/1280/1\*KPN-MdrfmCyxIoWVWahn3w.png 640w, https://miro.medium.com/max/1400/1\*KPN-MdrfmCyxIoWVWahn3w.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*KPN-MdrfmCyxIoWVWahn3w.png" width="700" height="304" srcSet="https://miro.medium.com/max/552/1*KPN-MdrfmCyxIoWVWahn3w.png 276w, https://miro.medium.com/max/1104/1*KPN-MdrfmCyxIoWVWahn3w.png 552w, https://miro.medium.com/max/1280/1*KPN-MdrfmCyxIoWVWahn3w.png 640w, https://miro.medium.com/max/1400/1*KPN-MdrfmCyxIoWVWahn3w.png 700w" sizes="700px" role="presentation"/>
 
 You also want to filter by the author of a book. This creates another series of test cases.
 
@@ -53,13 +34,13 @@ D. Filter by non-matching author name should find no books.
 
 Written in Elixir/Phoenix, those test cases might look like:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*YDUrD7ssawWNtttHQordEA.png" width="700" height="311" srcSet="https://miro.medium.com/max/552/1\*YDUrD7ssawWNtttHQordEA.png 276w, https://miro.medium.com/max/1104/1\*YDUrD7ssawWNtttHQordEA.png 552w, https://miro.medium.com/max/1280/1\*YDUrD7ssawWNtttHQordEA.png 640w, https://miro.medium.com/max/1400/1\*YDUrD7ssawWNtttHQordEA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*YDUrD7ssawWNtttHQordEA.png" width="700" height="311" srcSet="https://miro.medium.com/max/552/1*YDUrD7ssawWNtttHQordEA.png 276w, https://miro.medium.com/max/1104/1*YDUrD7ssawWNtttHQordEA.png 552w, https://miro.medium.com/max/1280/1*YDUrD7ssawWNtttHQordEA.png 640w, https://miro.medium.com/max/1400/1*YDUrD7ssawWNtttHQordEA.png 700w" sizes="700px" role="presentation"/>
 
 Now that there are two interacting features, we’ve introduced a permutation of possible test interactions. For example, if we filter by both an author’s full name and a book's full name, do we find the matching books? Or is there a bug where the function returns a list of all books by the author?.
 
 The possible list of interactions grows as a permutation of each test case like so:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*LPwSXA1ySKq53w-9Sxbhcg.jpeg" width="700" height="383" srcSet="https://miro.medium.com/max/552/1\*LPwSXA1ySKq53w-9Sxbhcg.jpeg 276w, https://miro.medium.com/max/1104/1\*LPwSXA1ySKq53w-9Sxbhcg.jpeg 552w, https://miro.medium.com/max/1280/1\*LPwSXA1ySKq53w-9Sxbhcg.jpeg 640w, https://miro.medium.com/max/1400/1\*LPwSXA1ySKq53w-9Sxbhcg.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*LPwSXA1ySKq53w-9Sxbhcg.jpeg" width="700" height="383" srcSet="https://miro.medium.com/max/552/1*LPwSXA1ySKq53w-9Sxbhcg.jpeg 276w, https://miro.medium.com/max/1104/1*LPwSXA1ySKq53w-9Sxbhcg.jpeg 552w, https://miro.medium.com/max/1280/1*LPwSXA1ySKq53w-9Sxbhcg.jpeg 640w, https://miro.medium.com/max/1400/1*LPwSXA1ySKq53w-9Sxbhcg.jpeg 700w" sizes="700px" role="presentation"/>
 
 Notice that when adding interacting features, the number of test cases grows exponentially. This is because it quickly becomes unreasonable to write a test for every single case.
 
@@ -80,7 +61,7 @@ In this way, you can maximize test coverage by selecting the test interactions y
 
 For example, you can write one test per interaction like so:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*eTK83o-1PepBYPGI\_NAMBw.png" width="700" height="384" srcSet="https://miro.medium.com/max/552/1\*eTK83o-1PepBYPGI\_NAMBw.png 276w, https://miro.medium.com/max/1104/1\*eTK83o-1PepBYPGI\_NAMBw.png 552w, https://miro.medium.com/max/1280/1\*eTK83o-1PepBYPGI\_NAMBw.png 640w, https://miro.medium.com/max/1400/1\*eTK83o-1PepBYPGI\_NAMBw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*eTK83o-1PepBYPGI_NAMBw.png" width="700" height="384" srcSet="https://miro.medium.com/max/552/1*eTK83o-1PepBYPGI_NAMBw.png 276w, https://miro.medium.com/max/1104/1*eTK83o-1PepBYPGI_NAMBw.png 552w, https://miro.medium.com/max/1280/1*eTK83o-1PepBYPGI_NAMBw.png 640w, https://miro.medium.com/max/1400/1*eTK83o-1PepBYPGI_NAMBw.png 700w" sizes="700px" role="presentation"/>
 
 green = test case to test
 
@@ -93,7 +74,7 @@ I want to avoid confusion in case it seems like I’m recommending the following
 
 The order of these test cases doesn’t matter. Instead, you can select the test interactions you think are most important. For example:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*5QHazaKLZCnJ\_TbLSFOt8Q.png" width="700" height="384" srcSet="https://miro.medium.com/max/552/1\*5QHazaKLZCnJ\_TbLSFOt8Q.png 276w, https://miro.medium.com/max/1104/1\*5QHazaKLZCnJ\_TbLSFOt8Q.png 552w, https://miro.medium.com/max/1280/1\*5QHazaKLZCnJ\_TbLSFOt8Q.png 640w, https://miro.medium.com/max/1400/1\*5QHazaKLZCnJ\_TbLSFOt8Q.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*5QHazaKLZCnJ_TbLSFOt8Q.png" width="700" height="384" srcSet="https://miro.medium.com/max/552/1*5QHazaKLZCnJ_TbLSFOt8Q.png 276w, https://miro.medium.com/max/1104/1*5QHazaKLZCnJ_TbLSFOt8Q.png 552w, https://miro.medium.com/max/1280/1*5QHazaKLZCnJ_TbLSFOt8Q.png 640w, https://miro.medium.com/max/1400/1*5QHazaKLZCnJ_TbLSFOt8Q.png 700w" sizes="700px" role="presentation"/>
 
 This might create a series of test cases like so:
 
@@ -104,7 +85,7 @@ This might create a series of test cases like so:
 
 Here’s how those test cases might look like on an Elixir or Phoenix project:
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1220/1\*CjbRGJyg5RHbMjGBxH5oZg.png" width="610" height="784" srcSet="https://miro.medium.com/max/552/1\*CjbRGJyg5RHbMjGBxH5oZg.png 276w, https://miro.medium.com/max/1104/1\*CjbRGJyg5RHbMjGBxH5oZg.png 552w, https://miro.medium.com/max/1220/1\*CjbRGJyg5RHbMjGBxH5oZg.png 610w" sizes="610px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1220/1*CjbRGJyg5RHbMjGBxH5oZg.png" width="610" height="784" srcSet="https://miro.medium.com/max/552/1*CjbRGJyg5RHbMjGBxH5oZg.png 276w, https://miro.medium.com/max/1104/1*CjbRGJyg5RHbMjGBxH5oZg.png 552w, https://miro.medium.com/max/1220/1*CjbRGJyg5RHbMjGBxH5oZg.png 610w" sizes="610px" role="presentation"/>
 
 You Don’t Always Need to Test Every Interaction.
 ------------------------------------------------

@@ -187,7 +187,7 @@ Arithmetic operators allow you to manipulate numbers.
 5 + 5 # 10  
 # minus (-)  
 5 - 5 # 0  
-# multiply (\*)  
+# multiply (*)  
 5 * 5 # 25  
 # divide (/)  
 5 / 5 # 1
@@ -795,7 +795,7 @@ If your destructuring doesn’t match the right-hand side value, you will get a 
 
 ```elixir
 {a, b, c} **\=** {:hello, "world"}  
-**\*\*** (MatchError) no match of right hand side value: {:hello, "world"}
+****** (MatchError) no match of right hand side value: {:hello, "world"}
 ```
 
 Conclusion

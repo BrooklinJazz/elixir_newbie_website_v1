@@ -25,7 +25,7 @@ defmodule ElixirNewbieWeb.BlogShow do
       <section class={"mx-6 my-6 leading-loose text-white max-w-full lg:mx-60 md:mx-24"}>
         <Title>{@blog.title}</Title>
         <SubTitle class="italic">{@blog.description}</SubTitle>
-        <img class="mt-4 rounded-2xl" src={@blog.cover_image}/>
+        <img class="mt-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
         <figure class="makeup-blog">
         {raw @blog.body}
         </figure>
