@@ -9,22 +9,6 @@
 How to Pick Your Next Side Project.
 ===================================
 
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----567b2688cd6f-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----567b2688cd6f-----------------------------------)[
-
-Sep 3·5 min read
-
-](https://medium.com/how-to-pick-your-next-side-project-567b2688cd6f?source=post_page-----567b2688cd6f-----------------------------------)
-
-Thoughts on Building Your Portfolio and New Skills.
-
-![](https://miro.medium.com/max/1400/1*kiQCqNQOnM0Bu5jJ5QJhIA.jpeg)
-
 If you are a new developer, you might be in the portfolio-building stage of your new career. Deciding on which project to build to increase your skillset and build a portfolio can be overwhelming. You have unlimited choice, and you might not know what is reasonable to expect for a certain timeframe yet.
 
 In this article, you’ll explore the reasons you want to build a side project. You will learn about metrics you can use to measure the benefits of a side project, and you will learn how to match those benefits to your goals.
@@ -71,13 +55,13 @@ As a new developer, you may not feel certain that you want to keep programming. 
 New Developers.
 ---------------
 
-You have some basic experience programming but little to no work experience. You are in the middle of the hardest phase of programming, getting your first real job. Before you get your first job, many companies consider you a risky investment. [The barrier to entry is high in software](https://medium.com/failing-to-provide-opportunities-for-new-developers-is-the-reason-you-cant-find-senior-talent-808db9fb564a). But once you’re in, finding work gets easier.
+You have some basic experience programming but little to no work experience. You are in the middle of the hardest phase of programming, getting your first real job. Before you get your first job, many companies consider you a risky investment. [The barrier to entry is high in software](https://www.elixirnewbie.com/blog/the-growing-senior-only-problem-in-the-software-industry). But once you’re in, finding work gets easier.
 
 Your goal is to find a job. Real programming work provides experiences you’ll have a hard time reproducing on your own. Thus you may consider maximizing the marketability of your project and minimizing scope. Your goal is to have a full resume, and one project that took you 4 months takes as much space as a project you finished in a weekend.
 
-**Consider hackathons.** They are a great way to provide time pressure to finish a highly marketable project. A hackathon is a time-constrained collaborative event to build a project, usually over a day or weekend. I wish I had tried them earlier in my career, but if you are curious, you can read about [my experience building a react native app in 24 hours.](https://medium.com/react-native-call-your-mom-app-made-in-24-hours-for-hack4health-9e7cd88f5b3)
+**Consider hackathons.** They are a great way to provide time pressure to finish a highly marketable project. A hackathon is a time-constrained collaborative event to build a project, usually over a day or weekend. I wish I had tried them earlier in my career, but if you are curious, you can read about [my experience building a react native app in 24 hours.](https://www.elixirnewbie.com/blog/call-your-mom-app-made-in-24-hours)
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*uJ7uijA2eurqLs\_XxXjO-w.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*uJ7uijA2eurqLs\_XxXjO-w.jpeg 276w, https://miro.medium.com/max/1104/1\*uJ7uijA2eurqLs\_XxXjO-w.jpeg 552w, https://miro.medium.com/max/1280/1\*uJ7uijA2eurqLs\_XxXjO-w.jpeg 640w, https://miro.medium.com/max/1400/1\*uJ7uijA2eurqLs\_XxXjO-w.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*uJ7uijA2eurqLs_XxXjO-w.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1*uJ7uijA2eurqLs_XxXjO-w.jpeg 276w, https://miro.medium.com/max/1104/1*uJ7uijA2eurqLs_XxXjO-w.jpeg 552w, https://miro.medium.com/max/1280/1*uJ7uijA2eurqLs_XxXjO-w.jpeg 640w, https://miro.medium.com/max/1400/1*uJ7uijA2eurqLs_XxXjO-w.jpeg 700w" sizes="700px" role="presentation"/>
 
 Experienced Developers.
 -----------------------

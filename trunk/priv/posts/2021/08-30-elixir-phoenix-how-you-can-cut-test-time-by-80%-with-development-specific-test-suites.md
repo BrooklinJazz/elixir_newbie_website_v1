@@ -6,25 +6,6 @@
 }
 ---
 
-Elixir/Phoenix How You Can Cut Test Time by 80% With Development Specific Test Suites.
-======================================================================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----f8ebdd5d0109-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----f8ebdd5d0109-----------------------------------)[
-
-Aug 30·5 min read
-
-](https://medium.com/elixir-phoenix-how-you-can-cut-test-time-by-80-with-development-specific-test-suites-f8ebdd5d0109?source=post_page-----f8ebdd5d0109-----------------------------------)
-
-Use The --slowest and --exclude Flags to Profile Your Slowest Tests.
-
-![](https://miro.medium.com/max/1400/1*VyVEdcJFgt9h1fPMAzhKaQ.jpeg)
-
 Tests are wonderful. Tests are little rules and assertions that you can put in your codebase that guarantee you haven’t broken anything while developing your feature.
 
 However, as lovely as tests are, they also suck up a lot of time. How many hours do you think you’ve spent waiting for tests to pass? If you use Test Driven Development, then that number is probably relatively high.
@@ -42,7 +23,7 @@ To speed up your test suite, you need to know the largest areas to improve. Like
 
 When I first had this idea, I manually ran all of our tests with a verbose output to see the time for each and tag any tests that took more than 100 milliseconds.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*dg-CEFVxCtizENgbVoLbBA.jpeg" width="700" height="468" srcSet="https://miro.medium.com/max/552/1\*dg-CEFVxCtizENgbVoLbBA.jpeg 276w, https://miro.medium.com/max/1104/1\*dg-CEFVxCtizENgbVoLbBA.jpeg 552w, https://miro.medium.com/max/1280/1\*dg-CEFVxCtizENgbVoLbBA.jpeg 640w, https://miro.medium.com/max/1400/1\*dg-CEFVxCtizENgbVoLbBA.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*dg-CEFVxCtizENgbVoLbBA.jpeg" width="700" height="468" srcSet="https://miro.medium.com/max/552/1*dg-CEFVxCtizENgbVoLbBA.jpeg 276w, https://miro.medium.com/max/1104/1*dg-CEFVxCtizENgbVoLbBA.jpeg 552w, https://miro.medium.com/max/1280/1*dg-CEFVxCtizENgbVoLbBA.jpeg 640w, https://miro.medium.com/max/1400/1*dg-CEFVxCtizENgbVoLbBA.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [Tim Gouw](https://unsplash.com/@punttim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/stress?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -67,18 +48,18 @@ mix test --slowest 100
 
 Here’s an example of the top 100 slowest tests in my project.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1288/1\*gIeW3xbxoehdEhxtWyL6Ag.png" width="644" height="64" srcSet="https://miro.medium.com/max/552/1\*gIeW3xbxoehdEhxtWyL6Ag.png 276w, https://miro.medium.com/max/1104/1\*gIeW3xbxoehdEhxtWyL6Ag.png 552w, https://miro.medium.com/max/1280/1\*gIeW3xbxoehdEhxtWyL6Ag.png 640w, https://miro.medium.com/max/1288/1\*gIeW3xbxoehdEhxtWyL6Ag.png 644w" sizes="644px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1288/1*gIeW3xbxoehdEhxtWyL6Ag.png" width="644" height="64" srcSet="https://miro.medium.com/max/552/1*gIeW3xbxoehdEhxtWyL6Ag.png 276w, https://miro.medium.com/max/1104/1*gIeW3xbxoehdEhxtWyL6Ag.png 552w, https://miro.medium.com/max/1280/1*gIeW3xbxoehdEhxtWyL6Ag.png 640w, https://miro.medium.com/max/1288/1*gIeW3xbxoehdEhxtWyL6Ag.png 644w" sizes="644px" role="presentation"/>
 
 The entire test suite takes 99.2 seconds to run, and the slowest 100 tests take 78.7 seconds which is 79.3% of the total test time. This is on a project with 622 tests, so that’s only 16% of the entire test suite.
 
 Tag Expensive Tests.
 ====================
 
-You can tag modules, describe blocks, and individual tests in elixir using `@moduletag`, `@describetag`, and `@tag`If you want to know more, you can read my article [Phoenix/Elixir testing: beyond mix test](https://medium.com/phoenix-elixir-testing-beyond-mix-test-5b07de241001).
+You can tag modules, describe blocks, and individual tests in elixir using `@moduletag`, `@describetag`, and `@tag`If you want to know more, you can read my article [Phoenix/Elixir testing: beyond mix test](https://www.elixirnewbie.com/blog/phoenix-elixir-testing-beyond-mix-test).
 
 So you can go through your tests and tag them. I chose to tag them as `:expensive.`
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*HkUC9Ed5sjMYj2RoF6YT4w.png" width="700" height="116" srcSet="https://miro.medium.com/max/552/1\*HkUC9Ed5sjMYj2RoF6YT4w.png 276w, https://miro.medium.com/max/1104/1\*HkUC9Ed5sjMYj2RoF6YT4w.png 552w, https://miro.medium.com/max/1280/1\*HkUC9Ed5sjMYj2RoF6YT4w.png 640w, https://miro.medium.com/max/1400/1\*HkUC9Ed5sjMYj2RoF6YT4w.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*HkUC9Ed5sjMYj2RoF6YT4w.png" width="700" height="116" srcSet="https://miro.medium.com/max/552/1*HkUC9Ed5sjMYj2RoF6YT4w.png 276w, https://miro.medium.com/max/1104/1*HkUC9Ed5sjMYj2RoF6YT4w.png 552w, https://miro.medium.com/max/1280/1*HkUC9Ed5sjMYj2RoF6YT4w.png 640w, https://miro.medium.com/max/1400/1*HkUC9Ed5sjMYj2RoF6YT4w.png 700w" sizes="700px" role="presentation"/>
 
 Exclude Expensive Tests
 =======================
@@ -89,7 +70,7 @@ By tagging your tests, you have control over which tests you want to run. For ex
 mix test --exclude="expensive"
 ```
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*6FGCbMVrXE4FWEeqCK1ofA.png" width="700" height="147" srcSet="https://miro.medium.com/max/552/1\*6FGCbMVrXE4FWEeqCK1ofA.png 276w, https://miro.medium.com/max/1104/1\*6FGCbMVrXE4FWEeqCK1ofA.png 552w, https://miro.medium.com/max/1280/1\*6FGCbMVrXE4FWEeqCK1ofA.png 640w, https://miro.medium.com/max/1400/1\*6FGCbMVrXE4FWEeqCK1ofA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*6FGCbMVrXE4FWEeqCK1ofA.png" width="700" height="147" srcSet="https://miro.medium.com/max/552/1*6FGCbMVrXE4FWEeqCK1ofA.png 276w, https://miro.medium.com/max/1104/1*6FGCbMVrXE4FWEeqCK1ofA.png 552w, https://miro.medium.com/max/1280/1*6FGCbMVrXE4FWEeqCK1ofA.png 640w, https://miro.medium.com/max/1400/1*6FGCbMVrXE4FWEeqCK1ofA.png 700w" sizes="700px" role="presentation"/>
 
 23 seconds compared to 96.7 seconds is pretty darn good. Now I don’t have to wait nearly as long to get quick feedback for tests.
 
@@ -103,7 +84,7 @@ Run You Fast Tests Before Your Slow Tests.
 
 You can still run the full test suite before you push your branch. For example, I added the following commands to our pre-push hooks that run before anyone pushes their finished code.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*ibiwsgNLNQQipi\_KxSBh9w.png" width="700" height="133" srcSet="https://miro.medium.com/max/552/1\*ibiwsgNLNQQipi\_KxSBh9w.png 276w, https://miro.medium.com/max/1104/1\*ibiwsgNLNQQipi\_KxSBh9w.png 552w, https://miro.medium.com/max/1280/1\*ibiwsgNLNQQipi\_KxSBh9w.png 640w, https://miro.medium.com/max/1400/1\*ibiwsgNLNQQipi\_KxSBh9w.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*ibiwsgNLNQQipi_KxSBh9w.png" width="700" height="133" srcSet="https://miro.medium.com/max/552/1*ibiwsgNLNQQipi_KxSBh9w.png 276w, https://miro.medium.com/max/1104/1*ibiwsgNLNQQipi_KxSBh9w.png 552w, https://miro.medium.com/max/1280/1*ibiwsgNLNQQipi_KxSBh9w.png 640w, https://miro.medium.com/max/1400/1*ibiwsgNLNQQipi_KxSBh9w.png 700w" sizes="700px" role="presentation"/>
 
 By running the fasts test first, you don’t need to bother waiting for your longer tests to run if any of them break.
 
@@ -117,5 +98,3 @@ Using the slowest flag to profile your test suite allows you to create a develop
 You can then run your development-specific suite using the only and exclude flags to improve your development speed and to run your faster tests first to ensure you don’t wait longer than you need to to find out that you have a failing test.
 
 To ensure you have maximal test coverage, run your complete test suite when necessary, such as when you push your changes to Github.
-
-I hope you found this useful. If you have any questions or comments, you can respond here on medium or message me on Twitter. [https://twitter.com/BrooklinJMyers](https://twitter.com/BrooklinJMyers)

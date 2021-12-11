@@ -6,30 +6,9 @@
 }
 ---
 
-How to Build Maintainable Test Factories in Elixir and Phoenix
-==============================================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----84312998f7e7-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----84312998f7e7-----------------------------------)[
-
-Aug 1·6 min read
-
-](https://medium.com/how-to-build-maintainable-test-factories-in-elixir-and-phoenix-84312998f7e7?source=post_page-----84312998f7e7-----------------------------------)
-
-My takeaways from Jeffrey Matthias' talk.
-
 > Jeffrey Matthias, the coauthor with Andrea Leopardi of [Testing Elixir: Effective and Robust Testing for Elixir and its Ecosystem](https://pragprog.com/titles/lmelixir/testing-elixir/), hosted a recent talk on building maintainable test factories that I had the pleasure to attend.
 > 
 > In this article, I hope to share my major takeaways from the talk. However, I’m still exploring these ideas, and have not put them to practice to learn for myself what works yet.
-
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*urUptEH3OUVjGgkMy-rXnw.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*urUptEH3OUVjGgkMy-rXnw.jpeg 276w, https://miro.medium.com/max/1104/1\*urUptEH3OUVjGgkMy-rXnw.jpeg 552w, https://miro.medium.com/max/1280/1\*urUptEH3OUVjGgkMy-rXnw.jpeg 640w, https://miro.medium.com/max/1400/1\*urUptEH3OUVjGgkMy-rXnw.jpeg 700w" sizes="700px" role="presentation"/>
-
-Photo by [Patrick Hendry](https://unsplash.com/@worldsbetweenlines?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/factory?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 What is a Factory?
 ==================
@@ -40,11 +19,11 @@ There’s a popular library in Elixir, [ExMachina](https://github.com/thoughtbot
 
 Factories have factory methods that allow you to build or insert data structures into your database. Here’s an example factory build with ExMachina taken from their documentation.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*FQvSh6Sb-\_acVIglPwOjvA.png" width="700" height="696" srcSet="https://miro.medium.com/max/552/1\*FQvSh6Sb-\_acVIglPwOjvA.png 276w, https://miro.medium.com/max/1104/1\*FQvSh6Sb-\_acVIglPwOjvA.png 552w, https://miro.medium.com/max/1280/1\*FQvSh6Sb-\_acVIglPwOjvA.png 640w, https://miro.medium.com/max/1400/1\*FQvSh6Sb-\_acVIglPwOjvA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*FQvSh6Sb-_acVIglPwOjvA.png" width="700" height="696" srcSet="https://miro.medium.com/max/552/1*FQvSh6Sb-_acVIglPwOjvA.png 276w, https://miro.medium.com/max/1104/1*FQvSh6Sb-_acVIglPwOjvA.png 552w, https://miro.medium.com/max/1280/1*FQvSh6Sb-_acVIglPwOjvA.png 640w, https://miro.medium.com/max/1400/1*FQvSh6Sb-_acVIglPwOjvA.png 700w" sizes="700px" role="presentation"/>
 
 Tests will use a factory to arrange data for your test. You can also override values specific to the test.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*cS5WtYfIZcZaUDJ\_xrL-Ug.png" width="700" height="383" srcSet="https://miro.medium.com/max/552/1\*cS5WtYfIZcZaUDJ\_xrL-Ug.png 276w, https://miro.medium.com/max/1104/1\*cS5WtYfIZcZaUDJ\_xrL-Ug.png 552w, https://miro.medium.com/max/1280/1\*cS5WtYfIZcZaUDJ\_xrL-Ug.png 640w, https://miro.medium.com/max/1400/1\*cS5WtYfIZcZaUDJ\_xrL-Ug.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*cS5WtYfIZcZaUDJ_xrL-Ug.png" width="700" height="383" srcSet="https://miro.medium.com/max/552/1*cS5WtYfIZcZaUDJ_xrL-Ug.png 276w, https://miro.medium.com/max/1104/1*cS5WtYfIZcZaUDJ_xrL-Ug.png 552w, https://miro.medium.com/max/1280/1*cS5WtYfIZcZaUDJ_xrL-Ug.png 640w, https://miro.medium.com/max/1400/1*cS5WtYfIZcZaUDJ_xrL-Ug.png 700w" sizes="700px" role="presentation"/>
 
 How Do You Build Maintainable Factories?
 ========================================
@@ -71,18 +50,18 @@ Incidental data should be randomized. This helps make sure that your tests don�
 
 You can use the [Faker library](https://github.com/elixirs/faker) for generating random data.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1380/1\*3fVchCzO47XpJ81dqqe7cg.png" width="690" height="92" srcSet="https://miro.medium.com/max/552/1\*3fVchCzO47XpJ81dqqe7cg.png 276w, https://miro.medium.com/max/1104/1\*3fVchCzO47XpJ81dqqe7cg.png 552w, https://miro.medium.com/max/1280/1\*3fVchCzO47XpJ81dqqe7cg.png 640w, https://miro.medium.com/max/1380/1\*3fVchCzO47XpJ81dqqe7cg.png 690w" sizes="690px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1380/1*3fVchCzO47XpJ81dqqe7cg.png" width="690" height="92" srcSet="https://miro.medium.com/max/552/1*3fVchCzO47XpJ81dqqe7cg.png 276w, https://miro.medium.com/max/1104/1*3fVchCzO47XpJ81dqqe7cg.png 552w, https://miro.medium.com/max/1280/1*3fVchCzO47XpJ81dqqe7cg.png 640w, https://miro.medium.com/max/1380/1*3fVchCzO47XpJ81dqqe7cg.png 690w" sizes="690px" role="presentation"/>
 
 Avoid Nesting Resources.
 ------------------------
 
 This was probably my most immediately actionable takeaway from the talk, as I’ve been running into problems with this on my current project. When creating related resources, you should avoid building related resources in the factory itself. So the following is something you should avoid.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*ftco385eTkQw-BFWetYWgQ.png" width="700" height="162" srcSet="https://miro.medium.com/max/552/1\*ftco385eTkQw-BFWetYWgQ.png 276w, https://miro.medium.com/max/1104/1\*ftco385eTkQw-BFWetYWgQ.png 552w, https://miro.medium.com/max/1280/1\*ftco385eTkQw-BFWetYWgQ.png 640w, https://miro.medium.com/max/1400/1\*ftco385eTkQw-BFWetYWgQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*ftco385eTkQw-BFWetYWgQ.png" width="700" height="162" srcSet="https://miro.medium.com/max/552/1*ftco385eTkQw-BFWetYWgQ.png 276w, https://miro.medium.com/max/1104/1*ftco385eTkQw-BFWetYWgQ.png 552w, https://miro.medium.com/max/1280/1*ftco385eTkQw-BFWetYWgQ.png 640w, https://miro.medium.com/max/1400/1*ftco385eTkQw-BFWetYWgQ.png 700w" sizes="700px" role="presentation"/>
 
 Why? Because it hides potentially intentional data. If the test relies on this data, then you should create the data explicitly in the test. Otherwise, the data is incidental and should be left empty or random.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*9tHe0cwlZKdEoyAK5QDRuw.png" width="700" height="51" srcSet="https://miro.medium.com/max/552/1\*9tHe0cwlZKdEoyAK5QDRuw.png 276w, https://miro.medium.com/max/1104/1\*9tHe0cwlZKdEoyAK5QDRuw.png 552w, https://miro.medium.com/max/1280/1\*9tHe0cwlZKdEoyAK5QDRuw.png 640w, https://miro.medium.com/max/1400/1\*9tHe0cwlZKdEoyAK5QDRuw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*9tHe0cwlZKdEoyAK5QDRuw.png" width="700" height="51" srcSet="https://miro.medium.com/max/552/1*9tHe0cwlZKdEoyAK5QDRuw.png 276w, https://miro.medium.com/max/1104/1*9tHe0cwlZKdEoyAK5QDRuw.png 552w, https://miro.medium.com/max/1280/1*9tHe0cwlZKdEoyAK5QDRuw.png 640w, https://miro.medium.com/max/1400/1*9tHe0cwlZKdEoyAK5QDRuw.png 700w" sizes="700px" role="presentation"/>
 
 Also, as your data structures grow and become more complex, you’ll find that you’re relying on resources nested several levels deep. This becomes a knotted mess over time. If you rely on implicitly created nested structures in your tests, then you need to modify one. You will have no examples in the rest of your codebase to follow.
 
@@ -93,7 +72,7 @@ Centralize Data Creation in the Factory.
 
 In addition to handling inserting data structures into your database, Factories can also be responsible for handling the creation of common values. For example, your Factory should be responsible for generating emails, passwords, and any data you need to build data structures for your database.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*fQrDCtEz7tVZ\_a8czaeFaQ.png" width="700" height="303" srcSet="https://miro.medium.com/max/552/1\*fQrDCtEz7tVZ\_a8czaeFaQ.png 276w, https://miro.medium.com/max/1104/1\*fQrDCtEz7tVZ\_a8czaeFaQ.png 552w, https://miro.medium.com/max/1280/1\*fQrDCtEz7tVZ\_a8czaeFaQ.png 640w, https://miro.medium.com/max/1400/1\*fQrDCtEz7tVZ\_a8czaeFaQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*fQrDCtEz7tVZ_a8czaeFaQ.png" width="700" height="303" srcSet="https://miro.medium.com/max/552/1*fQrDCtEz7tVZ_a8czaeFaQ.png 276w, https://miro.medium.com/max/1104/1*fQrDCtEz7tVZ_a8czaeFaQ.png 552w, https://miro.medium.com/max/1280/1*fQrDCtEz7tVZ_a8czaeFaQ.png 640w, https://miro.medium.com/max/1400/1*fQrDCtEz7tVZ_a8czaeFaQ.png 700w" sizes="700px" role="presentation"/>
 
 Centralizing data creation in your factory provides a convenient interface. It also means that if you decide to change how you generate data, you only have to change the code in a single place.
 
@@ -104,7 +83,7 @@ Instead of a single large factory, you should have different factories for each 
 
 Even if Factories require similar factory methods, unless the factory method is identical for every context, you should not share factory methods between different factories.
 
-For example, most contexts will require a user\_factory method. However, contexts likely rely on different user properties, and you don’t need to build out a full user for them. So instead, you explicitly declare which fields matter for the context. It also saves time in your tests.
+For example, most contexts will require a user_factory method. However, contexts likely rely on different user properties, and you don’t need to build out a full user for them. So instead, you explicitly declare which fields matter for the context. It also saves time in your tests.
 
 You may consider creating a Factory Template module that allows you to share the data generation functions between factories and create context-specific factory methods.
 

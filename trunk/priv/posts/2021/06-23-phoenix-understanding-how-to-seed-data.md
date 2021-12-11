@@ -6,19 +6,6 @@
 }
 ---
 
-Phoenix: Understanding how to seed data.
-========================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/96/96/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://brooklinmyers.medium.com/?source=post_page-----c2be863ddd1d-----------------------------------)[Brooklin Myers](https://brooklinmyers.medium.com/?source=post_page-----c2be863ddd1d-----------------------------------)Follow
-
-[Jun 23](https://medium.com/geekculture/phoenix-understanding-how-to-seed-data-c2be863ddd1d?source=post_page-----c2be863ddd1d-----------------------------------) · 7 min read
-
-Leverage test fixtures, Ex Machina, and Faker to create high-quality test and development data.
-
-![](https://miro.medium.com/max/1400/1*RGkPwcQs3QTDRY8u7FqzIA.jpeg)Photo by [Binyamin Mellish](https://www.pexels.com/@binyaminmellish?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) from [Pexels](https://www.pexels.com/photo/man-planting-plant-169523/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
-
 What is seeding?
 ----------------
 
@@ -41,11 +28,11 @@ Global Seed Data
 
 In any phoenix application generated using mix, you should have a `seed.exs` file.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*EMluhu87PpYX8l\_HTptgCw.png" width="700" height="435" srcSet="https://miro.medium.com/max/552/1\*EMluhu87PpYX8l\_HTptgCw.png 276w, https://miro.medium.com/max/1104/1\*EMluhu87PpYX8l\_HTptgCw.png 552w, https://miro.medium.com/max/1280/1\*EMluhu87PpYX8l\_HTptgCw.png 640w, https://miro.medium.com/max/1400/1\*EMluhu87PpYX8l\_HTptgCw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*EMluhu87PpYX8l_HTptgCw.png" width="700" height="435" srcSet="https://miro.medium.com/max/552/1*EMluhu87PpYX8l_HTptgCw.png 276w, https://miro.medium.com/max/1104/1*EMluhu87PpYX8l_HTptgCw.png 552w, https://miro.medium.com/max/1280/1*EMluhu87PpYX8l_HTptgCw.png 640w, https://miro.medium.com/max/1400/1*EMluhu87PpYX8l_HTptgCw.png 700w" sizes="700px" role="presentation"/>
 
 You can create data in this file that you want to pre-exist for all of your tests or in your development environment.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*KBEJaaG9eBa4hCdDXTaOCg.png" width="700" height="424" srcSet="https://miro.medium.com/max/552/1\*KBEJaaG9eBa4hCdDXTaOCg.png 276w, https://miro.medium.com/max/1104/1\*KBEJaaG9eBa4hCdDXTaOCg.png 552w, https://miro.medium.com/max/1280/1\*KBEJaaG9eBa4hCdDXTaOCg.png 640w, https://miro.medium.com/max/1400/1\*KBEJaaG9eBa4hCdDXTaOCg.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*KBEJaaG9eBa4hCdDXTaOCg.png" width="700" height="424" srcSet="https://miro.medium.com/max/552/1*KBEJaaG9eBa4hCdDXTaOCg.png 276w, https://miro.medium.com/max/1104/1*KBEJaaG9eBa4hCdDXTaOCg.png 552w, https://miro.medium.com/max/1280/1*KBEJaaG9eBa4hCdDXTaOCg.png 640w, https://miro.medium.com/max/1400/1*KBEJaaG9eBa4hCdDXTaOCg.png 700w" sizes="700px" role="presentation"/>
 
 Notice the `Repo.delete_all(Post)` line. Unless you want the seed file to re-create existing data over and over, you might want to consider deleting any data that already exists so that your seed data is consistent.
 
@@ -59,9 +46,9 @@ Make you are in the correct environment when running your seed data.
 
 ```
 \# on mac or linux:  
-MIX\_ENV="test" mix run priv/repo/seeds.exs # for test env  
-MIX\_ENV="dev" mix run priv/repo/seeds.exs # for dev env\# On windows you'll have to set the env first using either: $env:MIX\_ENV="test"  
-$env:MIX\_ENV="dev"\# then run the seed command like normal  
+MIX_ENV="test" mix run priv/repo/seeds.exs # for test env  
+MIX_ENV="dev" mix run priv/repo/seeds.exs # for dev env\# On windows you'll have to set the env first using either: $env:MIX_ENV="test"  
+$env:MIX_ENV="dev"\# then run the seed command like normal  
 mix run priv/repo/seeds.exs
 ```
 
@@ -70,27 +57,27 @@ Configure different test and dev seed files.
 
 The `seed.exs` file is automatically configured to run in the `mix ecto.setup` alias.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*RZoG1me9qxgPlXa7X9\_llw.png" width="700" height="376" srcSet="https://miro.medium.com/max/552/1\*RZoG1me9qxgPlXa7X9\_llw.png 276w, https://miro.medium.com/max/1104/1\*RZoG1me9qxgPlXa7X9\_llw.png 552w, https://miro.medium.com/max/1280/1\*RZoG1me9qxgPlXa7X9\_llw.png 640w, https://miro.medium.com/max/1400/1\*RZoG1me9qxgPlXa7X9\_llw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*RZoG1me9qxgPlXa7X9_llw.png" width="700" height="376" srcSet="https://miro.medium.com/max/552/1*RZoG1me9qxgPlXa7X9_llw.png 276w, https://miro.medium.com/max/1104/1*RZoG1me9qxgPlXa7X9_llw.png 552w, https://miro.medium.com/max/1280/1*RZoG1me9qxgPlXa7X9_llw.png 640w, https://miro.medium.com/max/1400/1*RZoG1me9qxgPlXa7X9_llw.png 700w" sizes="700px" role="presentation"/>
 
 You can configure different behaviors for your global seed file depending on what environment you are in using the `Mix.env()` variable.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*fDJjCsCCxI2MxbuVP2z8MQ.png" width="700" height="510" srcSet="https://miro.medium.com/max/552/1\*fDJjCsCCxI2MxbuVP2z8MQ.png 276w, https://miro.medium.com/max/1104/1\*fDJjCsCCxI2MxbuVP2z8MQ.png 552w, https://miro.medium.com/max/1280/1\*fDJjCsCCxI2MxbuVP2z8MQ.png 640w, https://miro.medium.com/max/1400/1\*fDJjCsCCxI2MxbuVP2z8MQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*fDJjCsCCxI2MxbuVP2z8MQ.png" width="700" height="510" srcSet="https://miro.medium.com/max/552/1*fDJjCsCCxI2MxbuVP2z8MQ.png 276w, https://miro.medium.com/max/1104/1*fDJjCsCCxI2MxbuVP2z8MQ.png 552w, https://miro.medium.com/max/1280/1*fDJjCsCCxI2MxbuVP2z8MQ.png 640w, https://miro.medium.com/max/1400/1*fDJjCsCCxI2MxbuVP2z8MQ.png 700w" sizes="700px" role="presentation"/>
 
 If you’d like this global data in your tests, you can add the command to run your seed file to your `mix test` alias.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*PilOTjqNku8jtQeBHLvfnw.png" width="700" height="360" srcSet="https://miro.medium.com/max/552/1\*PilOTjqNku8jtQeBHLvfnw.png 276w, https://miro.medium.com/max/1104/1\*PilOTjqNku8jtQeBHLvfnw.png 552w, https://miro.medium.com/max/1280/1\*PilOTjqNku8jtQeBHLvfnw.png 640w, https://miro.medium.com/max/1400/1\*PilOTjqNku8jtQeBHLvfnw.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*PilOTjqNku8jtQeBHLvfnw.png" width="700" height="360" srcSet="https://miro.medium.com/max/552/1*PilOTjqNku8jtQeBHLvfnw.png 276w, https://miro.medium.com/max/1104/1*PilOTjqNku8jtQeBHLvfnw.png 552w, https://miro.medium.com/max/1280/1*PilOTjqNku8jtQeBHLvfnw.png 640w, https://miro.medium.com/max/1400/1*PilOTjqNku8jtQeBHLvfnw.png 700w" sizes="700px" role="presentation"/>
 
 Make other seed files.
 ----------------------
 
 There's nothing special about the `seed.exs` file so that you can make other seed files. In this blog app example, you might want to have a different seed file to add five posts for you.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*Cp1WU0Tt\_7tiJ0X-FiYySg.png" width="700" height="337" srcSet="https://miro.medium.com/max/552/1\*Cp1WU0Tt\_7tiJ0X-FiYySg.png 276w, https://miro.medium.com/max/1104/1\*Cp1WU0Tt\_7tiJ0X-FiYySg.png 552w, https://miro.medium.com/max/1280/1\*Cp1WU0Tt\_7tiJ0X-FiYySg.png 640w, https://miro.medium.com/max/1400/1\*Cp1WU0Tt\_7tiJ0X-FiYySg.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*Cp1WU0Tt_7tiJ0X-FiYySg.png" width="700" height="337" srcSet="https://miro.medium.com/max/552/1*Cp1WU0Tt_7tiJ0X-FiYySg.png 276w, https://miro.medium.com/max/1104/1*Cp1WU0Tt_7tiJ0X-FiYySg.png 552w, https://miro.medium.com/max/1280/1*Cp1WU0Tt_7tiJ0X-FiYySg.png 640w, https://miro.medium.com/max/1400/1*Cp1WU0Tt_7tiJ0X-FiYySg.png 700w" sizes="700px" role="presentation"/>
 
 You would run this file using:
 
 ```
-mix run .\\priv\\repo\\five\_blog\_posts.exs
+mix run .\\priv\\repo\\five_blog_posts.exs
 ```
 
 Realistic fake data using Faker.
@@ -106,11 +93,11 @@ Realistic fake data using Faker.
 
 Faker recommends you only have the faker module in the test environment. However, since we’re seeding data for dev testing, you may also want to have it for the dev environment.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*PnCvgVleo30CukYO4ELFmQ.png" width="700" height="535" srcSet="https://miro.medium.com/max/552/1\*PnCvgVleo30CukYO4ELFmQ.png 276w, https://miro.medium.com/max/1104/1\*PnCvgVleo30CukYO4ELFmQ.png 552w, https://miro.medium.com/max/1280/1\*PnCvgVleo30CukYO4ELFmQ.png 640w, https://miro.medium.com/max/1400/1\*PnCvgVleo30CukYO4ELFmQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*PnCvgVleo30CukYO4ELFmQ.png" width="700" height="535" srcSet="https://miro.medium.com/max/552/1*PnCvgVleo30CukYO4ELFmQ.png 276w, https://miro.medium.com/max/1104/1*PnCvgVleo30CukYO4ELFmQ.png 552w, https://miro.medium.com/max/1280/1*PnCvgVleo30CukYO4ELFmQ.png 640w, https://miro.medium.com/max/1400/1*PnCvgVleo30CukYO4ELFmQ.png 700w" sizes="700px" role="presentation"/>
 
-The installation steps on Faker likely also say to add `Faker.start()` to your test\_helper file.
+The installation steps on Faker likely also say to add `Faker.start()` to your test_helper file.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1226/1\*px--9Jzqbiuc-wnuxZGIAQ.png" width="613" height="226" srcSet="https://miro.medium.com/max/552/1\*px--9Jzqbiuc-wnuxZGIAQ.png 276w, https://miro.medium.com/max/1104/1\*px--9Jzqbiuc-wnuxZGIAQ.png 552w, https://miro.medium.com/max/1226/1\*px--9Jzqbiuc-wnuxZGIAQ.png 613w" sizes="613px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1226/1*px--9Jzqbiuc-wnuxZGIAQ.png" width="613" height="226" srcSet="https://miro.medium.com/max/552/1*px--9Jzqbiuc-wnuxZGIAQ.png 276w, https://miro.medium.com/max/1104/1*px--9Jzqbiuc-wnuxZGIAQ.png 552w, https://miro.medium.com/max/1226/1*px--9Jzqbiuc-wnuxZGIAQ.png 613w" sizes="613px" role="presentation"/>
 
 Make sure the faker dependency is installed by running `mix deps.get.`
 
@@ -139,7 +126,7 @@ Lorem.paragraphs(5..10) |> Enum.join("\\n")
 
 You could use this to improve the `five_blog_posts.exs` seed file from before.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*9aHnGVcxxKHnDe4VqvZmLQ.png" width="700" height="331" srcSet="https://miro.medium.com/max/552/1\*9aHnGVcxxKHnDe4VqvZmLQ.png 276w, https://miro.medium.com/max/1104/1\*9aHnGVcxxKHnDe4VqvZmLQ.png 552w, https://miro.medium.com/max/1280/1\*9aHnGVcxxKHnDe4VqvZmLQ.png 640w, https://miro.medium.com/max/1400/1\*9aHnGVcxxKHnDe4VqvZmLQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*9aHnGVcxxKHnDe4VqvZmLQ.png" width="700" height="331" srcSet="https://miro.medium.com/max/552/1*9aHnGVcxxKHnDe4VqvZmLQ.png 276w, https://miro.medium.com/max/1104/1*9aHnGVcxxKHnDe4VqvZmLQ.png 552w, https://miro.medium.com/max/1280/1*9aHnGVcxxKHnDe4VqvZmLQ.png 640w, https://miro.medium.com/max/1400/1*9aHnGVcxxKHnDe4VqvZmLQ.png 700w" sizes="700px" role="presentation"/>
 
 Faker Person
 ------------
@@ -147,8 +134,8 @@ Faker Person
 Generate names for a person
 
 ```
-alias Faker.PersonPerson.first\_name() "Elizabeth"  
-Person.last\_name() "Hayes"  
+alias Faker.PersonPerson.first_name() "Elizabeth"  
+Person.last_name() "Hayes"  
 Person.name() "Mr. Bianka Ryan"  
 Faker.Person.prefix() "Mr."  
 Faker.Person.title() "Dynamic Identity Administrator"
@@ -173,9 +160,9 @@ Generate internet-related data such as emails, images, links, usernames, and IP 
 
 ```
 Faker.Internet.email() "elizabeth2056@rolfson.net"  
-Faker.Internet.image\_url() "https://placehold.it/936x936"  
+Faker.Internet.image_url() "https://placehold.it/936x936"  
 Faker.Internet.url() "http://sipes.com"  
-Faker.Internet.user\_name() "elizabeth2056"
+Faker.Internet.user_name() "elizabeth2056"
 ```
 
 Custom test fixtures modules and test fixture functions
@@ -191,26 +178,26 @@ mix phx.gen.html Posts Post posts title:string content:text
 
 A file will be generated that looks something like this.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*v0yheWefwAE9llzPz8HhLQ.png" width="700" height="520" srcSet="https://miro.medium.com/max/552/1\*v0yheWefwAE9llzPz8HhLQ.png 276w, https://miro.medium.com/max/1104/1\*v0yheWefwAE9llzPz8HhLQ.png 552w, https://miro.medium.com/max/1280/1\*v0yheWefwAE9llzPz8HhLQ.png 640w, https://miro.medium.com/max/1400/1\*v0yheWefwAE9llzPz8HhLQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*v0yheWefwAE9llzPz8HhLQ.png" width="700" height="520" srcSet="https://miro.medium.com/max/552/1*v0yheWefwAE9llzPz8HhLQ.png 276w, https://miro.medium.com/max/1104/1*v0yheWefwAE9llzPz8HhLQ.png 552w, https://miro.medium.com/max/1280/1*v0yheWefwAE9llzPz8HhLQ.png 640w, https://miro.medium.com/max/1400/1*v0yheWefwAE9llzPz8HhLQ.png 700w" sizes="700px" role="presentation"/>
 
 Test fixture functions are a great way to create some data for tests local to the same test file.
 
-the `post_fixture` function creates a post so that you can test the Posts.list\_posts() function. Even better, the data is only created for this test and not others. So there are no side effects on other tests causing hard to debug test interaction.
+the `post_fixture` function creates a post so that you can test the Posts.list_posts() function. Even better, the data is only created for this test and not others. So there are no side effects on other tests causing hard to debug test interaction.
 
 Reusing test fixture functions
 ------------------------------
 
-This is great, but what if you have another test file that needs the post\_fixture?
+This is great, but what if you have another test file that needs the post_fixture?
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*-T3yEvKn5iaWMChfEU4EiA.png" width="700" height="263" srcSet="https://miro.medium.com/max/552/1\*-T3yEvKn5iaWMChfEU4EiA.png 276w, https://miro.medium.com/max/1104/1\*-T3yEvKn5iaWMChfEU4EiA.png 552w, https://miro.medium.com/max/1280/1\*-T3yEvKn5iaWMChfEU4EiA.png 640w, https://miro.medium.com/max/1400/1\*-T3yEvKn5iaWMChfEU4EiA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*-T3yEvKn5iaWMChfEU4EiA.png" width="700" height="263" srcSet="https://miro.medium.com/max/552/1*-T3yEvKn5iaWMChfEU4EiA.png 276w, https://miro.medium.com/max/1104/1*-T3yEvKn5iaWMChfEU4EiA.png 552w, https://miro.medium.com/max/1280/1*-T3yEvKn5iaWMChfEU4EiA.png 640w, https://miro.medium.com/max/1400/1*-T3yEvKn5iaWMChfEU4EiA.png 700w" sizes="700px" role="presentation"/>
 
 Rewriting this would be a lot of duplication! A simple way to reuse test fixture functions is to move them to a single test fixture module that you can `use` in your test file.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*g832UkIXbs8mCgYwD9wUkA.png" width="700" height="404" srcSet="https://miro.medium.com/max/552/1\*g832UkIXbs8mCgYwD9wUkA.png 276w, https://miro.medium.com/max/1104/1\*g832UkIXbs8mCgYwD9wUkA.png 552w, https://miro.medium.com/max/1280/1\*g832UkIXbs8mCgYwD9wUkA.png 640w, https://miro.medium.com/max/1400/1\*g832UkIXbs8mCgYwD9wUkA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*g832UkIXbs8mCgYwD9wUkA.png" width="700" height="404" srcSet="https://miro.medium.com/max/552/1*g832UkIXbs8mCgYwD9wUkA.png 276w, https://miro.medium.com/max/1104/1*g832UkIXbs8mCgYwD9wUkA.png 552w, https://miro.medium.com/max/1280/1*g832UkIXbs8mCgYwD9wUkA.png 640w, https://miro.medium.com/max/1400/1*g832UkIXbs8mCgYwD9wUkA.png 700w" sizes="700px" role="presentation"/>
 
 Then `use` the PostsFixture in any files where you want to access the `@valid_attrs, @update_attrs, or @invalid_attrs` values or the `post_fixture` function.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/978/1\*3tvjpEtQVRHZsKVwJ34qng.png" width="489" height="322" srcSet="https://miro.medium.com/max/552/1\*3tvjpEtQVRHZsKVwJ34qng.png 276w, https://miro.medium.com/max/978/1\*3tvjpEtQVRHZsKVwJ34qng.png 489w" sizes="489px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/978/1*3tvjpEtQVRHZsKVwJ34qng.png" width="489" height="322" srcSet="https://miro.medium.com/max/552/1*3tvjpEtQVRHZsKVwJ34qng.png 276w, https://miro.medium.com/max/978/1*3tvjpEtQVRHZsKVwJ34qng.png 489w" sizes="489px" role="presentation"/>
 
 For an explanation on `use` and `__using__` check out [Elixir Schools’ lesson](https://elixirschool.com/en/lessons/basics/modules/#use).
 
@@ -239,7 +226,7 @@ Ex Machina factory functions
 The factory module contains factory functions which must end in `_factory` due to how Ex Machina works under the hood.
 
 ```
-def post\_factory do  
+def post_factory do  
     %Post{  
       title: Example Title,  
       content: "Example Content"  
@@ -251,9 +238,9 @@ Factory functions can also be derived from other factory functions using `struct
 
 ```
 \# derived factory  
-  def long\_post\_factory do  
+  def long_post_factory do  
     struct!(  
-      post\_factory(),  
+      post_factory(),  
       %{  
         content: Faker.Lorem.paragraphs(5..10) |> Enum.join("\\n")  
       }  
@@ -286,11 +273,11 @@ In your test or seed files, these factory functions can be used with the `insert
 
 ```
 insert(:post) #  inserts  %Blog.Posts.Post{  
-                \_\_meta\_\_: #Ecto.Schema.Metadata<:built,"posts">,  
+                __meta__: #Ecto.Schema.Metadata<:built,"posts">,  
                 title: "Example Title0",  
                 content: "Example Content0",  
-                inserted\_at: nil,  
-                updated\_at: nil  
+                inserted_at: nil,  
+                updated_at: nil  
               } into the database
 ```
 
@@ -304,14 +291,14 @@ Defining the factory
 
 Notice that `sequence` can take a list of any value you want. In this case, I’m using Faker and `sequence` to cycle between long, medium, and short content.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*9VPuYqv0MJxAIZFId-mqDA.png" width="700" height="664" srcSet="https://miro.medium.com/max/552/1\*9VPuYqv0MJxAIZFId-mqDA.png 276w, https://miro.medium.com/max/1104/1\*9VPuYqv0MJxAIZFId-mqDA.png 552w, https://miro.medium.com/max/1280/1\*9VPuYqv0MJxAIZFId-mqDA.png 640w, https://miro.medium.com/max/1400/1\*9VPuYqv0MJxAIZFId-mqDA.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*9VPuYqv0MJxAIZFId-mqDA.png" width="700" height="664" srcSet="https://miro.medium.com/max/552/1*9VPuYqv0MJxAIZFId-mqDA.png 276w, https://miro.medium.com/max/1104/1*9VPuYqv0MJxAIZFId-mqDA.png 552w, https://miro.medium.com/max/1280/1*9VPuYqv0MJxAIZFId-mqDA.png 640w, https://miro.medium.com/max/1400/1*9VPuYqv0MJxAIZFId-mqDA.png 700w" sizes="700px" role="presentation"/>
 
 Create a test with the factory
 ------------------------------
 
 Import the factory into your test file to gain access to the `insert` function provided by Ex Machina.
 
-<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1\*wqW2G8TGO9ogNclGjTAYUQ.png" width="700" height="429" srcSet="https://miro.medium.com/max/552/1\*wqW2G8TGO9ogNclGjTAYUQ.png 276w, https://miro.medium.com/max/1104/1\*wqW2G8TGO9ogNclGjTAYUQ.png 552w, https://miro.medium.com/max/1280/1\*wqW2G8TGO9ogNclGjTAYUQ.png 640w, https://miro.medium.com/max/1400/1\*wqW2G8TGO9ogNclGjTAYUQ.png 700w" sizes="700px" role="presentation"/>
+<img alt="" class="t u v km aj" src="https://miro.medium.com/max/1400/1*wqW2G8TGO9ogNclGjTAYUQ.png" width="700" height="429" srcSet="https://miro.medium.com/max/552/1*wqW2G8TGO9ogNclGjTAYUQ.png 276w, https://miro.medium.com/max/1104/1*wqW2G8TGO9ogNclGjTAYUQ.png 552w, https://miro.medium.com/max/1280/1*wqW2G8TGO9ogNclGjTAYUQ.png 640w, https://miro.medium.com/max/1400/1*wqW2G8TGO9ogNclGjTAYUQ.png 700w" sizes="700px" role="presentation"/>
 
 Conclusion
 ==========

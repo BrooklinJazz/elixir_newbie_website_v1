@@ -6,27 +6,6 @@
 }
 ---
 
-
-
-From Elixir Newbie to Elixir Developer: Create Your Learning Path.
-==================================================================
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----9e88c3fd1033-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----9e88c3fd1033-----------------------------------)[
-
-Sep 20·4 min read
-
-](https://medium.com/from-elixir-newbie-to-elixir-developer-create-your-learning-path-9e88c3fd1033?source=post_page-----9e88c3fd1033-----------------------------------)
-
-The Steps to Take to Become an Employable Elixir Developer.
-
-![](https://miro.medium.com/max/1400/1*MZDuzME9ojFR86-WAv_UuA.jpeg)Photo by [Stephen Leonardi](https://unsplash.com/@stephenleo1982?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/path?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
 Your Elixir Learning Path.
 ==========================
 
@@ -47,7 +26,7 @@ Learn Basic Elixir Syntax.
 
 The basics section has more than enough information to get you started.
 
-I also wrote a brief primer for Elixir: [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://medium.com/geekculture/the-20-of-elixir-syntax-you-need-to-read-80-of-elixir-code-30d827eab939)
+I also wrote a brief primer for Elixir: [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://elixirnewbie.com/blog/from-elixir-newbie-to-elixir-developer-create-your-learning-path)
 
 For a gentler introduction to Elixir, you may also consider the [Joy Of Elixir](https://joyofelixir.com/toc.html) online book.
 
@@ -86,9 +65,9 @@ Here’s a quick summary of the concepts you should try to make sure you underst
 *   [**Routing**](https://hexdocs.pm/phoenix/routing.html#content)**:** How to route incoming requests to the controller responsible for handling them.
 *   [**Controllers**](https://hexdocs.pm/phoenix/controllers.html#content)**:** Modules whose functions are called by the router in response to incoming requests.
 *   [**Views and Templates**](https://hexdocs.pm/phoenix/views.html#content)**:** Views render the body of the response to be sent back to the client. Templates build the body for the view to render.
-*   [**Ecto**](https://hexdocs.pm/phoenix/ecto.html#content)**:** Handles data validation and persistence in Elixir and Phoenix applications. For a brief guide on Ecto, you can read my summary [Ecto with Phoenix in 4 Minutes](https://medium.com/ecto-with-phoenix-in-4-minutes-9b7c447055c6).
+*   [**Ecto**](https://hexdocs.pm/phoenix/ecto.html#content)**:** Handles data validation and persistence in Elixir and Phoenix applications. For a brief guide on Ecto, you can read my summary [Ecto with Phoenix in 4 Minutes](https://www.elixirnewbie.com/blog/ecto-with-phoenix-in-4-minutes).
 *   [**Testing**](https://hexdocs.pm/phoenix/testing.html)**:** Write automated tests for the modules in your application.
-*   [**Debugging**](https://medium.com/geekculture/debugging-phoenix-and-elixir-applications-in-visual-studio-code-5f1b63a6713b): How to debug your Phoenix/Elixir application.
+*   [**Debugging**](https://www.elixirnewbie.com/blog/debugging-phoenix-and-elixir-applications-in-visual-studio-code): How to debug your Phoenix/Elixir application.
 *   [**HTML**](https://www.w3schools.com/html/html_intro.asp): The standard markup for creating web pages.
 *   [**CSS**](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)**/**[**SCSS**](https://sass-lang.com/guide): Learn how to style your HTML elements.
 

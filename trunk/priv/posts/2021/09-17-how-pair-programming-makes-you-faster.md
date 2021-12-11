@@ -6,27 +6,6 @@
 }
 ---
 
-
-How Pair Programming Makes You Faster.
-======================================
-
-When You Optimize For Thinking Speed, Then 1 + 1 = 3.
------------------------------------------------------
-
-[
-
-![Brooklin Myers](https://miro.medium.com/fit/c/56/56/1*BUQjkoiWYRl5s66QruO7Qg.jpeg)](https://medium.com/?source=post_page-----bd85dc958a47-----------------------------------)[
-
-Brooklin Myers
-
-](https://medium.com/?source=post_page-----bd85dc958a47-----------------------------------)[
-
-Sep 17·4 min read
-
-](https://medium.com/how-pair-programming-makes-you-faster-bd85dc958a47?source=post_page-----bd85dc958a47-----------------------------------)
-
-![](https://miro.medium.com/max/1400/1*4B7r0JH-jf3kgqugh92u9Q.jpeg)Photo by [Saiph Muhammad](https://unsplash.com/@saiph?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/holding-hands?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
 Pairing is the process of creating software collaboratively. It’s usually done between 2 developers though other forms of it involve more people.
 
 Typically one person will be the navigator, and the other person will be the driver.
@@ -36,7 +15,7 @@ The Driver.
 
 The driver is the person who controls the keyboard. The driver worries about the trees, not the forest. They wrote the code and worry about the specific implementation details.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*AJXMH18bhEAitxqsW3puxA.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*AJXMH18bhEAitxqsW3puxA.jpeg 276w, https://miro.medium.com/max/1104/1\*AJXMH18bhEAitxqsW3puxA.jpeg 552w, https://miro.medium.com/max/1280/1\*AJXMH18bhEAitxqsW3puxA.jpeg 640w, https://miro.medium.com/max/1400/1\*AJXMH18bhEAitxqsW3puxA.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*AJXMH18bhEAitxqsW3puxA.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1*AJXMH18bhEAitxqsW3puxA.jpeg 276w, https://miro.medium.com/max/1104/1*AJXMH18bhEAitxqsW3puxA.jpeg 552w, https://miro.medium.com/max/1280/1*AJXMH18bhEAitxqsW3puxA.jpeg 640w, https://miro.medium.com/max/1400/1*AJXMH18bhEAitxqsW3puxA.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [why kei](https://unsplash.com/@whykei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/driver?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -45,7 +24,7 @@ The Navigator
 
 The navigator is the person who provides suggestions and instructions to create the code. The navigator worries about the forest, not the trees. They handle the big picture. They have the luxury of sitting back and thinking about the codebase as a whole without the tendency to get tunnel vision on details.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*rv9kadG6E2Mgx3Os4kQNfQ.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 276w, https://miro.medium.com/max/1104/1\*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 552w, https://miro.medium.com/max/1280/1\*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 640w, https://miro.medium.com/max/1400/1\*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*rv9kadG6E2Mgx3Os4kQNfQ.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 276w, https://miro.medium.com/max/1104/1*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 552w, https://miro.medium.com/max/1280/1*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 640w, https://miro.medium.com/max/1400/1*rv9kadG6E2Mgx3Os4kQNfQ.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [Tabea Damm](https://unsplash.com/@tabeadamm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -58,7 +37,7 @@ In a world moving towards remote work, staying connected and avoiding feeling se
 
 Rather than only communicating during meetings or code reviews, you communicate all the time. It’s built-in team building.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1\*6tZ9qha4HcQm-PzIo0iO\_A.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1\*6tZ9qha4HcQm-PzIo0iO\_A.jpeg 276w, https://miro.medium.com/max/1104/1\*6tZ9qha4HcQm-PzIo0iO\_A.jpeg 552w, https://miro.medium.com/max/1280/1\*6tZ9qha4HcQm-PzIo0iO\_A.jpeg 640w, https://miro.medium.com/max/1400/1\*6tZ9qha4HcQm-PzIo0iO\_A.jpeg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/1*6tZ9qha4HcQm-PzIo0iO_A.jpeg" width="700" height="467" srcSet="https://miro.medium.com/max/552/1*6tZ9qha4HcQm-PzIo0iO_A.jpeg 276w, https://miro.medium.com/max/1104/1*6tZ9qha4HcQm-PzIo0iO_A.jpeg 552w, https://miro.medium.com/max/1280/1*6tZ9qha4HcQm-PzIo0iO_A.jpeg 640w, https://miro.medium.com/max/1400/1*6tZ9qha4HcQm-PzIo0iO_A.jpeg 700w" sizes="700px" role="presentation"/>
 
 Photo by [Priscilla Du Preez](https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/connected-team?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -67,11 +46,11 @@ Pairing Spreads Knowledge on the Team.
 
 Team standards don’t need to be written in a design document when you discuss them every day.
 
-In a pair programming session today, we talked about [testing standards and the 3A’s of testing (Arrange, Act, Assert)](https://medium.com/readable-test-code-matters-e46cc5c411bb), readable code, [debugging](https://medium.com/geekculture/debugging-phoenix-and-elixir-applications-in-visual-studio-code-5f1b63a6713b), and test-driven development. I didn’t know these concepts early in my career, and it took a long time to pick up. While the developer I was pairing with got to learn them in a day. In addition, Thanks to my pair partner, I learned about testing Phoenix Live Views and got a better understanding of the business logic in our application.
+In a pair programming session today, we talked about [testing standards and the 3A’s of testing (Arrange, Act, Assert)](https://www.elixirnewbie.com/blog/readable-test-code-matters), readable code, [debugging](https://www.elixirnewbie.com/blog/debugging-phoenix-and-elixir-applications-in-visual-studio-code), and test-driven development. I didn’t know these concepts early in my career, and it took a long time to pick up. While the developer I was pairing with got to learn them in a day. In addition, Thanks to my pair partner, I learned about testing Phoenix Live Views and got a better understanding of the business logic in our application.
 
 You become a better communicator. You learn to talk about code and talk through complex ideas by practicing regularly. You learn how to teach others, and by teaching others, you learn a lot more yourself.
 
-<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/0\*a1szcBjLv2hKLPwJ.jpg" width="700" height="467" srcSet="https://miro.medium.com/max/552/0\*a1szcBjLv2hKLPwJ.jpg 276w, https://miro.medium.com/max/1104/0\*a1szcBjLv2hKLPwJ.jpg 552w, https://miro.medium.com/max/1280/0\*a1szcBjLv2hKLPwJ.jpg 640w, https://miro.medium.com/max/1400/0\*a1szcBjLv2hKLPwJ.jpg 700w" sizes="700px" role="presentation"/>
+<img alt="" class="ef es eo ex w" src="https://miro.medium.com/max/1400/0*a1szcBjLv2hKLPwJ.jpg" width="700" height="467" srcSet="https://miro.medium.com/max/552/0*a1szcBjLv2hKLPwJ.jpg 276w, https://miro.medium.com/max/1104/0*a1szcBjLv2hKLPwJ.jpg 552w, https://miro.medium.com/max/1280/0*a1szcBjLv2hKLPwJ.jpg 640w, https://miro.medium.com/max/1400/0*a1szcBjLv2hKLPwJ.jpg 700w" sizes="700px" role="presentation"/>
 
 I’m sorry I couldn’t resist.
 
