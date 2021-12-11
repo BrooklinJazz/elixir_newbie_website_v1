@@ -2,7 +2,7 @@
   title: "The 20% of Elixir syntax you need to read 80% of Elixir code.",
   tags: ~w(elixir),
   description: "A quick cheat sheet of the most common elixir syntax",
-  cover_image: "https://images.pexels.com/photos/12838/pexels-photo-12838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  cover_image: "06-08-the_elixir_syntax_you_need.jpeg"
 }
 ---
 
