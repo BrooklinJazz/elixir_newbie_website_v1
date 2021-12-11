@@ -26,7 +26,7 @@ You will learn how to:
 *   configure mix commands
 *   use convenient code editor extensions
 
-Assuming you already have a phoenix project [up and running](https://hexdocs.pm/phoenix/up_and_running.html)
+Assuming you already have a phoenix project up and running (if you don’t, you can [read my article](https://www.elixirnewbie.com/blog/elixir-phoenix-v1.5.9-getting-started-on-windows-10) or [read the docs](https://hexdocs.pm/phoenix/up_and_running.html))
 
 You should be able to run your tests with `mix.test` in your command line and see something like:
 
