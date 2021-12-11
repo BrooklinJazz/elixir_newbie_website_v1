@@ -31,7 +31,7 @@ The three common elements are:
 
 Here’s an example:
 
-```
+```elixir
 test "User.signIn _ user is already signed in _ redirect to home"
 ```
 
@@ -48,7 +48,7 @@ The important piece to remember is not following a particular standard. Instead,
 
 For the test above.
 
-```
+```elixir
 test "User.signIn _ user is already signed in _ redirect to home"
 ```
 
@@ -114,7 +114,7 @@ Names Change
 
 Tests can become out of date is due to renaming. Here’s some pseudo-code to illustrate renaming a method from `login` to `signin` and a class from `UserClass` to `AuthClass`.
 
-```
+```elixir
 test "UserClass.login _ renders log in page"  
    AuthClass.signin()  
    assert current_route === "/login"
@@ -135,7 +135,7 @@ When the behavior of your test changes, you need to make sure the name reflects 
 
 Take the example where we redirect an already signed-in user to home.
 
-```
+```elixir
 test "User.signIn _ user is already signed in _ redirect to home"  
    UserClass.signin()  
    assert current_route === "/"
@@ -143,7 +143,7 @@ test "User.signIn _ user is already signed in _ redirect to home"
 
 But now, instead of sending the user back to the home page, you want to send them to a page where they can sign in with a different account.
 
-```
+```elixir
 # "redirect to home" should be "log in as different account"  
 test "User.signIn _ user is already signed in _ redirect to home"  
    UserClass.signin()  
@@ -164,7 +164,7 @@ You may choose to use a pattern that doesn’t include the expected behavior in 
 
 Take the scenario where a user who already signed in should be redirected to the home page.
 
-```
+```elixir
 test "UserClass.signin _ user already signed in"  
    UserClass.signin()  
    expectRedirectedToHome()
@@ -172,7 +172,7 @@ test "UserClass.signin _ user already signed in"
 
 Now if the behavior changes, you change the expectRedirectedToHome() method into expectRedirectedToChooseAnotherAccount()
 
-```
+```elixir
 test "UserClass.signin _ user already signed in"  
    UserClass.signin()  
    expectRedirectedToChooseAnotherAccount()

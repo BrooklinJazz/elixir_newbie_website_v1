@@ -84,7 +84,7 @@ Phoenix Real-time Infrastructure
 
 When you generate a new phoenix project
 
-```
+```elixir
 mix phx.new app
 ```
 

@@ -36,13 +36,13 @@ Use Mix to Find Your Slowest Tests.
 
 You can run your tests and return a list of your N slowest tests, where N is the number of tests you want to display.
 
-```
+```elixir
 mix test --slowest N
 ```
 
 For example, if you wanted a top 100 list of slowest tests in your project listed from slowest to fastest, you can run:
 
-```
+```elixir
 mix test --slowest 100
 ```
 
@@ -66,7 +66,7 @@ Exclude Expensive Tests
 
 By tagging your tests, you have control over which tests you want to run. For example, you can exclude the expensive tests by using the `--exclude` flag.
 
-```
+```elixir
 mix test --exclude="expensive"
 ```
 

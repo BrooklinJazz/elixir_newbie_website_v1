@@ -38,13 +38,13 @@ Notice the `Repo.delete_all(Post)` line. Unless you want the seed file to re-cre
 
 You can run the seed file using:
 
-```
+```elixir
 mix run priv/repo/seeds.exs
 ```
 
 Make you are in the correct environment when running your seed data.
 
-```
+```elixir
 \# on mac or linux:  
 MIX_ENV="test" mix run priv/repo/seeds.exs # for test env  
 MIX_ENV="dev" mix run priv/repo/seeds.exs # for dev env\# On windows you'll have to set the env first using either: $env:MIX_ENV="test"  
@@ -76,7 +76,7 @@ There's nothing special about the `seed.exs` file so that you can make other see
 
 You would run this file using:
 
-```
+```elixir
 mix run .\\priv\\repo\\five_blog_posts.exs
 ```
 
@@ -87,7 +87,7 @@ Realistic fake data using Faker.
 
 *   Install [Faker](https://github.com/elixirs/faker): likely you’ll have to add an up-to-date version of the following in your mix dependencies:
 
-```
+```elixir
 {:faker, "~> 0.16", only: :test}
 ```
 
@@ -133,7 +133,7 @@ Faker Person
 
 Generate names for a person
 
-```
+```elixir
 alias Faker.PersonPerson.first_name() "Elizabeth"  
 Person.last_name() "Hayes"  
 Person.name() "Mr. Bianka Ryan"  
@@ -158,7 +158,7 @@ Faker Internet
 
 Generate internet-related data such as emails, images, links, usernames, and IP addresses
 
-```
+```elixir
 Faker.Internet.email() "elizabeth2056@rolfson.net"  
 Faker.Internet.image_url() "https://placehold.it/936x936"  
 Faker.Internet.url() "http://sipes.com"  
@@ -172,7 +172,7 @@ When you first create a phoenix context, you are provided with test fixture func
 
 For example, when you run:
 
-```
+```elixir
 mix phx.gen.html Posts Post posts title:string content:text
 ```
 
@@ -214,7 +214,7 @@ Ex Machina factory module
 Once you have Ex Machina installed, you’ll want to set up a factory module.  
 the factory module will `use` the ExMachina module.
 
-```
+```elixir
 defmodule Blog.Factory do  
      use ExMachina.Ecto, repo: Blog.Repo  
 end
@@ -225,7 +225,7 @@ Ex Machina factory functions
 
 The factory module contains factory functions which must end in `_factory` due to how Ex Machina works under the hood.
 
-```
+```elixir
 def post_factory do  
     %Post{  
       title: Example Title,  
@@ -236,7 +236,7 @@ end
 
 Factory functions can also be derived from other factory functions using `struct!`
 
-```
+```elixir
 \# derived factory  
   def long_post_factory do  
     struct!(  
@@ -253,14 +253,14 @@ Sequence
 
 Ex Machina provides the `sequence` function to increment the string or list you provide every time you call a factory function.
 
-```
+```elixir
 sequence("Name") # Name0  
 sequence("Name") # Name1
 ```
 
 `sequence` can also be called with an atom and a list to cycle through a list of values.
 
-```
+```elixir
 sequence(:role, \["admin", "member", "superuser"\]) # admin  
 sequence(:role, \["admin", "member", "superuser"\]) # member  
 sequence(:role, \["admin", "member", "superuser"\]) # superuser
@@ -271,7 +271,7 @@ Insert
 
 In your test or seed files, these factory functions can be used with the `insert` functions provided by Ex Machina. `insert` takes an atom as an argument. The atom should match the function name before `_factory` . For example, `post_factory` is used with `:post`.
 
-```
+```elixir
 insert(:post) #  inserts  %Blog.Posts.Post{  
                 __meta__: #Ecto.Schema.Metadata<:built,"posts">,  
                 title: "Example Title0",  

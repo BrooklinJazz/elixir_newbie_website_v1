@@ -110,7 +110,7 @@ However, an argument against using test fixtures is that it hides the important 
 
 For example, pretend you want to test that you cannot fetch data for a deleted user. The Test Fixture would look something like this:
 
-```
+```elixir
 user = TestFixture.signUp()  
 TestFixture.deleteUser(user)  
 expectUnauthorized(getUserInfo(user))
@@ -118,7 +118,7 @@ expectUnauthorized(getUserInfo(user))
 
 And the Factory would look something like this:
 
-```
+```elixir
 user = Factory.insert(:user, %{state: "deleted"})  
 expectUnauthorized(getUserInfo(user))
 ```

@@ -15,7 +15,7 @@ What is a Factory?
 
 Factories in Elixir are modules that handle inserting data into your database. They can also be responsible for handling the generation of any test-related data. [Ex Machina](https://github.com/thoughtbot/ex_machina) is a popular library for creating factories. However, you can also build your own from scratch.
 
-This article assumes you have some knowledge of testing Phoenix and/or Elixir with a Factory. If you want a brief overview of factories in Elixir, I wrote about [factories and other methods of seeding data in phoenix.](https://medium.com/geekculture/phoenix-understanding-how-to-seed-data-c2be863ddd1d)
+This article assumes you have some knowledge of testing Phoenix and/or Elixir with a Factory. If you want a brief overview of factories in Elixir, I wrote about [factories and other methods of seeding data in phoenix.](https://www.elixirnewbie.com/blog/phoenix-understanding-how-to-seed-data)
 
 What is centralized data creation?
 ==================================

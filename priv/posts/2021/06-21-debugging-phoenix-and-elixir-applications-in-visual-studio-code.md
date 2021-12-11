@@ -20,7 +20,7 @@ IO.puts
 
 IO.puts is used for simple, readable values which implement the String.Chars protocol. This includes integers, strings, and atoms.
 
-```
+```elixir
 iex(1)> IO.puts("example string")  
 example string  
 :ok  
@@ -34,7 +34,7 @@ iex(3)> IO.puts(2)
 
 IO.puts will crash if you give it something like a tuple.
 
-```
+```elixir
 iex(1)> IO.puts({1, 2, 3})   
 ** (Protocol.UndefinedError) protocol String.Chars not implemented for {1, 2, 3} of type Tuple  
     (elixir 1.11.2) lib/string/chars.ex:3: String.Chars.impl_for!/1  
@@ -44,7 +44,7 @@ iex(1)> IO.puts({1, 2, 3})
 
 IO.puts can also give weird values for lists because it’s not converting elixir’s internal representation of the value back into something human-readable.
 
-```
+```elixir
 iex(1)> IO.puts \[1, 2, 3\]                  
 ☺☻♥  
 :ok
@@ -55,7 +55,7 @@ IO.inspect
 
 IO.inspect knows how to print all data structures, including lists, structs, tuples, and maps.
 
-```
+```elixir
 iex(1)> IO.inspect(\[1,2,3\])   
 \[1, 2, 3\]  
 \[1, 2, 3\]iex(2)> IO.inspect({1,2,3})   
@@ -99,19 +99,19 @@ Debugging using IEX
 
 to run your Elixir project in the Interactive Elixir shell, run:
 
-```
+```elixir
 iex -S mix
 ```
 
 To run your tests in an Elixir or Phoenix project in the Elixir Interactive shell run:
 
-```
+```elixir
 iex -S mix test
 ```
 
 To run your Phoenix app in the Elixir Interactive shell, you can run:
 
-```
+```elixir
 iex -S mix phoenix.server
 ```
 
