@@ -19,13 +19,13 @@ Here’s an example of a Blog Post schema using Ecto.Schema:
 
 You can create the same schema by making a new phoenix project through the mix terminal command.
 
-```
+```elixir
 mix phx.new projectname
 ```
 
 Then create a post model using the mix phoenix generator:
 
-```
+```elixir
 mix phx.gen.html Blog Post posts title:string content:text.
 ```
 

@@ -73,7 +73,7 @@ Here’s a quick summary of the concepts you should try to make sure you underst
 
 Once you have a basic understanding of these fundamental Phoenix concepts, you’ll want to apply the concepts by creating your own side projects.
 
-For more thoughts on how to pick a good side project, I wrote an article on [how to pick your next side project](https://medium.com/how-to-pick-your-next-side-project-567b2688cd6f).
+For more thoughts on how to pick a good side project, I wrote an article on [how to pick your next side project](https://www.elixirnewbie.com/blog/how-to-pick-your-next-side-project).
 
 Going Beyond.
 =============
