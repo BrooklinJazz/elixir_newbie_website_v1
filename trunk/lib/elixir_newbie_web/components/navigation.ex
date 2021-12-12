@@ -7,6 +7,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
+  alias ElixirNewbieWeb.Live.Components.Icon
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Surface.Components.LiveRedirect
@@ -47,7 +48,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
           <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
           <> " hidden md:block "
         }>
-          <i class="text-3xl fab fa-twitter"/>
+          <Icon icon={:twitter}/>
         </a>
       <a
         href="https://www.linkedin.com/in/brooklinmyers/"
@@ -57,7 +58,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
           <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin"
           <> " hidden md:block "
         }>
-          <i class="text-3xl fab fa-linkedin-in"/>
+          <Icon icon={:linkedin}/>
         </a>
         <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
     </nav>
