@@ -71,7 +71,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
-       highlighted_episodes: Enum.take(Podcast.get(), 5),
+       highlighted_episodes: Enum.take(Podcast.all_episodes(), 5),
        highlighted_blogs: Enum.take(Blog.all_posts(), 5)
      )}
   end
