@@ -21,12 +21,13 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
         :on-click={@click}
         data-value={@value}
         class={
-        "text-2xl text-white w-max-content items-center flex ",
+        "text-2xl text-white w-max-content items-center flex group ",
         @class,
         "flex flex-row-reverse": @reverse,
         }>
         <span class={
           "flex items-center justify-center w-16 h-16",
+          "transition duration-300 ease-in-out transform group-hover:scale-110 group-hover:opacity-50",
           @container_class,
           "border-2 border-white rounded-full": @rounded,
           "mr-8": !@reverse,
