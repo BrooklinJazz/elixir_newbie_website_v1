@@ -11,7 +11,6 @@ defmodule ElixirNewbie.Podcast do
 
   def all_episodes(server \\ __MODULE__, filters \\ []) do
     episodes = GenServer.call(server, {:get})
-    IO.inspect(filters)
 
     Enum.reduce(filters, episodes, fn
       {:season_number, season_number}, acc ->
