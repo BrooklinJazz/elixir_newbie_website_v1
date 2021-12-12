@@ -36,8 +36,6 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
     ]
   ]
 
-config :elixir_newbie,
-  display_drafts: true
 
 # ## SSL Support
 #
