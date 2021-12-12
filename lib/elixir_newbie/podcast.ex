@@ -9,8 +9,23 @@ defmodule ElixirNewbie.Podcast do
 
   @hydrate_interval 1000 * 60 * 5
 
-  def get(server \\ __MODULE__) do
-    GenServer.call(server, {:get})
+  def all_episodes(server \\ __MODULE__, filters \\ []) do
+    episodes = GenServer.call(server, {:get})
+    IO.inspect(filters)
+
+    Enum.reduce(filters, episodes, fn
+      {:season_number, season_number}, acc ->
+        Enum.filter(acc, &(&1.season_number === season_number))
+
+      {:order, order}, acc ->
+        Enum.sort_by(acc, & &1.episode_number, order)
+    end)
+  end
+
+  def all_seasons(server \\ __MODULE__) do
+    all_episodes(server)
+    |> Enum.map(& &1.season_number)
+    |> Enum.uniq()
   end
 
   def start_link(opts) do

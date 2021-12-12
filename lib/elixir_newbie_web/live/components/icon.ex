@@ -1,6 +1,8 @@
 defmodule ElixirNewbieWeb.Live.Components.Icon do
   use Surface.Component
 
+  alias ElixirNewbieWeb.Router.Helpers, as: Routes
+
   prop class, :css_class
   prop icon, :atom
 
@@ -16,21 +18,42 @@ defmodule ElixirNewbieWeb.Live.Components.Icon do
     search: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
     calendar:
       "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
-    clock: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    clock: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+    chevron_down: "M19 9l-7 7-7-7",
+    chevron_up: "M5 15l7-7 7 7",
+    apple:
+      "M9 7c-3 0-4 3-4 5.5 0 3 2 7.5 4 7.5 1.088-.046 1.679-.5 3-.5 1.312 0 1.5.5 3 .5s4-3 4-5c-.028-.01-2.472-.403-2.5-3-.019-2.17 2.416-2.954 2.5-3-1.023-1.492-2.951-1.963-3.5-2-1.433-.111-2.83 1-3.5 1-.68 0-1.9-1-3-1z",
+    rss: "M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z",
+    google: "M17.788 5.108A9 9 0 1021 12h-8"
   }
+
   def draw_icon(icon) do
     @icons[icon]
   end
 
   def render(assigns) do
+    # TODO refactor this component to simply use svg files
     ~F"""
-    <svg xmlns="http://www.w3.org/2000/svg" class={"w-6 h-6", @class} fill="none" viewBox="0 0 24 24" stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
-      <path d={draw_icon(@icon)}/>
-      {#if @icon == :linkedin}
-          <rect x="2" y="9" width="4" height="12" />
-          <circle cx="4" cy="4" r="2" />
-      {/if}
-      </svg>
+      {#case @icon}
+        {#match :spotify}
+          <img class={"w-6 h-6 text-white", @class} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/icons/spotify.svg")}/>
+        {#match :apple}
+          <svg xmlns="http://www.w3.org/2000/svg" class={"w-6 h-6", @class} fill="none" viewBox="0 0 24 24" stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"/>
+            <path d={draw_icon(@icon)} />
+            <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" /><path stroke="none" d="M0 0h24v24H0z"/>
+          </svg>
+        {#match :linkedin}
+          <svg xmlns="http://www.w3.org/2000/svg" class={"w-6 h-6", @class} fill="none" viewBox="0 0 24 24" stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
+            <path d={draw_icon(@icon)}/>
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        {#match _}
+          <svg xmlns="http://www.w3.org/2000/svg" class={"w-6 h-6", @class} fill="none" viewBox="0 0 24 24" stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">
+            <path d={draw_icon(@icon)}/>
+          </svg>
+      {/case}
     """
   end
 end

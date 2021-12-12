@@ -98,7 +98,7 @@ defmodule ElixirNewbieWeb.PodcastShow do
       ) do
     PubSub.subscribe(ElixirNewbie.PubSub, @topic)
 
-    episodes_desc = Podcast.get()
+    episodes_desc = Podcast.all_episodes()
     episodes_asc = episodes_desc |> Enum.reverse()
     [last_episode | _] = episodes_desc
     [first_episode | _] = episodes_asc

@@ -12,6 +12,7 @@ defmodule ElixirNewbieWeb.PodcastList do
   alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
   alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.LiveRedirect
+  alias Surface.Components.Link
   alias ElixirNewbieWeb.Live.Components.IconButton
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
@@ -46,28 +47,57 @@ defmodule ElixirNewbieWeb.PodcastList do
           </audio>
         </figure>
       </article>
+      <article class="h-12 col-span-2">
+        <p class="text-white text-medium">Listen on your favorite platform</p>
+        <figure class="flex justify-between my-6">
+        <Link opts={target: "_blank"} to="https://podcasts.apple.com/us/podcast/elixir-newbie/id1587455457">
+          <IconButton rounded={true} icon={:apple}>Apple Podcasts</IconButton>
+        </Link>
+        <Link opts={target: "_blank"} to="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODQwMzgxLnJzcw==">
+          <IconButton rounded={true} icon={:google}>Google Podcasts</IconButton>
+        </Link>
+        <Link opts={target: "_blank"} to="https://open.spotify.com/show/2VNf2tvHIjSxTXMY15qtdV">
+          <IconButton rounded={true} icon={:spotify}>Spotify</IconButton>
+        </Link>
+        <Link opts={target: "_blank"} to="https://feeds.buzzsprout.com/1840381.rss">
+          <IconButton rounded={true} icon={:rss}>RSS</IconButton>
+        </Link>
+        </figure>
+      </article>
     </ResponsiveLayout>
-    <ResponsiveLayout scroll_id={"all_episodes"} cols={2} spacing="full">
+    <ResponsiveLayout class="mt-24" gap="none" scroll_id={"all_episodes"} cols={1} spacing="narrow">
+      <figure class="flex flex-wrap mb-12">
+        {#for season <- @seasons}
+          <p
+            :on-click="select_season"
+            phx-value-season={season}
+            class={"mr-8 lg:mb-0 mb-12 text-4xl cursor-pointer",
+             "text-gray-200": season !== @season_number,
+            "text-secondary": @season_number === season}>
+            Season {season}
+          </p>
+        {/for}
+        <button class="flex items-center flex-grow ml-auto text-2xl text-white lg:flex-none" :on-click="toggle_order">
+        {#case @order}
+          {#match :desc}
+            Showing newest first
+            <Icon class="ml-6 text-medium" icon={:chevron_down}/>
+          {#match :asc}
+            Showing oldest first
+            <Icon class="ml-6 text-medium" icon={:chevron_up}/>
+        {/case}
+        </button>
+      </figure>
+      <hr/>
       {#for episode <- @episodes}
-        <article class="flex flex-col text-white">
-          <LiveRedirect to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, episode.season_number, episode.episode_number)}>
-          <Title class="mb-8">{episode.title}</Title>
-          </LiveRedirect>
-          <figure class="leading-loose text-md podcast-description">{raw episode.description}</figure>
-          <figure class="flex py-6 mt-auto">
-            <Icon icon={:calendar}/>
-            <p class="ml-2 text-white">{Calendar.strftime(episode.published_at, "%B %d %Y")}</p>
-            <p class="ml-12 text-white">Season {episode.season_number}</p>
-            <Icon class="ml-12" icon={:clock}/>
-            <p class="ml-2 text-white">{div episode.duration, 60}:{rem episode.duration, 60}</p>
-          </figure>
-          <figure>
-            <audio class="w-full my-4" controls>
-              <source src={episode.audio_url} type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-          </figure>
+      <LiveRedirect class="flex flex-col py-6" to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, episode.season_number, episode.episode_number)}>
+        <article class="flex items-center">
+          <img class="w-16 mr-8 rounded-lg" src={episode.artwork_url}/>
+          <p class="text-2xl text-white">{episode.title}</p>
+          <p class="ml-auto text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
         </article>
+      </LiveRedirect>
+      <hr/>
       {/for}
     </ResponsiveLayout>
     <Footer id={:footer}/>
@@ -77,13 +107,39 @@ defmodule ElixirNewbieWeb.PodcastList do
 
   def mount(_params, _session, socket) do
     PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-    [latest_episode | episodes] = Podcast.get()
+    episodes = Podcast.all_episodes()
+    seasons = Podcast.all_seasons()
 
     {:ok,
      assign(socket,
        episodes: episodes,
-       latest_episode: latest_episode,
+       seasons: seasons,
+       season_number: 1,
+       order: :desc,
+       latest_episode: hd(episodes),
        loading: !connected?(socket)
      )}
+  end
+
+  def handle_event("toggle_order", _params, socket) do
+    order = if socket.assigns.order === :desc, do: :asc, else: :desc
+
+    {:noreply, assign(socket, order: order) |> load_episodes()}
+  end
+
+  def handle_event("select_season", %{"season" => season_number}, socket) do
+    season_number = String.to_integer(season_number)
+
+    {:noreply, assign(socket, season_number: season_number) |> load_episodes()}
+  end
+
+  def load_episodes(socket) do
+    %{season_number: season_number, order: order} = socket.assigns
+
+    assign(
+      socket,
+      :episodes,
+      Podcast.all_episodes(Podcast, season_number: season_number, order: order)
+    )
   end
 end
