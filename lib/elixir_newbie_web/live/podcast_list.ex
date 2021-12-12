@@ -22,48 +22,48 @@ defmodule ElixirNewbieWeb.PodcastList do
     ~F"""
     <Page loading={@loading}>
     <ResponsiveLayout gap="small" cols={2}>
-      <article class="animate-fade-in">
-        <Title>Listen to the Elixir Newbie Podcast</Title>
-        <img class={"animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
-        <IconButton hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
-      </article>
-      <article class="flex flex-col text-white">
-        <LiveRedirect to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, @latest_episode.season_number, @latest_episode.episode_number)}>
-        <Title class="text-2xl italic">Latest Episode</Title>
-        <Title class="mb-8">{@latest_episode.title}</Title>
-        </LiveRedirect>
-        <figure class="leading-loose text-md podcast-description">{raw @latest_episode.description}</figure>
-        <figure class="flex py-6">
-          <Icon icon={:calendar}/>
-          <p class="ml-2 text-white">{Calendar.strftime(@latest_episode.published_at, "%B %d %Y")}</p>
-          <p class="ml-12 text-white">Season {@latest_episode.season_number}</p>
-          <Icon class="ml-12" icon={:clock}/>
-          <p class="ml-2 text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
-        </figure>
-        <figure>
-          <audio class="w-full my-4" controls>
-            <source src={@latest_episode.audio_url} type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </figure>
-      </article>
-      <article class="h-12 col-span-2">
-        <p class="text-white text-medium">Listen on your favorite platform</p>
-        <figure class="flex justify-between my-6">
-        <Link opts={target: "_blank"} to="https://podcasts.apple.com/us/podcast/elixir-newbie/id1587455457">
-          <IconButton rounded={true} icon={:apple}>Apple Podcasts</IconButton>
-        </Link>
-        <Link opts={target: "_blank"} to="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODQwMzgxLnJzcw==">
-          <IconButton rounded={true} icon={:google}>Google Podcasts</IconButton>
-        </Link>
-        <Link opts={target: "_blank"} to="https://open.spotify.com/show/2VNf2tvHIjSxTXMY15qtdV">
-          <IconButton rounded={true} icon={:spotify}>Spotify</IconButton>
-        </Link>
-        <Link opts={target: "_blank"} to="https://feeds.buzzsprout.com/1840381.rss">
-          <IconButton rounded={true} icon={:rss}>RSS</IconButton>
-        </Link>
-        </figure>
-      </article>
+     <article class="animate-fade-in">
+       <Title>Listen to the Elixir Newbie Podcast</Title>
+       <img class={"animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
+       <IconButton hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
+     </article>
+     <article class="flex flex-col text-white">
+       <LiveRedirect to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, @latest_episode.season_number, @latest_episode.episode_number)}>
+       <Title class="text-2xl italic">Latest Episode</Title>
+       <Title class="mb-8">{@latest_episode.title}</Title>
+       </LiveRedirect>
+       <figure class="leading-loose text-md podcast-description">{raw @latest_episode.description}</figure>
+       <figure class="flex py-6">
+         <Icon icon={:calendar}/>
+         <p class="ml-2 text-white">{Calendar.strftime(@latest_episode.published_at, "%B %d %Y")}</p>
+         <p class="ml-12 text-white">Season {@latest_episode.season_number}</p>
+         <Icon class="ml-12" icon={:clock}/>
+         <p class="ml-2 text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
+       </figure>
+       <figure>
+         <audio class="w-full my-4" controls>
+           <source src={@latest_episode.audio_url} type="audio/mpeg">
+           Your browser does not support the audio element.
+         </audio>
+       </figure>
+     </article>
+     <article class="flex-wrap col-span-1 lg:col-span-2">
+       <p class="text-white text-medium">Listen on your favorite platform</p>
+       <figure class="flex flex-col flex-wrap justify-between my-6 lg:flex-row">
+         <Link opts={target: "_blank"} to="https://podcasts.apple.com/us/podcast/elixir-newbie/id1587455457">
+           <IconButton class="mt-8" rounded={true} icon={:apple}>Apple Podcasts</IconButton>
+         </Link>
+         <Link opts={target: "_blank"} to="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODQwMzgxLnJzcw==">
+           <IconButton class="mt-8" rounded={true} icon={:google}>Google Podcasts</IconButton>
+         </Link>
+         <Link opts={target: "_blank"} to="https://open.spotify.com/show/2VNf2tvHIjSxTXMY15qtdV">
+           <IconButton class="mt-8" rounded={true} icon={:spotify}>Spotify</IconButton>
+         </Link>
+         <Link opts={target: "_blank"} to="https://feeds.buzzsprout.com/1840381.rss">
+           <IconButton class="mt-8" rounded={true} icon={:rss}>RSS</IconButton>
+         </Link>
+       </figure>
+     </article>
     </ResponsiveLayout>
     <ResponsiveLayout class="mt-24" gap="none" scroll_id={"all_episodes"} cols={1} spacing="narrow">
       <figure class="flex flex-wrap mb-12">
@@ -72,7 +72,7 @@ defmodule ElixirNewbieWeb.PodcastList do
             :on-click="select_season"
             phx-value-season={season}
             class={"mr-8 lg:mb-0 mb-12 text-4xl cursor-pointer",
-             "text-gray-200": season !== @season_number,
+            "text-gray-200": season !== @season_number,
             "text-secondary": @season_number === season}>
             Season {season}
           </p>
