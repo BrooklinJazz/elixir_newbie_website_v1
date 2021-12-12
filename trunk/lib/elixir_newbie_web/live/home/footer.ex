@@ -12,6 +12,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   alias ElixirNewbieWeb.Live.Components.Title
   alias ElixirNewbieWeb.Live.Components.IconButton
   alias ElixirNewbieWeb.PodcastList
+  alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   alias Surface.Components.LiveRedirect
@@ -41,7 +42,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
             {#for episode <- @highlighted_episodes}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, PodcastList, episode: episode.episode_number)}>
+                  to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, episode.season_number, episode.episode_number)}>
                   {episode.title}
                 </LiveRedirect>
               </li>
