@@ -6,7 +6,7 @@ defmodule ElixirNewbieWeb.Components.Footer do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
-  alias ElixirNewbieWeb.PodcastLive
+  alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
@@ -35,7 +35,7 @@ defmodule ElixirNewbieWeb.Components.Footer do
       <button
         class={
         "footer_link footer_link--podcast "
-        <> "#{assigns.socket.view === ElixirNewbieWeb.PodcastLive  && " text-secondary" || "text-white"}"
+        <> "#{assigns.socket.view === ElixirNewbieWeb.PodcastList  && " text-secondary" || "text-white"}"
         }
         :on-click="podcast"
        >
@@ -59,6 +59,6 @@ defmodule ElixirNewbieWeb.Components.Footer do
   end
 
   def handle_event("podcast", _params, socket) do
-    {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, PodcastLive))}
+    {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, PodcastList))}
   end
 end

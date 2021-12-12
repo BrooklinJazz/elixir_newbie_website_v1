@@ -41,9 +41,20 @@ module.exports = {
             "background-position": "right center",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(1.2)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "fade-down": "fade-down 1s",
+        "fade-in": "fade-in 1s",
         "gradient-x": "gradient-x 9s ease infinite",
       },
     },

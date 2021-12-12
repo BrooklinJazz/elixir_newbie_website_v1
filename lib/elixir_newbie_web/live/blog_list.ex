@@ -6,7 +6,7 @@ defmodule ElixirNewbieWeb.BlogList do
   alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Live.Components.BlogCard
-  alias ElixirNewbieWeb.Live.Components.CardContainer
+  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
   alias ElixirNewbieWeb.Live.Components.Icon
   alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.Form
@@ -58,22 +58,24 @@ defmodule ElixirNewbieWeb.BlogList do
     ~F"""
     <Page loading={@loading}>
       <section class="mx-12 my-6">
-        <Form for={:filter} change="filter" class="flex text-white" opts={autocomplete: "off"}>
-        <Field name="search" class="flex items-center px-8 py-4 border-2 border-gray-600 rounded-full focus-within:border-secondary w-96">
-          <Icon icon={:search} class="text-gray-400"/>
-          <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow h-8 p-4 placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
-          <p>{length(@blogs)}</p>
+        <Form for={:filter} change="filter" class="flex flex-wrap text-white xl:flex-nowrap" opts={autocomplete: "off"}>
+          <Field name="search" class="flex items-center h-16 px-8 py-4 border-2 border-gray-600 rounded-full focus-within:border-secondary w-96">
+            <Icon icon={:search} class="text-gray-400"/>
+            <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow h-8 p-4 placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
+            <p>{length(@blogs)}</p>
           </Field>
-          {#for tag <- @tags}
-            <p :on-click="toggle-tag" phx-value-tag={tag} class={"flex items-center h-8 px-6 ml-6 rounded-full cursor-pointer", "bg-secondary": tag in @selected_tags, "bg-secondary/[0.3]": tag not in @selected_tags}>{tag}</p>
-          {/for}
+          <figure class="flex flex-wrap mt-4 xl:mt-0 xl:ml-4">
+            {#for tag <- @tags}
+              <p :on-click="toggle-tag" phx-value-tag={tag} class={"flex items-center h-8 mb-4 px-6 mr-6 rounded-full cursor-pointer", "bg-secondary": tag in @selected_tags, "bg-secondary/[0.3]": tag not in @selected_tags}>{tag}</p>
+            {/for}
+          </figure>
         </Form>
       </section>
-      <CardContainer>
+      <ResponsiveLayout cols={3} spacing="full">
         {#for blog <- @blogs}
           <BlogCard blog={blog} />
         {/for}
-      </CardContainer>
+      </ResponsiveLayout>
       <Footer id={:footer}/>
     </Page>
     """

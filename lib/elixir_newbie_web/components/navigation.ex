@@ -7,7 +7,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
-  alias ElixirNewbieWeb.PodcastLive
+  alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Surface.Components.LiveRedirect
 
@@ -28,7 +28,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
           <> " hidden md:block "
         }
         label="Podcast"
-        to={Routes.live_path(Endpoint, PodcastLive)}
+        to={Routes.live_path(Endpoint, PodcastList)}
         />
       <LiveRedirect
         class={

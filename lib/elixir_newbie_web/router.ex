@@ -28,7 +28,8 @@ defmodule ElixirNewbieWeb.Router do
       live "/", HomeLive
       live "/blog", BlogList
       live "/blog/:id", BlogShow
-      live "/podcast", PodcastLive
+      live "/podcast", PodcastList
+      live "/podcast/:season_number/:episode_number", PodcastShow
     end
   end
 

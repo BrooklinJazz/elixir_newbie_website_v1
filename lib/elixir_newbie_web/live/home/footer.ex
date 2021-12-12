@@ -8,16 +8,17 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   alias ElixirNewbieWeb.BlogShow
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.Live.Components.Paragraph
+  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
   alias ElixirNewbieWeb.Live.Components.Title
   alias ElixirNewbieWeb.Live.Components.IconButton
-  alias ElixirNewbieWeb.PodcastLive
+  alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   alias Surface.Components.LiveRedirect
 
   def render(assigns) do
     ~F"""
-      <section class="grid w-full min-h-full gap-24 px-12 mt-24 mb-24 sm:grid-cols-1 xl:grid-cols-4 sm:grid-rows-4 xl:grid-rows-1 lg:grid-cols-2 lg:grid-rows-2 sm:px-8 md:px-12">
+    <ResponsiveLayout class="py-12 bg-black" spacing={"full"} cols={4}>
         <article class="flex flex-col">
           <Title class="text-center">Elixir Newbie</Title>
           <Paragraph>Elixir Newbie is dedicated to helping new developers grow. The Elixir Newbie website is a blog, a podcast, and a collection of my favourite resources.</Paragraph>
@@ -40,7 +41,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
             {#for episode <- @highlighted_episodes}
               <li class="mt-6">
                 <LiveRedirect
-                  to={Routes.live_path(Endpoint, PodcastLive, episode: episode.episode_number)}>
+                  to={Routes.live_path(Endpoint, PodcastList, episode: episode.episode_number)}>
                   {episode.title}
                 </LiveRedirect>
               </li>
@@ -62,10 +63,11 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
           </ul>
           <IconButton click="to_blog" id={"footer-button"} rounded={true} icon={:right_arrow} class={"mt-6"}>More Articles</IconButton>
         </article>
-      </section>
+      </ResponsiveLayout>
     """
   end
 
+  # <section class="grid w-full min-h-full gap-24 px-12 mt-24 mb-24 sm:grid-cols-1 xl:grid-cols-4 sm:grid-rows-4 xl:grid-rows-1 lg:grid-cols-2 lg:grid-rows-2 sm:px-8 md:px-12">
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
@@ -79,6 +81,6 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   end
 
   def handle_event("to_podcast", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, PodcastLive))}
+    {:noreply, redirect(socket, to: Routes.live_path(socket, PodcastList))}
   end
 end
