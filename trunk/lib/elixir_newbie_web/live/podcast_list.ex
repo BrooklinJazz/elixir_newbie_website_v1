@@ -20,7 +20,7 @@ defmodule ElixirNewbieWeb.PodcastList do
   def render(assigns) do
     ~F"""
     <Page loading={@loading}>
-    <ResponsiveLayout cols={2}>
+    <ResponsiveLayout gap="small" cols={2}>
       <article class="animate-fade-in">
         <Title>Listen to the Elixir Newbie Podcast</Title>
         <img class={"animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
