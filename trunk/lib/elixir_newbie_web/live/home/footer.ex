@@ -27,7 +27,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
           <Title class="text-center">Resources</Title>
           <Paragraph>If you’re new to Elixir, here’s a quick collection of some of my favourite tools and resources from the elixir community.</Paragraph>
           <Paragraph>Pretty much shout outs to some folks & projects I admire.</Paragraph>
-          <ul class="w-full mt-6 text-xl leading-relaxed text-white underline list-disc list-inside">
+          <ul class="w-full mt-6 text-xl leading-relaxed underline list-disc list-inside text-secondary">
             <li><a target="_blank" href="https://elixirschool.com/en/">Elixir School</a></li>
             <li><a target="_blank" href="https://exercism.org/tracks/elixir">Exercism.io</a></li>
             <li><a target="_blank" href="https://joyofelixir.com/">Joy Of Elixir</a></li>
@@ -37,7 +37,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
         </article>
         <article class="flex flex-col">
           <Title class="text-center">Podcast</Title>
-          <ul class="w-full mt-6 text-xl leading-relaxed text-white underline list-disc list-inside">
+          <ul class="w-full text-xl leading-relaxed underline list-disc list-inside text-secondary">
             {#for episode <- @highlighted_episodes}
               <li class="mt-6">
                 <LiveRedirect
@@ -51,7 +51,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
         </article>
         <article class="flex flex-col">
           <Title class="text-center">Blog</Title>
-          <ul class="w-full mt-6 text-xl leading-relaxed text-white underline list-disc list-inside">
+          <ul class="w-full text-xl leading-relaxed underline list-disc list-inside text-secondary">
             {#for blog <- @highlighted_blogs}
               <li class="mt-6">
                 <LiveRedirect
@@ -77,10 +77,10 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   end
 
   def handle_event("to_blog", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogList))}
+    {:noreply, push_redirect(socket, to: Routes.live_path(socket, BlogList))}
   end
 
   def handle_event("to_podcast", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, PodcastList))}
+    {:noreply, push_redirect(socket, to: Routes.live_path(socket, PodcastList))}
   end
 end

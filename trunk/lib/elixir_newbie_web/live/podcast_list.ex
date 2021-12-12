@@ -27,13 +27,13 @@ defmodule ElixirNewbieWeb.PodcastList do
        <img class={"animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
        <IconButton hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
      </article>
-     <article class="flex flex-col text-white">
+     <article class="flex flex-col">
        <LiveRedirect to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, @latest_episode.season_number, @latest_episode.episode_number)}>
        <Title class="text-2xl italic">Latest Episode</Title>
-       <Title class="mb-8">{@latest_episode.title}</Title>
+       <p class="text-4xl leading-relaxed underline text-secondary">{@latest_episode.title}</p>
        </LiveRedirect>
-       <figure class="leading-loose text-md podcast-description">{raw @latest_episode.description}</figure>
-       <figure class="flex py-6">
+       <figure class="leading-loose text-white podcast-description">{raw @latest_episode.description}</figure>
+       <figure class="flex py-6 text-white">
          <Icon icon={:calendar}/>
          <p class="ml-2 text-white">{Calendar.strftime(@latest_episode.published_at, "%B %d %Y")}</p>
          <p class="ml-12 text-white">Season {@latest_episode.season_number}</p>
@@ -90,7 +90,7 @@ defmodule ElixirNewbieWeb.PodcastList do
       </figure>
       <hr/>
       {#for episode <- @episodes}
-      <LiveRedirect class="flex flex-col py-6" to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, episode.season_number, episode.episode_number)}>
+      <LiveRedirect class={"flex flex-col py-6", "transition duration-300 ease-in-out transform hover:bg-primary/[0.2]"} to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, episode.season_number, episode.episode_number)}>
         <article class="flex items-center">
           <img class="w-16 mr-8 rounded-lg" src={episode.artwork_url}/>
           <p class="text-2xl text-white">{episode.title}</p>

@@ -20,7 +20,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
           <LiveRedirect
             to={Routes.live_path(Endpoint, BlogList)}
             class={
-              "text-3xl border-2 p-6 rounded-full bg-white text-black mt-8 cursor-pointer font-medium "
+              "text-3xl border-2 p-6 rounded-full bg-white text-black mt-8 cursor-pointer "
               <> " transition duration-500 ease-in-out transform hover:scale-105 "
             }>
               Read the Blog
@@ -28,7 +28,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
           <LiveRedirect
             to={Routes.live_path(Endpoint, PodcastList)}
             class={
-              "text-3xl border-2 p-6 rounded-full border-white text-white font-medium mt-8 cursor-pointer "
+              "text-3xl border-2 p-6 rounded-full border-white text-white mt-8 cursor-pointer "
               <> " transition duration-500 ease-in-out transform hover:scale-105 "
             }>
             Listen to the Podcast
