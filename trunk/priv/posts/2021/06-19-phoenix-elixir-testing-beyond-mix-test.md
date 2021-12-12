@@ -196,5 +196,3 @@ Conclusion
 ==========
 
 You have learned how to leverage mix to run customizable test suites so that you can run exactly the tests you want. You have also learned about commands, tags, arguments, aliases, test watching, and editor extensions to both improve the performance and convenience of testing.
-
-If you have any questions about this article or would like to comment please do! I’m happy to answer.

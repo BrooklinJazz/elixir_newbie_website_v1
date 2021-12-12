@@ -5,14 +5,13 @@ defmodule ElixirNewbieWeb.BlogList do
   use Surface.LiveView
   alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
+  alias ElixirNewbieWeb.Live.Components.BlogCard
+  alias ElixirNewbieWeb.Live.Components.CardContainer
   alias ElixirNewbieWeb.Live.Components.Icon
-  alias ElixirNewbieWeb.BlogShow
-  alias ElixirNewbieWeb.Router.Helpers, as: Routes
+  alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.Form
-  alias Surface.Components.LiveRedirect
   alias Surface.Components.Form.Field
   alias Surface.Components.Form.TextInput
-  alias Surface.Components.Form.Label
 
   def mount(_params, _session, socket) do
     blogs = Blog.all_posts()
@@ -70,20 +69,12 @@ defmodule ElixirNewbieWeb.BlogList do
           {/for}
         </Form>
       </section>
-      <section class="grid gap-12 px-12 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1">
-      {#for blog <- @blogs}
-        <LiveRedirect
-          to={Routes.live_path(ElixirNewbieWeb.Endpoint, BlogShow, blog.id)}
-        >
-          <article class="text-white">
-          <img class="w-full bg-black rounded-lg object-fit h-60 max-h-60" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{blog.cover_image}")}/>
-          <p class="mt-6 text-2xl leading-relaxed capitalize">{blog.title}</p>
-          <p class="mt-2 text-base leading-relaxed capitalize">{blog.description}</p>
-          <p class="mt-2 text-gray-300">{Calendar.strftime(NaiveDateTime.new!(blog.date, Time.utc_now()), "%B %d %Y")}</p>
-          </article>
-        </LiveRedirect>
-      {/for}
-      </section>
+      <CardContainer>
+        {#for blog <- @blogs}
+          <BlogCard blog={blog} />
+        {/for}
+      </CardContainer>
+      <Footer id={:footer}/>
     </Page>
     """
   end

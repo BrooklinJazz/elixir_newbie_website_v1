@@ -19,6 +19,8 @@ You might be more familiar with a typical one-way server request. The client req
 
 This works fine for most use cases. For example, when you visit this article, you are the client. You request the information in this article, and a Medium server responds by sending it to your computer, phone, or device.
 
+> Author's Note: This article was originally published on the medium blogging platform. 
+
 The client has complete control over requests made to the server. So if you need to check if anything has been updated, the client has to do it.
 
 For cases like the comment section of this article, which could change anytime, the client doesn’t know when to re-request the comment data from the Medium server. Sometimes you can implement a quick fix and request to the server every few seconds, minutes, or whatever interval works best. However, implementing a real-time solution is a more appropriate approach for most use cases.

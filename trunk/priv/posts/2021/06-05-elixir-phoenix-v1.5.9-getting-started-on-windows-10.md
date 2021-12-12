@@ -165,6 +165,4 @@ You should see your project up and running!
 
 <img alt="" class="t u v kk aj" src="https://miro.medium.com/max/1400/1*QO2ell8FtOuzWc577G8PnA.png" width="700" height="394" srcSet="https://miro.medium.com/max/552/1*QO2ell8FtOuzWc577G8PnA.png 276w, https://miro.medium.com/max/1104/1*QO2ell8FtOuzWc577G8PnA.png 552w, https://miro.medium.com/max/1280/1*QO2ell8FtOuzWc577G8PnA.png 640w, https://miro.medium.com/max/1400/1*QO2ell8FtOuzWc577G8PnA.png 700w" sizes="700px" role="presentation"/>
 
-I hope this helped you get your phoenix project up and running! Expect more articles on Phoenix and Elixir in the future, and if you enjoyed this article, I’d appreciate a comment or clap!
-
-If you have any issues following the article, please comment, and I will do my best to help.
+I hope this helped you get your phoenix project up and running!

@@ -6,6 +6,11 @@ defmodule ElixirNewbieWeb.BlogShow do
   alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Live.Components.Title
+  alias ElixirNewbieWeb.BlogList
+  alias ElixirNewbieWeb.Live.Components.BlogCard
+  alias ElixirNewbieWeb.Live.Components.CardContainer
+  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Live.Home.Footer
   alias ElixirNewbieWeb.Live.Components.SubTitle
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
@@ -15,8 +20,13 @@ defmodule ElixirNewbieWeb.BlogShow do
     {:ok,
      assign(socket,
        blog: blog,
+       highlighted_blogs: Enum.take(Blog.all_posts(), 6),
        loading: !connected?(socket)
      )}
+  end
+
+  def handle_event("to_blog", _, socket) do
+    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogList))}
   end
 
   def render(assigns) do
@@ -30,6 +40,15 @@ defmodule ElixirNewbieWeb.BlogShow do
         {raw @blog.body}
         </figure>
       </section>
+      <section class={"my-24"}>
+        <CardContainer>
+          {#for blog <- @highlighted_blogs}
+            <BlogCard blog={blog}/>
+          {/for}
+        </CardContainer>
+        <IconButton click="to_blog" class="mt-12 ml-16" rounded={true} icon={:left_arrow}>Back to All Blogs</IconButton>
+      </section>
+      <Footer id={:footer}/>
     </Page>
     """
   end
