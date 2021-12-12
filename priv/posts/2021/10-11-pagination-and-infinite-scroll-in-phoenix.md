@@ -124,5 +124,3 @@ You have learned about
 *   Triggering the load more event when the user scrolls down using phoenix hooks.
 
 It’s important to say that this is just one way to implement pagination, and how you implement it in your application may differ. But by breaking down the problem into smaller ones it will be easier to understand exactly what you need to solve to get this working.
-
-If you have any questions you can comment below or message me on [Twitter at BrooklinJMyers](https://twitter.com/home). I will get back to you as soon as I can!

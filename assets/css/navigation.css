@@ -3,8 +3,8 @@
   .navigation {
     grid-area: navigation;
     width: 100%;
-    height: 10vh;
-    min-height: 100px;
+    height: min-content;
+    min-height: 50px;
     display: grid;
     grid-template-columns: 10px auto auto auto 5fr auto auto 10px;
     grid-template-rows: auto auto;
@@ -62,13 +62,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 15vh;
+    height: min-content;
   }
 
   .navigation__brand {
-    height: 10vh;
-    flex-basis: 100%;
-    margin: 10px 0;
+    height: 6vh;
+    min-height: 60px;
   }
   .navigation__icon,
   .navigation__social-links,

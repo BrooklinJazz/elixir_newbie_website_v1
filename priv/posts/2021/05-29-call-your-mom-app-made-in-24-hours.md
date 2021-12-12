@@ -100,5 +100,3 @@ Wrapping up
 This was my first hackathon despite being in the industry for years now. I really fell in love with the format. There’s something enjoyable and motivating about needing an app done with such a tight time limit. It forces you to be resourceful and pushes you creatively.
 
 If you’re thinking about joining in a hackathon, I hope this post helps motivate you and gives you an idea of what the experience is like!
-
-Feel free to reach out to me or comment If you have any questions about the hackathon or React Native in general. I’m happy to help.

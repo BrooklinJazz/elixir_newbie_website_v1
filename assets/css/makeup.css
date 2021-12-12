@@ -1,4 +1,8 @@
 /* pre is applied globally, TODO scope this */
+
+.makeup-blog {
+}
+
 .makeup-blog > pre {
   background-color: #2f1e2e;
   margin: 1rem 0;
@@ -22,16 +26,20 @@
   list-style: circle;
   list-style-position: inside;
   margin-top: 1rem;
+  padding-left: 2rem;
 }
 
-.makeup-blog * img {
-  width: 100%;
+.makeup-blog > img {
   border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .makeup-blog > p {
-  margin-top: 0.5rem;
-  font-size: medium;
+  margin-top: 2rem;
+  font-size: 1.2rem;
 }
 
 .makeup-blog * a {
