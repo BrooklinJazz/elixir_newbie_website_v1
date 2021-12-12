@@ -13,9 +13,11 @@ defmodule ElixirNewbieWeb.Live.Components.Icon do
     linkedin: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
     right_arrow: "M14 5l7 7m0 0l-7 7m7-7H3",
     left_arrow: "M10 19l-7-7m0 0l7-7m-7 7h18",
-    search: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    search: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+    calendar:
+      "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+    clock: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
   }
-
   def draw_icon(icon) do
     @icons[icon]
   end
