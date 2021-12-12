@@ -20,30 +20,30 @@ defmodule ElixirNewbieWeb.PodcastShow do
   def render(assigns) do
     ~F"""
     <Page loading={@loading}>
-    <ResponsiveLayout>
-      <IconButton click="to_podcast" rounded={true} icon={:left_arrow}>Back To Episodes</IconButton>
-      <article class="flex flex-col text-white">
-        <Title class="mb-8">{@episode.title}</Title>
-        <figure class="leading-loose text-md podcast-description">{raw @episode.description}</figure>
-        <figure class="flex py-6">
-          <Icon icon={:calendar}/>
-          <p class="ml-2 text-white">{Calendar.strftime(@episode.published_at, "%B %d %Y")}</p>
-          <p class="ml-12 text-white">Season {@episode.season_number}</p>
-          <Icon class="ml-12" icon={:clock}/>
-          <p class="ml-2 text-white">{div @episode.duration, 60}:{rem @episode.duration, 60}</p>
-        </figure>
-        <figure>
-          <audio class="w-full my-4" controls>
-            <source src={@episode.audio_url} type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </figure>
-        <figure class="grid grid-cols-2 mt-6">
+      <ResponsiveLayout>
+        <IconButton click="to_podcast" rounded={true} icon={:left_arrow}>Back To Episodes</IconButton>
+        <article class="flex flex-col text-white">
+          <Title class="mb-8">{@episode.title}</Title>
+          <figure class="leading-loose text-md podcast-description">{raw @episode.description}</figure>
+          <figure class="flex py-6">
+            <Icon icon={:calendar}/>
+            <p class="ml-2 text-white">{Calendar.strftime(@episode.published_at, "%B %d %Y")}</p>
+            <p class="ml-12 text-white">Season {@episode.season_number}</p>
+            <Icon class="ml-12" icon={:clock}/>
+            <p class="ml-2 text-white">{div @episode.duration, 60}:{rem @episode.duration, 60}</p>
+          </figure>
+          <figure>
+            <audio class="w-full my-4" controls>
+              <source src={@episode.audio_url} type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </figure>
+          <figure class="grid grid-cols-2 mt-6">
 
-          <IconButton click="previous" rounded={true} icon={:left_arrow}>Previous</IconButton>
-          <IconButton click="next" reverse={true} rounded={true} icon={:right_arrow}>Next</IconButton>
-        </figure>
-      </article>
+            <IconButton click="previous" rounded={true} icon={:left_arrow}>Previous</IconButton>
+            <IconButton click="next" reverse={true} rounded={true} icon={:right_arrow}>Next</IconButton>
+          </figure>
+        </article>
       </ResponsiveLayout>
       <Footer id={:footer}/>
     </Page>

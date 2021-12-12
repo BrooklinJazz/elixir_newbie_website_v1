@@ -18,7 +18,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
 
   def render(assigns) do
     ~F"""
-    <ResponsiveLayout class="py-12 bg-black" spacing={"full"} cols={4}>
+    <ResponsiveLayout class="py-12 mt-24 bg-black" spacing={"full"} cols={4}>
         <article class="flex flex-col">
           <Title class="text-center">Elixir Newbie</Title>
           <Paragraph>Elixir Newbie is dedicated to helping new developers grow. The Elixir Newbie website is a blog, a podcast, and a collection of my favourite resources.</Paragraph>
