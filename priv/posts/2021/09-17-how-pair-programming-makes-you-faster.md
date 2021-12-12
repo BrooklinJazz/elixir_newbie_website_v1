@@ -1,6 +1,6 @@
 %{
   title: "How Pair Programming Makes You Faster.",
-  tags: ~w(),
+  tags: ~w(pair_programming),
   description: "When You Optimize For Thinking Speed, Then 1 + 1 = 3.",
   cover_image: "09-17-how-pair-programming-makes-you-faster.jpeg"
 }

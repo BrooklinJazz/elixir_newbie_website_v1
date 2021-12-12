@@ -16,8 +16,6 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :elixir_newbie,
-  display_drafts: false
 
 # ## SSL Support
 #
