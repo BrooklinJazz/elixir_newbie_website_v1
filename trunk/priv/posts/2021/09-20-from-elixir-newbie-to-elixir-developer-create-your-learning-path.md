@@ -26,7 +26,7 @@ Learn Basic Elixir Syntax.
 
 The basics section has more than enough information to get you started.
 
-I also wrote a brief primer for Elixir: [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://elixirnewbie.com/blog/from-elixir-newbie-to-elixir-developer-create-your-learning-path)
+I also wrote a brief primer for Elixir: [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://www.elixirnewbie.com/blog/from-elixir-newbie-to-elixir-developer-create-your-learning-path)
 
 For a gentler introduction to Elixir, you may also consider the [Joy Of Elixir](https://joyofelixir.com/toc.html) online book.
 

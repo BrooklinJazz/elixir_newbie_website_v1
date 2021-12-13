@@ -14,12 +14,14 @@
 
 .makeup-blog > h1 {
   font-size: xx-large;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .makeup-blog > h2 {
   font-size: x-large;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .makeup-blog > ul {
@@ -33,12 +35,12 @@
   border-radius: 1rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  /* margin-top: 2rem;
+  margin-bottom: 2rem; */
 }
 
 .makeup-blog > p {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   font-size: 1.2rem;
 }
 
