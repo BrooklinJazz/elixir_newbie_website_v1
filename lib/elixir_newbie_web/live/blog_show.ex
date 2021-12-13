@@ -3,7 +3,10 @@ defmodule ElixirNewbieWeb.BlogShow do
   Display List of Blogs
   """
   use Surface.LiveView
+
   alias ElixirNewbie.Blog
+  alias ElixirNewbie.Stats
+
   alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Components.Title
   alias ElixirNewbieWeb.BlogList
@@ -16,6 +19,8 @@ defmodule ElixirNewbieWeb.BlogShow do
 
   def mount(%{"id" => id}, _session, socket) do
     blog = Blog.get_post_by_id!(id)
+
+    if connected?(socket), do: Stats.view(blog.id)
 
     {:ok,
      assign(socket,
