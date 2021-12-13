@@ -24,7 +24,7 @@ defmodule ElixirNewbieWeb.PodcastList do
     <ResponsiveLayout gap="small" cols={2}>
      <article class="md:animate-fade-in">
        <Title>Listen to the Elixir Newbie Podcast</Title>
-       <img class={"md:animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
+       <img class={"md:animate-fade-in w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
        <IconButton hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
      </article>
      <article class="flex flex-col">
@@ -33,12 +33,16 @@ defmodule ElixirNewbieWeb.PodcastList do
        <p class="text-4xl leading-relaxed underline text-secondary">{@latest_episode.title}</p>
        </LiveRedirect>
        <figure class="leading-loose text-white podcast-description">{raw @latest_episode.description}</figure>
-       <figure class="flex py-6 text-white">
-         <Icon icon={:calendar}/>
-         <p class="ml-2 text-white">{Calendar.strftime(@latest_episode.published_at, "%B %d %Y")}</p>
-         <p class="ml-12 text-white">Season {@latest_episode.season_number}</p>
-         <Icon class="ml-12" icon={:clock}/>
-         <p class="ml-2 text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
+       <figure class="flex flex-col py-6 text-white md:flex-row">
+          <p class="text-white md:ml-2">Season {@latest_episode.season_number}</p>
+          <div class="flex mt-2 md:mt-0 md:ml-6">
+            <Icon icon={:calendar}/>
+            <p class="ml-2 text-white">{Calendar.strftime(@latest_episode.published_at, "%B %d %Y")}</p>
+          </div>
+          <div class="flex mt-2 md:mt-0 md:ml-6">
+            <Icon class="" icon={:clock}/>
+            <p class="ml-2 text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
+          </div>
        </figure>
        <figure>
          <audio class="w-full my-4" controls>
