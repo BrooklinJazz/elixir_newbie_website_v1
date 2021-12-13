@@ -26,7 +26,7 @@ defmodule ElixirNewbieWeb.BlogShow do
   end
 
   def handle_event("to_blog", _, socket) do
-    {:noreply, redirect(socket, to: Routes.live_path(socket, BlogList))}
+    {:noreply, push_redirect(socket, to: Routes.live_path(socket, BlogList))}
   end
 
   def render(assigns) do
