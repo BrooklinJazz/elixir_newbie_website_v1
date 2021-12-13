@@ -39,10 +39,6 @@ defmodule ElixirNewbieWeb.BlogList do
     {:noreply, socket |> assign(:search, search) |> load_blogs()}
   end
 
-  def handle_event("submit", _params, socket) do
-    {:noreply, socket}
-  end
-
   def handle_event("toggle-tag", %{"tag" => tag}, socket) do
     %{selected_tags: selected_tags} = socket.assigns
 
@@ -68,7 +64,7 @@ defmodule ElixirNewbieWeb.BlogList do
       <ResponsiveLayout gap="none" cols={2} spacing="narrow">
         <article class="flex flex-col">
           <Title>Learn Elixir with a Friendly and Approachable Tone</Title>
-          <Form for={:filter} change="filter" submit="submit" class="flex flex-col mt-12"  opts={autocomplete: "off"}>
+          <Form for={:filter} change="filter" submit={:ignore} class="flex flex-col mt-12"  opts={autocomplete: "off"}>
               <Field name="search" class="flex items-center w-full px-8 border-2 border-gray-600 rounded-full focus-within:border-secondary">
                 <Icon icon={:search} class="text-gray-400"/>
                 <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow w-0 h-8 p-4 py-8 text-white placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
