@@ -21,7 +21,7 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
         :on-click={@click}
         data-value={@value}
         class={
-        "text-2xl text-white w-max-content items-center flex group ",
+        "text-lg md:text-2xl text-white w-max-content items-center flex group ",
         @class,
         "flex flex-row-reverse": @reverse,
         }>

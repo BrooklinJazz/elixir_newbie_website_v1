@@ -68,51 +68,6 @@ defmodule ElixirNewbieWeb.Components.Navigation do
     """
   end
 
-  # <LiveRedirect
-  #   class={
-  #     "text-3xl",
-  #     # "transition duration-500 hover:bg-background border-2 border-white ease-in-out group"
-  #     # <> " border-primary duration-300 ease-in-out transform hover:scale-110"
-  #     " hidden md:block "
-  #   }
-  #   to={Routes.live_path(Endpoint, PodcastList)}
-  #   >
-  #   <p class="p-0 m-0 bg-red-400">Podcast</p>
-  #   <div class="w-full h-2 bg-black"></div>
-  # </LiveRedirect>
-  # <LiveRedirect
-  #   class={
-  #     "text-3xl text-white "
-  #     <> " border-primary duration-300 ease-in-out transform hover:scale-110"
-  #     <> " hidden md:block "
-  #   }
-  #   label="Blog"
-  #   to={Routes.live_path(Endpoint, BlogList)}
-  #  >
-  #   <Title>Blog</Title>
-  #  </LiveRedirect>
-  # <a
-  #   href="https://twitter.com/BrooklinJMyers"
-  #   target="_blank"
-  #   class={
-  #     "text-white "
-  #     <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
-  #     <> " hidden md:block "
-  #   }>
-  #     <Icon icon={:twitter}/>
-  #   </a>
-  # <a
-  #   href="https://www.linkedin.com/in/brooklinmyers/"
-  #   target="_blank"
-  #   class={
-  #     " text-white ",
-
-  #      "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin",
-  #     " hidden md:block "
-  #   }>
-  #     <Icon icon={:linkedin}/>
-  #   </a>
-  #   <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
   def handle_event("home", _params, socket) do
     {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, HomeLive))}
   end
