@@ -25,16 +25,16 @@ defmodule ElixirNewbieWeb.Live.Components.IconButton do
         @class,
         "flex flex-row-reverse": @reverse,
         }>
-        <span class={
-          "flex items-center justify-center w-16 h-16",
+        <div class={
+          "flex items-center justify-center w-16 h-16 shrink-0 min-w-16",
           "transition duration-300 ease-in-out transform group-hover:scale-110 group-hover:opacity-50",
           @container_class,
           "border-2 border-white rounded-full": @rounded,
-          "mr-8": !@reverse,
-          "ml-8": @reverse,
+          "mr-2 md:mr-8": !@reverse,
+          "ml-2 md:ml-8": @reverse,
         }>
            <Icon icon={@icon}/>
-        </span>
+        </div>
         <#slot/>
       </button>
     """
