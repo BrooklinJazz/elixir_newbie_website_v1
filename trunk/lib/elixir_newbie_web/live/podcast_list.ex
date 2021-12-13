@@ -7,13 +7,13 @@ defmodule ElixirNewbieWeb.PodcastList do
   alias ElixirNewbie.Podcast
   alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.Live.Components.Title
-  alias ElixirNewbieWeb.Live.Components.Icon
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.Title
+  alias ElixirNewbieWeb.Components.Icon
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
   alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.LiveRedirect
   alias Surface.Components.Link
-  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
   @topic "update episodes"

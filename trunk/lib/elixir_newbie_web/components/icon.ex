@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.Icon do
+defmodule ElixirNewbieWeb.Components.Icon do
   use Surface.Component
 
   alias ElixirNewbieWeb.Router.Helpers, as: Routes

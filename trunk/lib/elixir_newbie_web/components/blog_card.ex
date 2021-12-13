@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.BlogCard do
+defmodule ElixirNewbieWeb.Components.BlogCard do
   use Surface.Component
   alias ElixirNewbieWeb.BlogShow
   alias Surface.Components.LiveRedirect

@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.Section do
+defmodule ElixirNewbieWeb.Components.Section do
   use Surface.Component
 
   prop class, :css_class

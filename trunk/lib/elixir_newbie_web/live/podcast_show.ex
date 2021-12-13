@@ -8,11 +8,11 @@ defmodule ElixirNewbieWeb.PodcastShow do
   alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Live.Home.Footer
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
   alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.Live.Components.Title
-  alias ElixirNewbieWeb.Live.Components.Icon
-  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Components.Title
+  alias ElixirNewbieWeb.Components.Icon
+  alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Phoenix.PubSub
   @topic "update episodes"

@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.Title do
+defmodule ElixirNewbieWeb.Components.Title do
   use Surface.Component
   prop class, :css_class
   prop color, :css_class, default: "text-white"

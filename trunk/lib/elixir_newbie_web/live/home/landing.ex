@@ -2,10 +2,10 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
   use Surface.LiveComponent
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
-  alias ElixirNewbieWeb.Live.Components.IconButton
-  alias ElixirNewbieWeb.Live.Components.Title
-  alias ElixirNewbieWeb.Live.Components.SubTitle
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.IconButton
+  alias ElixirNewbieWeb.Components.Title
+  alias ElixirNewbieWeb.Components.SubTitle
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
   alias Surface.Components.LiveRedirect

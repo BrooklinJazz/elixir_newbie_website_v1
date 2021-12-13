@@ -1,9 +1,9 @@
 defmodule ElixirNewbieWeb.Live.Home.Blog do
   use Surface.LiveComponent
   alias ElixirNewbieWeb.BlogList
-  alias ElixirNewbieWeb.Live.Components.IconButton
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
-  alias ElixirNewbieWeb.Live.Components.SubTitle
+  alias ElixirNewbieWeb.Components.IconButton
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.SubTitle
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do

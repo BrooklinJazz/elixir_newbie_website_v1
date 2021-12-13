@@ -1,7 +1,7 @@
-defmodule ElixirNewbieWeb.Live.Components.IconButton do
+defmodule ElixirNewbieWeb.Components.IconButton do
   use Surface.Component
 
-  alias ElixirNewbieWeb.Live.Components.Icon
+  alias ElixirNewbieWeb.Components.Icon
   slot default, required: true
   prop class, :css_class
   prop rounded, :boolean
