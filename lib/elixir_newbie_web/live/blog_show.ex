@@ -20,7 +20,7 @@ defmodule ElixirNewbieWeb.BlogShow do
     {:ok,
      assign(socket,
        blog: blog,
-       highlighted_blogs: Enum.take(Blog.all_posts(), 6),
+       highlighted_blogs: Blog.highlighted_posts(blog.id, 6),
        loading: !connected?(socket)
      )}
   end
@@ -33,9 +33,9 @@ defmodule ElixirNewbieWeb.BlogShow do
     ~F"""
     <Page loading={@loading}>
       <section class={"mx-6 my-6 leading-loose text-white max-w-full lg:mx-60 md:mx-24"}>
-        <Title>{@blog.title}</Title>
-        <SubTitle class="italic">{@blog.description}</SubTitle>
-        <img class="mt-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
+        <Title class="mb-4">{@blog.title}</Title>
+        <SubTitle class="mb-4 italic">{@blog.description}</SubTitle>
+        <img class="mb-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
         <figure class="makeup-blog">
         {raw @blog.body}
         </figure>

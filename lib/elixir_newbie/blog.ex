@@ -15,10 +15,10 @@ defmodule ElixirNewbie.Blog do
     defexception [:message, plug_status: 404]
   end
 
-  def all_posts, do: @posts
+  defp posts_and_drafts, do: @posts
 
-  def all_posts(filters) do
-    Enum.reduce(filters, all_posts(), fn
+  def all_posts(filters \\ []) do
+    Enum.reduce(filters, posts_and_drafts(), fn
       {:search, value}, acc ->
         Enum.filter(acc, fn post ->
           String.contains?(String.downcase(post.title), String.downcase(value))
@@ -33,6 +33,20 @@ defmodule ElixirNewbie.Blog do
       _, acc ->
         acc
     end)
+    |> Enum.filter(fn each ->
+      Date.compare(each.date, Date.utc_today()) === :lt
+    end)
+  end
+
+  def highlighted_posts(amount) do
+    all_posts()
+    |> Enum.take(amount)
+  end
+
+  def highlighted_posts(related_article_id, amount) do
+    all_posts()
+    |> Enum.reject(&(&1.id === related_article_id))
+    |> Enum.take(amount)
   end
 
   def all_tags, do: @tags
