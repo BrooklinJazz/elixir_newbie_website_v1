@@ -9,6 +9,7 @@
 @import "tailwindcss/utilities";
 
 @import "./animation.css";
+@import "./podcast_live.css";
 @import "./variables.css";
 @import "./makeup.css";
 
