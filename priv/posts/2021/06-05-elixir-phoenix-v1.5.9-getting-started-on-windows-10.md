@@ -1,6 +1,6 @@
 %{
   title: "Installation Guide for Elixir & Phoenix on Windows 10",
-  tags: ~w(react_native),
+  tags: ~w(elixir phoenix hackathons),
   description: "Version 1.5.9",
   cover_image: "06-05-elixir-phoenix-v1.5.9-getting-started-on-windows-10.jpg"
 }
