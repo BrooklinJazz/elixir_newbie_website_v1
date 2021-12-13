@@ -6,7 +6,7 @@ defmodule ElixirNewbieWeb.Live.Components.SubTitle do
 
   def render(assigns) do
     ~F"""
-      <p class={"text-2xl leading-relaxed text-white ", @class}><#slot/></p>
+      <p class={"text-xl md:text-2xl lg:text-3xl leading-relaxed text-white ", @class}><#slot/></p>
     """
   end
 end

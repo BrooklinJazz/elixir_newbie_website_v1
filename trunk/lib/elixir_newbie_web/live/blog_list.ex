@@ -71,7 +71,7 @@ defmodule ElixirNewbieWeb.BlogList do
           <Form for={:filter} change="filter" submit="submit" class="flex flex-col mt-12"  opts={autocomplete: "off"}>
               <Field name="search" class="flex items-center w-full px-8 border-2 border-gray-600 rounded-full focus-within:border-secondary">
                 <Icon icon={:search} class="text-gray-400"/>
-                <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow h-8 p-4 py-8 text-white placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
+                <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow w-0 h-8 p-4 py-8 text-white placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
                 <p class="text-white">{length(@blogs)}</p>
               </Field>
           </Form>

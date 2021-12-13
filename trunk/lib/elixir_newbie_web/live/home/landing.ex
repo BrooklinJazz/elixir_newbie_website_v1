@@ -20,7 +20,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
           <LiveRedirect
             to={Routes.live_path(Endpoint, BlogList)}
             class={
-              "text-3xl border-2 p-6 rounded-full bg-white text-black mt-8 cursor-pointer ",
+              "text-2xl md:text-3xl border-2 p-6 rounded-full bg-white text-black mt-8 cursor-pointer ",
                 "transition duration-500 border-2 border-white ease-in-out hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-background hover:border-transparent"
               }>
               Read the Blog
@@ -28,10 +28,10 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
               <LiveRedirect
               to={Routes.live_path(Endpoint, PodcastList)}
               class={
-                "text-3xl p-6 rounded-full mt-8 cursor-pointer",
+                " text-2xl md:text-3xl p-6 rounded-full mt-8 cursor-pointer",
                 "transition duration-500 hover:bg-background border-2 border-white ease-in-out hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-background hover:border-transparent"
             }>
-            Listen to the Podcast
+            Hear the Podcast
           </LiveRedirect>
         </article>
         <article class="flex flex-col items-center lg:items-end animate-fade-in">
