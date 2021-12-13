@@ -28,7 +28,7 @@ defmodule ElixirNewbieWeb.PodcastShow do
           <figure class="flex py-6">
             <Icon icon={:calendar}/>
             <p class="ml-2 text-white">{Calendar.strftime(@episode.published_at, "%B %d %Y")}</p>
-            <p class="ml-12 text-white">Season {@episode.season_number}</p>
+            <p class="ml-4 text-white md:ml-12">Season {@episode.season_number}</p>
             <Icon class="ml-12" icon={:clock}/>
             <p class="ml-2 text-white">{div @episode.duration, 60}:{rem @episode.duration, 60}</p>
           </figure>

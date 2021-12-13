@@ -15,7 +15,7 @@ defmodule ElixirNewbieWeb.Components.Page do
     {#if @loading}
     {#else}
     <section class="content bg-background">
-          <Navigation id={:navigation}/>
+        <Navigation id={:navigation}/>
           <#slot/>
         </section>
         <Footer id={:footer}/>

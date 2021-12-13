@@ -22,9 +22,9 @@ defmodule ElixirNewbieWeb.PodcastList do
     ~F"""
     <Page loading={@loading}>
     <ResponsiveLayout gap="small" cols={2}>
-     <article class="animate-fade-in">
+     <article class="md:animate-fade-in">
        <Title>Listen to the Elixir Newbie Podcast</Title>
-       <img class={"animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
+       <img class={"md:animate-fade-in md:w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
        <IconButton hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
      </article>
      <article class="flex flex-col">
