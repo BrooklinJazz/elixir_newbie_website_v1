@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.Paragraph do
+defmodule ElixirNewbieWeb.Components.Paragraph do
   use Surface.Component
 
   slot default, required: true

@@ -1,8 +1,8 @@
 defmodule ElixirNewbieWeb.Live.Home.About do
   use Surface.Component
-  alias ElixirNewbieWeb.Live.Components.Paragraph
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
-  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Components.Paragraph
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def render(assigns) do

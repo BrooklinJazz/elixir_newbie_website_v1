@@ -5,13 +5,13 @@ defmodule ElixirNewbieWeb.BlogShow do
   use Surface.LiveView
   alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.Live.Components.Title
+  alias ElixirNewbieWeb.Components.Title
   alias ElixirNewbieWeb.BlogList
-  alias ElixirNewbieWeb.Live.Components.BlogCard
-  alias ElixirNewbieWeb.Live.Components.CardContainer
-  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Components.BlogCard
+  alias ElixirNewbieWeb.Components.CardContainer
+  alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.Live.Home.Footer
-  alias ElixirNewbieWeb.Live.Components.SubTitle
+  alias ElixirNewbieWeb.Components.SubTitle
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 
   def mount(%{"id" => id}, _session, socket) do

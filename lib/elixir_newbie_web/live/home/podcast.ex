@@ -1,10 +1,10 @@
 defmodule ElixirNewbieWeb.Live.Home.Podcast do
   use Surface.LiveComponent
-  alias ElixirNewbieWeb.Live.Components.IconButton
-  alias ElixirNewbieWeb.Live.Components.Paragraph
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
-  alias ElixirNewbieWeb.Live.Components.SubTitle
-  alias ElixirNewbieWeb.Live.Components.Title
+  alias ElixirNewbieWeb.Components.IconButton
+  alias ElixirNewbieWeb.Components.Paragraph
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.SubTitle
+  alias ElixirNewbieWeb.Components.Title
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
 

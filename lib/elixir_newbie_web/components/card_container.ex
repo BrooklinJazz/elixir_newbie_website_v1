@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.CardContainer do
+defmodule ElixirNewbieWeb.Components.CardContainer do
   use Surface.Component
   slot default, required: true
 

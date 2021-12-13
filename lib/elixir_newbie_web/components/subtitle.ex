@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.SubTitle do
+defmodule ElixirNewbieWeb.Components.SubTitle do
   use Surface.Component
 
   prop class, :css_class

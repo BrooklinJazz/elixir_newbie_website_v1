@@ -1,4 +1,4 @@
-defmodule ElixirNewbieWeb.Live.Components.ResponsiveLayout do
+defmodule ElixirNewbieWeb.Components.ResponsiveLayout do
   use Surface.Component
 
   prop class, :css_class

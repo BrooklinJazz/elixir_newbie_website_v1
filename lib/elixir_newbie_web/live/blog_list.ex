@@ -5,12 +5,12 @@ defmodule ElixirNewbieWeb.BlogList do
   use Surface.LiveView
   alias ElixirNewbie.Blog
   alias ElixirNewbieWeb.Components.Page
-  alias ElixirNewbieWeb.Live.Components.BlogCard
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
-  alias ElixirNewbieWeb.Live.Components.IconButton
-  alias ElixirNewbieWeb.Live.Components.Icon
-  alias ElixirNewbieWeb.Live.Components.Title
-  alias ElixirNewbieWeb.Live.Components.SubTitle
+  alias ElixirNewbieWeb.Components.BlogCard
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.IconButton
+  alias ElixirNewbieWeb.Components.Icon
+  alias ElixirNewbieWeb.Components.Title
+  alias ElixirNewbieWeb.Components.SubTitle
   alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.Form
   alias Surface.Components.Form.Field

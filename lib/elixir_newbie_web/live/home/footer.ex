@@ -7,10 +7,10 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.BlogShow
   alias ElixirNewbieWeb.Endpoint
-  alias ElixirNewbieWeb.Live.Components.Paragraph
-  alias ElixirNewbieWeb.Live.Components.ResponsiveLayout
-  alias ElixirNewbieWeb.Live.Components.Title
-  alias ElixirNewbieWeb.Live.Components.IconButton
+  alias ElixirNewbieWeb.Components.Paragraph
+  alias ElixirNewbieWeb.Components.ResponsiveLayout
+  alias ElixirNewbieWeb.Components.Title
+  alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
