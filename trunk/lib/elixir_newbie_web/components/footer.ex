@@ -11,37 +11,22 @@ defmodule ElixirNewbieWeb.Components.Footer do
 
   def render(assigns) do
     ~F"""
-    <nav class="footer bg-footer">
-      <button
-        class={
-        "footer_link footer_link--home "
-        <> "#{assigns.socket.view === ElixirNewbieWeb.HomeLive  && " text-secondary" || "text-white"}"
-        }
-        :on-click="home"
-        >
-        <i class="fas fa-home"></i>
-        Home
+    <nav class="sticky bottom-0 flex flex-col md:hidden">
+        <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
+        <nav class="flex items-center justify-around text-white bg-background">
+        <button :on-click="home" class="p-6">
+          <i class="fas fa-home"/>
+          <p>Home</p>
         </button>
-      <button
-        class={
-        "footer_link footer_link--blog "
-        <> "#{assigns.socket.view === ElixirNewbieWeb.BlogList  && " text-secondary" || "text-white"}"
-        }
-        :on-click="blog"
-        >
-        <i class="fas fa-blog"></i>
-        Blog
+        <button :on-click="blog" class="p-6">
+          <i class="fas fa-blog"></i>
+          <p>Blog</p>
         </button>
-      <button
-        class={
-        "footer_link footer_link--podcast "
-        <> "#{assigns.socket.view === ElixirNewbieWeb.PodcastList  && " text-secondary" || "text-white"}"
-        }
-        :on-click="podcast"
-       >
-      <i class="fas fa-podcast"></i>
-       podcast
-       </button>
+        <button :on-click="podcast" class="p-6">
+          <i class="fas fa-podcast"></i>
+          <p>Podcast</p>
+        </button>
+      </nav>
     </nav>
     """
   end

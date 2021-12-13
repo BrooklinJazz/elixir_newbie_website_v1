@@ -16,7 +16,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   def render(assigns) do
     ~F"""
     <nav class="flex flex-col w-full">
-      <nav class="sticky top-0 flex w-full h-12 pr-12 z-[100] bg-background items-center">
+      <nav class="sticky top-0 flex w-full h-12 md:pr-12 z-[100] bg-background items-center justify-center md:justify-start">
         <img
           :on-click="home"
           class={
