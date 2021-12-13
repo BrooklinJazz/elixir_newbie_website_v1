@@ -7,6 +7,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
+  alias ElixirNewbieWeb.Live.Components.Title
   alias ElixirNewbieWeb.Live.Components.Icon
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
@@ -14,57 +15,104 @@ defmodule ElixirNewbieWeb.Components.Navigation do
 
   def render(assigns) do
     ~F"""
-    <nav class="navigation bg-background">
-      <img
-        :on-click="home"
-        class={
-          "navigation__brand cursor-pointer "
-          <> "transition duration-300 ease-in-out transform hover:scale-110"
-        }
-        src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/brand.png")}/>
-      <LiveRedirect
-        class={
-          "text-3xl navigation__link--podcast text-white"
-          <> " border-primary duration-300 ease-in-out transform hover:scale-110"
-          <> " hidden md:block "
-        }
-        label="Podcast"
-        to={Routes.live_path(Endpoint, PodcastList)}
+    <nav class="flex flex-col w-full">
+      <nav class="sticky top-0 flex w-full h-12 pr-12 z-[100] bg-background items-center">
+        <img
+          :on-click="home"
+          class={
+            "cursor-pointer h-12 hover:opacity-75",
+            "transition duration-300 ease-in-out transform hover:scale-105"}
+          src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/brand.png")}
         />
-      <LiveRedirect
-        class={
-          "text-3xl navigation__link navigation__link--blog text-white "
-          <> " border-primary duration-300 ease-in-out transform hover:scale-110"
-          <> " hidden md:block "
-        }
-        label="Blog"
-        to={Routes.live_path(Endpoint, BlogList)}
-       />
-      <a
-        href="https://twitter.com/BrooklinJMyers"
-        target="_blank"
-        class={
-          "navigation__icon--twitter text-white "
-          <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
-          <> " hidden md:block "
+        <LiveRedirect
+          class={
+          "text-2xl text-gray-300 ml-8",
+          "hidden md:block ",
+          "link-underline hover:text-white"
+          }
+          label="Podcast"
+          to={Routes.live_path(Endpoint, PodcastList)}
+        />
+        <LiveRedirect
+          class={
+          "text-2xl text-gray-300 ml-8",
+          "hidden md:block ",
+          "link-underline hover:text-white"
+          }
+          label="Blog"
+          to={Routes.live_path(Endpoint, BlogList)}
+        />
+        <a
+          href="https://twitter.com/BrooklinJMyers"
+          target="_blank"
+          class={
+            "ml-auto mr-12 text-white",
+            "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter",
+            "hidden md:block"
         }>
           <Icon icon={:twitter}/>
         </a>
-      <a
-        href="https://www.linkedin.com/in/brooklinmyers/"
-        target="_blank"
-        class={
-          "navigation__icon--linkedin text-white "
-          <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin"
-          <> " hidden md:block "
+        <a
+          href="https://www.linkedin.com/in/brooklinmyers/"
+          target="_blank"
+          class={
+            "text-white",
+            "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin",
+            "hidden md:block"
         }>
           <Icon icon={:linkedin}/>
         </a>
-        <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
+      </nav>
+      <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
     </nav>
     """
   end
 
+  # <LiveRedirect
+  #   class={
+  #     "text-3xl",
+  #     # "transition duration-500 hover:bg-background border-2 border-white ease-in-out group"
+  #     # <> " border-primary duration-300 ease-in-out transform hover:scale-110"
+  #     " hidden md:block "
+  #   }
+  #   to={Routes.live_path(Endpoint, PodcastList)}
+  #   >
+  #   <p class="p-0 m-0 bg-red-400">Podcast</p>
+  #   <div class="w-full h-2 bg-black"></div>
+  # </LiveRedirect>
+  # <LiveRedirect
+  #   class={
+  #     "text-3xl text-white "
+  #     <> " border-primary duration-300 ease-in-out transform hover:scale-110"
+  #     <> " hidden md:block "
+  #   }
+  #   label="Blog"
+  #   to={Routes.live_path(Endpoint, BlogList)}
+  #  >
+  #   <Title>Blog</Title>
+  #  </LiveRedirect>
+  # <a
+  #   href="https://twitter.com/BrooklinJMyers"
+  #   target="_blank"
+  #   class={
+  #     "text-white "
+  #     <> "transition duration-300 ease-in-out transform hover:scale-125 hover:text-twitter"
+  #     <> " hidden md:block "
+  #   }>
+  #     <Icon icon={:twitter}/>
+  #   </a>
+  # <a
+  #   href="https://www.linkedin.com/in/brooklinmyers/"
+  #   target="_blank"
+  #   class={
+  #     " text-white ",
+
+  #      "transition duration-300 ease-in-out transform hover:scale-125 hover:text-linkedin",
+  #     " hidden md:block "
+  #   }>
+  #     <Icon icon={:linkedin}/>
+  #   </a>
+  #   <hr class="h-0.5 w-full border-0 navigation__hr bg-gradient-to-r from-primary to-secondary animate-gradient-x"/>
   def handle_event("home", _params, socket) do
     {:noreply, push_redirect(socket, to: Routes.live_path(Endpoint, HomeLive))}
   end
