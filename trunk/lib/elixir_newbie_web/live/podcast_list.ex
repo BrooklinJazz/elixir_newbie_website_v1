@@ -69,19 +69,19 @@ defmodule ElixirNewbieWeb.PodcastList do
        </figure>
      </article>
     </ResponsiveLayout>
-    <ResponsiveLayout class="mt-24" gap="none" scroll_id={"all_episodes"} cols={1} spacing="narrow">
-      <figure class="flex flex-wrap mb-12">
+    <ResponsiveLayout class="mt-24" gap="none" scroll_id={"all_episodes"} cols={1} spacing="full">
+      <figure class="flex flex-col mb-12 md:items-center md:justify-between md:flex-row">
         {#for season <- @seasons}
           <p
             :on-click="select_season"
             phx-value-season={season}
-            class={"mr-8 lg:mb-0 mb-12 text-4xl cursor-pointer",
+            class={"mr-8 lg:mb-0 text-4xl cursor-pointer",
             "text-gray-200": season !== @season_number,
             "text-secondary": @season_number === season}>
             Season {season}
           </p>
         {/for}
-        <button class="flex items-center flex-grow ml-auto text-2xl text-white lg:flex-none" :on-click="toggle_order">
+        <button class="flex items-center justify-start mt-4 text-2xl text-white md:mt-0 md:justify-end lg:flex-none" :on-click="toggle_order">
         {#case @order}
           {#match :desc}
             Showing newest first
