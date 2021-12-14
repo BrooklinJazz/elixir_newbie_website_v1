@@ -54,6 +54,7 @@
   background-color: var(--blockquote);
   padding: 1rem;
   border-left: solid var(--secondary) 5px;
+  margin-bottom: 1rem;
 }
 
 .makeup .hll {

@@ -8,7 +8,8 @@
 
 The excitement in the Elixir community is palpable. Few languages spur developer passion like it. I’d seen the excitement but hadn’t felt it myself. I’d heard my friend rant about it, and in the spare moments between spare moments, I glanced at the syntax and toyed with a couple of hobby projects, but no more than that.
 
-This post was sponsored by digital product consultancy DockYard [](dockyard.com) to support the Elixir community and to encourage its members to share their stories.
+> _This post was sponsored by digital product consultancy [DockYard](dockyard.com) to support the Elixir community and to encourage its members to share their stories._
+
 
 For a long time, It wasn’t the right time. Instead, I focused on learning JavaScript and its ecosystem. There simply wasn’t the time to learn a new language, let alone deeply enough to consider using it professionally.
 
