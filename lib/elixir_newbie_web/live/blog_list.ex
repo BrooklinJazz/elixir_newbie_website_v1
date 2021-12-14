@@ -26,7 +26,7 @@ defmodule ElixirNewbieWeb.BlogList do
      assign(socket,
        blogs: blogs,
        tags: tags,
-       #  TODO ensure default selected tags
+       page_title: "Blog",
        selected_tags: [],
        selected_blog_on_mobile: false,
        active_blog: List.first(blogs),

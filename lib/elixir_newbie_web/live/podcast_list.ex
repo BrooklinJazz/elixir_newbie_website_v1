@@ -118,6 +118,7 @@ defmodule ElixirNewbieWeb.PodcastList do
      assign(socket,
        episodes: episodes,
        seasons: seasons,
+       page_title: "Podcast",
        season_number: 1,
        order: :desc,
        latest_episode: hd(episodes),
