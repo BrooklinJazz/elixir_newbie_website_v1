@@ -32,7 +32,6 @@ let Hooks = {
     },
     mounted() {
       this.el.addEventListener("click", () => {
-        console.log(this.scroll_target());
         const element = document.querySelector(
           `[data-scroll-id=${this.scroll_target()}]`
         );
