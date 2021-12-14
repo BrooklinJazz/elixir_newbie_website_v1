@@ -11,4 +11,4 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-This project relies on environment variables to run.
+This project relies on environment variables to run, but 
