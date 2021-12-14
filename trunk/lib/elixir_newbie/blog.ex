@@ -34,7 +34,7 @@ defmodule ElixirNewbie.Blog do
         acc
     end)
     |> Enum.filter(fn each ->
-      Date.compare(each.date, Date.utc_today()) === :lt
+      Date.compare(each.date, Date.utc_today()) in [:lt, :eq]
     end)
   end
 
