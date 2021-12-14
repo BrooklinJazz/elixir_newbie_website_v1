@@ -23,6 +23,6 @@ defmodule ElixirNewbieWeb.HomeLive do
   end
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, loading: !connected?(socket))}
+    {:ok, assign(socket, page_title: "Home", loading: !connected?(socket))}
   end
 end

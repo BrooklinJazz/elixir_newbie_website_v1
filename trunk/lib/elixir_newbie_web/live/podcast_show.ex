@@ -116,6 +116,7 @@ defmodule ElixirNewbieWeb.PodcastShow do
 
     {:ok,
      assign(socket,
+       page_title: "Podcast",
        episode: current_episode,
        previous_episode: previous_episode,
        next_episode: next_episode,
