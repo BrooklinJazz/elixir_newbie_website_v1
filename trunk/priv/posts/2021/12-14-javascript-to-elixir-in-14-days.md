@@ -35,7 +35,7 @@ Fortunately, I love writing. Writing allows you to teach others what you learn, 
 
 ![](/images/js-to-elixir-14-days/2.jpg)
 
-For the first week to prepare for the Intro interview and build some Elixir experience, I focused on learning and writing about Elixir fundamentals. During this time, I wrote [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://www.elixirnewbie.com/blog/from-elixir-newbie-to-elixir-developer-create-your-learning-path).
+For the first week to prepare for the Intro interview and build some Elixir experience, I focused on learning and writing about Elixir fundamentals. During this time, I wrote [The 20% of Elixir Syntax You Need to Understand 80% of Elixir Code.](https://www.elixirnewbie.com/blog/the-20%25-of-elixir-syntax-you-need-to-read-80%25-of-elixir-code).
 
 In my experience, Elixir feels highly thought out, modular, and elegant. Elixir’s modularity makes it easier to dissect, condense, and learn. If you’re learning Elixir or helping other developers learn. Consider listing the essential topics. Deconstructing what you want to know ensures you spend your time wisely.
 
