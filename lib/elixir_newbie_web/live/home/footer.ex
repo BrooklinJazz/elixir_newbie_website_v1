@@ -3,6 +3,7 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
 
   alias ElixirNewbie.Blog
   alias ElixirNewbie.Podcast
+  alias ElixirNewbie.PodcastCache
 
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.BlogShow
@@ -68,11 +69,10 @@ defmodule ElixirNewbieWeb.Live.Home.Footer do
     """
   end
 
-  # <section class="grid w-full min-h-full gap-24 px-12 mt-24 mb-24 sm:grid-cols-1 xl:grid-cols-4 sm:grid-rows-4 xl:grid-rows-1 lg:grid-cols-2 lg:grid-rows-2 sm:px-8 md:px-12">
   def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
-       highlighted_episodes: Enum.take(Podcast.all_episodes(), 5),
+       highlighted_episodes: Podcast.highlighted_episodes(PodcastCache),
        highlighted_blogs: Blog.highlighted_posts(6)
      )}
   end

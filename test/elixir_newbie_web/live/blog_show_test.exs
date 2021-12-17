@@ -1,5 +1,5 @@
 defmodule ElixirNewbieWeb.BlogShowTest do
-  use ElixirNewbieWeb.ConnCase
+  use ElixirNewbieWeb.ConnCase, async: true
 
   import Phoenix.ConnTest
   import Phoenix.LiveViewTest

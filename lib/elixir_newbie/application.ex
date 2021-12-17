@@ -16,7 +16,7 @@ defmodule ElixirNewbie.Application do
       {Phoenix.PubSub, name: ElixirNewbie.PubSub},
       # Start the Endpoint (http/https)
       ElixirNewbieWeb.Endpoint,
-      {ElixirNewbie.Podcast, []}
+      {ElixirNewbie.PodcastCache, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

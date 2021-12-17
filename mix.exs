@@ -19,7 +19,7 @@ defmodule ElixirNewbie.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ElixirNewbie.Application, []},
+      mod: {ElixirNewbie.Application, [:elixir_feed_parser]},
       extra_applications: [:logger, :runtime_tools, :yamerl]
     ]
   end
@@ -61,7 +61,8 @@ defmodule ElixirNewbie.MixProject do
       {:html_entities, "~> 0.5"},
       {:yamerl, github: "yakaz/yamerl"},
       {:nimble_publisher, "~> 0.1.2"},
-      {:makeup_erlang, "~> 0.1.1"}
+      {:makeup_erlang, "~> 0.1.1"},
+      {:elixir_feed_parser, "~> 2.1"}
     ]
   end
 
