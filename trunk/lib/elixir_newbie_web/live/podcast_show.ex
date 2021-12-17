@@ -5,6 +5,8 @@ defmodule ElixirNewbieWeb.PodcastShow do
   use Surface.LiveView
 
   alias ElixirNewbie.Podcast
+  alias ElixirNewbie.PodcastCache
+
   alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Live.Home.Footer
@@ -98,21 +100,19 @@ defmodule ElixirNewbieWeb.PodcastShow do
       ) do
     PubSub.subscribe(ElixirNewbie.PubSub, @topic)
 
-    episodes_desc = Podcast.all_episodes()
-    episodes_asc = episodes_desc |> Enum.reverse()
-    [last_episode | _] = episodes_desc
-    [first_episode | _] = episodes_asc
+    [first_episode | _] = episodes = Podcast.query_episodes(PodcastCache, order: :asc)
+    [last_episode] = Enum.take(episodes, -1)
 
     current_episode_index =
-      episodes_asc
+      episodes
       |> Enum.find_index(fn each ->
         each.season_number === String.to_integer(season_number) &&
           each.episode_number === String.to_integer(episode_number)
       end)
 
-    current_episode = Enum.at(episodes_asc, current_episode_index)
-    previous_episode = Enum.at(episodes_asc, current_episode_index - 1) || last_episode
-    next_episode = Enum.at(episodes_asc, current_episode_index + 1) || first_episode
+    current_episode = Enum.at(episodes, current_episode_index)
+    previous_episode = Enum.at(episodes, current_episode_index - 1) || last_episode
+    next_episode = Enum.at(episodes, current_episode_index + 1) || first_episode
 
     {:ok,
      assign(socket,

@@ -5,6 +5,7 @@ defmodule ElixirNewbieWeb.PodcastList do
   use Surface.LiveView
 
   alias ElixirNewbie.Podcast
+  alias ElixirNewbie.PodcastCache
   alias ElixirNewbieWeb.PodcastShow
   alias ElixirNewbieWeb.Components.Page
   alias ElixirNewbieWeb.Components.Title
@@ -111,8 +112,8 @@ defmodule ElixirNewbieWeb.PodcastList do
 
   def mount(_params, _session, socket) do
     PubSub.subscribe(ElixirNewbie.PubSub, @topic)
-    episodes = Podcast.all_episodes()
-    seasons = Podcast.all_seasons()
+    episodes = Podcast.query_episodes(PodcastCache, order: :desc)
+    seasons = Podcast.season_numbers(PodcastCache)
 
     {:ok,
      assign(socket,
@@ -144,7 +145,7 @@ defmodule ElixirNewbieWeb.PodcastList do
     assign(
       socket,
       :episodes,
-      Podcast.all_episodes(Podcast, season_number: season_number, order: order)
+      Podcast.query_episodes(PodcastCache, season_number: season_number, order: order)
     )
   end
 end
