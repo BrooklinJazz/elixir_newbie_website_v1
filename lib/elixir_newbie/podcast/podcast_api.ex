@@ -14,7 +14,7 @@ defmodule ElixirNewbie.PodcastAPI do
         %PodcastEpisode{
           title: each.title,
           description: each.description,
-          duration: String.to_integer(each.enclosure.length),
+          duration: String.to_integer(each.itunes_duration),
           artwork_url: json_feed.image.url,
           audio_url: each.enclosure.url,
           published_at: Map.get(each, :"rss2:pubDate"),
