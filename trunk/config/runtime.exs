@@ -33,10 +33,16 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
+  host =
+    System.get_env("HOST") ||
+      raise """
+      environment variable HOST is missing.
+      """
+
   config :elixir_newbie, ElixirNewbieWeb.Endpoint,
     server: true,
     http: [port: {:system, "PORT"}],
-    url: [host: "elixir-newbie.gigalixirapp.com", port: 443],
+    url: [host: host, port: 443],
     secret_key_base: secret_key_base,
     check_origin: ["//www.elixirnewbie.com", "https://www.elixirnewbie.com"]
 
