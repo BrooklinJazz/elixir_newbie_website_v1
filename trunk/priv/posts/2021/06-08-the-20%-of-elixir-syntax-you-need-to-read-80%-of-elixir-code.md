@@ -96,7 +96,7 @@ false                    # boolean
 [key: "val", key: "val"] # key-value list (non-unique keys allowed)
 {1, 2, 3}                # tuple
 %{"key" => "val"}        # map (unique keys only)
-%{key: "val"}            # map with alternative syntax
+%{key: "val"}            # map with atom key syntax
 ```
 
 Variables
@@ -401,10 +401,10 @@ Maps are a key-value data structure in Elixir. The keys in a map must be unique,
 Dot notation
 ------------
 
-You can access map values using dot notation.
+You can access atom map values using dot notation.
 
 ```elixir
-my_map = %{"key" => "value"}  
+my_map = %{key: "value"}  
 my_map.key # value
 ```
 
