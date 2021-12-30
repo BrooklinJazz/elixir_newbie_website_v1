@@ -26,7 +26,7 @@ defmodule ElixirNewbieWeb.PodcastList do
      <article class="md:animate-fade-in">
        <Title>Listen to the Elixir Newbie Podcast</Title>
        <img class={"md:animate-fade-in w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/sound_wave_crop.png")}/>
-       <IconButton id={:podcast_list_to_all_episodes} hook="ScrollTo" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
+       <IconButton id={:podcast_list_to_all_episodes} hook="ScrollOnClick" value={"all_episodes"} rounded={true} icon={:down_arrow}>Episodes Below</IconButton>
      </article>
      <article class="flex flex-col">
        <LiveRedirect to={Routes.live_path(ElixirNewbieWeb.Endpoint, PodcastShow, @latest_episode.season_number, @latest_episode.episode_number)}>

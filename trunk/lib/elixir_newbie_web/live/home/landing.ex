@@ -36,7 +36,7 @@ defmodule ElixirNewbieWeb.Live.Home.Landing do
         </article>
         <article class="flex flex-col items-center lg:items-end animate-fade-in">
           <img class={"animate-fade-in lg:w-full w-3/4"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/magic_home_swirls.png")}/>
-          <IconButton id={:landing_learn_more} hook="ScrollTo" value="about" class="mt-12 lg:mt-0" rounded={true} icon={:down_arrow}>Learn More</IconButton>
+          <IconButton id={:landing_learn_more} hook="ScrollOnClick" value="about" class="mt-12 lg:mt-0" rounded={true} icon={:down_arrow}>Learn More</IconButton>
         </article>
       </ResponsiveLayout>
     """

@@ -10,7 +10,6 @@ defmodule ElixirNewbieWeb.BlogList do
   alias ElixirNewbieWeb.Components.IconButton
   alias ElixirNewbieWeb.Components.Icon
   alias ElixirNewbieWeb.Components.Title
-  alias ElixirNewbieWeb.Components.SubTitle
   alias ElixirNewbieWeb.Live.Home.Footer
   alias Surface.Components.Form
   alias Surface.Components.Form.Field
@@ -53,6 +52,10 @@ defmodule ElixirNewbieWeb.BlogList do
      |> load_blogs()}
   end
 
+  def handle_event("scroll", _params, socket) do
+    {:noreply, socket}
+  end
+
   def load_blogs(socket) do
     %{search: search, selected_tags: selected_tags} = socket.assigns
     socket |> assign(:blogs, Blog.all_posts(search: search, selected_tags: selected_tags))
@@ -64,14 +67,14 @@ defmodule ElixirNewbieWeb.BlogList do
       <ResponsiveLayout gap="none" cols={2} spacing="narrow">
         <article class="flex flex-col">
           <Title>Learn Elixir with a Friendly and Approachable Tone</Title>
-          <Form for={:filter} change="filter" submit={:ignore} class="flex flex-col mt-12"  opts={autocomplete: "off"}>
+          <Form for={:filter} change="filter" submit={"scroll"} class="flex flex-col mt-12" opts={id: "search-blogs", autocomplete: "off", "phx-hook": "ScrollOnSubmit", "data-value": "all_blogs"}>
               <Field name="search" class="flex items-center w-full px-8 border-2 border-gray-600 rounded-full focus-within:border-secondary">
                 <Icon icon={:search} class="text-gray-400"/>
                 <TextInput opts={placeholder: "Search", autofocus: true} class="flex-grow w-0 h-8 p-4 py-8 text-white placeholder-gray-400 bg-transparent outline-none focus-within:text-secondary" value={@search}/>
                 <p class="text-white">{length(@blogs)}</p>
               </Field>
           </Form>
-          <IconButton id={:blog_list_to_all_blogs} reverse={true} class="mt-6" hook="ScrollTo" value={"all_blogs"} rounded={true} icon={:down_arrow}>See Results</IconButton>
+          <IconButton id={:blog_list_to_all_blogs} reverse={true} class="mt-6" hook="ScrollOnClick" value={"all_blogs"} rounded={true} icon={:down_arrow}>See Results</IconButton>
           <figure class="flex flex-wrap mt-12">
           {#for tag <- @tags}
             <p :on-click="toggle-tag" phx-value-tag={tag} class={"flex items-center h-8 mb-4 px-6 mr-6 rounded-full cursor-pointer", "bg-secondary": tag in @selected_tags, "bg-secondary/[0.3]": tag not in @selected_tags}>{String.replace(tag, "_", " ")}</p>
