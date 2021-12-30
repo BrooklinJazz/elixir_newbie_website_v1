@@ -26,7 +26,7 @@ import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
 
 let Hooks = {
-  ScrollTo: {
+  ScrollOnClick: {
     scroll_target() {
       return this.el.dataset.value;
     },
@@ -36,6 +36,22 @@ let Hooks = {
           `[data-scroll-id=${this.scroll_target()}]`
         );
         element.scrollIntoView({ alignToTop: true, behavior: "smooth" });
+      });
+    },
+  },
+  ScrollOnSubmit: {
+    scroll_target() {
+      return this.el.dataset.value;
+    },
+    mounted() {
+      this.el.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const element = document.querySelector(`[data-scroll-id=all_blogs]`);
+        // Scrolling immediately seems to conflict with the forms submit action.
+        // TODO Ideally, we'll use push_event when available.
+        setTimeout(() => {
+          element.scrollIntoView({ alignToTop: true, behavior: "smooth" });
+        }, 150);
       });
     },
   },
