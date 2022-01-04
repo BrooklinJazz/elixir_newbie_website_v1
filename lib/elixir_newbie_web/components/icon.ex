@@ -32,7 +32,6 @@ defmodule ElixirNewbieWeb.Components.Icon do
   end
 
   def render(assigns) do
-    # TODO refactor this component to simply use svg files
     ~F"""
       {#case @icon}
         {#match :spotify}

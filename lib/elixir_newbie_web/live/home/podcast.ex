@@ -27,9 +27,6 @@ defmodule ElixirNewbieWeb.Live.Home.Podcast do
   end
 
   def handle_event("to_podcast", _, socket) do
-    # TODO this cannot push_patch because the given path does not point to the current root.
-    # likely could solve this by moving this handle event to Home Live, but that muddies up the code.
-    # leaving this as a redirect for now.
     {:noreply, push_redirect(socket, to: Routes.live_path(socket, PodcastList))}
   end
 end
