@@ -1,5 +1,5 @@
 defmodule ElixirNewbie.StatsTest do
-  use ElixirNewbie.DataCase
+  use ElixirNewbie.DataCase, async: true
 
   alias ElixirNewbie.Stats
   alias ElixirNewbie.Blog
