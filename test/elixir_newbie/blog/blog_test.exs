@@ -1,5 +1,5 @@
 defmodule ElixirNewbie.BlogTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias ElixirNewbie.Blog
   alias ElixirNewbie.Blog.Post
 
