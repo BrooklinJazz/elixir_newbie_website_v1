@@ -41,9 +41,6 @@ defmodule ElixirNewbie.PodcastAPI do
   end
 
   def season_from_episode(episode_number) do
-    cond do
-      episode_number <= 15 -> 1
-      true -> 2
-    end
+    if episode_number <= 15, do: 1, else: 2
   end
 end
