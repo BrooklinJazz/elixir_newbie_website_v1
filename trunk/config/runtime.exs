@@ -42,11 +42,13 @@ if config_env() == :prod do
   config :elixir_newbie, ElixirNewbieWeb.Endpoint,
     server: true,
     http: [port: {:system, "PORT"}],
-    url: [host: host, port: 443],
+    url: [host: host, port: 443, scheme: "https"],
     secret_key_base: secret_key_base,
+    force_ssl: [rewrite_on: [:x_forwarded_proto], host: nil],
     check_origin: [
       "//www.elixirnewbie.com",
       "https://www.elixirnewbie.com",
+      "http://www.elixirnewbie.com",
       "https://elixir-newbie-staging.gigalixirapp.com"
     ]
 
