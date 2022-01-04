@@ -17,14 +17,8 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
   pubsub_server: ElixirNewbie.PubSub,
   live_view: [signing_salt: "gCvUdwJW"]
 
-dsn =
-  System.get_env("SENTRY_PROD_URL") ||
-    raise """
-    environment variable SENTRY_PROD_URL is missing.
-    """
-
 config :sentry,
-  dsn: dsn,
+  dsn: "https://df6ba02885794db9b4e2c283dd7d1bea@o1107808.ingest.sentry.io/6134958",
   included_environments: [:prod],
   environment_name: Mix.env()
 
