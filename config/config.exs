@@ -17,6 +17,17 @@ config :elixir_newbie, ElixirNewbieWeb.Endpoint,
   pubsub_server: ElixirNewbie.PubSub,
   live_view: [signing_salt: "gCvUdwJW"]
 
+dsn =
+  System.get_env("SENTRY_PROD_URL") ||
+    raise """
+    environment variable SENTRY_PROD_URL is missing.
+    """
+
+config :sentry,
+  dsn: dsn,
+  included_environments: [:prod],
+  environment_name: Mix.env()
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
