@@ -11,7 +11,10 @@ defmodule ElixirNewbieWeb.BlogShowTest do
   describe "BlogShow" do
     test "mount - tracks a view", %{conn: conn} do
       [post | _] = Blog.all_posts()
-      {:ok, _view, html} = live(conn, Routes.live_path(ElixirNewbieWeb.Endpoint, BlogShow, post.id))
+
+      {:ok, _view, html} =
+        live(conn, Routes.live_path(ElixirNewbieWeb.Endpoint, BlogShow, post.id))
+
       html =~ post.title
 
       assert {:ok, %{views: 1}} = Stats.for_post(post.id)
