@@ -28,7 +28,7 @@ defmodule ElixirNewbie.Blog do
         acc
 
       {:selected_tags, tags}, acc ->
-        Enum.filter(acc, fn post -> Enum.any?(post.tags, fn tag -> tag in tags end) end)
+        Enum.filter(acc, fn post -> common_in_list?(tags, post.tags) end)
 
       _, acc ->
         acc
@@ -36,6 +36,10 @@ defmodule ElixirNewbie.Blog do
     |> Enum.filter(fn each ->
       Date.compare(each.date, Date.utc_today()) in [:lt, :eq]
     end)
+  end
+
+  def common_in_list?(list_a, list_b) do
+    Enum.any?(list_a, fn each -> each in list_b end)
   end
 
   def highlighted_posts(amount) do
