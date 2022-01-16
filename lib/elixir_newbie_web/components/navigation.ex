@@ -7,7 +7,6 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   alias ElixirNewbieWeb.BlogList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
-  alias ElixirNewbieWeb.Components.Title
   alias ElixirNewbieWeb.Components.Icon
   alias ElixirNewbieWeb.PodcastList
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
