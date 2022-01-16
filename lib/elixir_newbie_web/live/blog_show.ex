@@ -42,6 +42,11 @@ defmodule ElixirNewbieWeb.BlogShow do
         <Title class="mb-4">{@blog.title}</Title>
         <SubTitle class="mb-4 italic">{@blog.description}</SubTitle>
         <img class="mb-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
+        {#if @blog.livebook_url}
+        <a href={@blog.livebook_url}>
+          <img src="https://livebook.dev/badge/v1/black.svg" alt="Run in Livebook" />
+        </a>
+        {/if}
         <figure class="makeup-blog">
         {raw @blog.body}
         </figure>

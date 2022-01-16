@@ -3,10 +3,9 @@
   tags: ~w(elixir livebook testing),
   description: "How to Use Variables and Kino Inputs in ExUnit Test Modules.",
   cover_image: "2022/1-14-writing-tests-in-livebook.jpg",
+  livebook_url: "https://livebook.dev/run?url=https%3A%2F%2Fgithub.com%2FBrooklinJazz%2Felixir_newbie_website%2Fblob%2Fmaster%2Flivebook%2Fwriting-tests-in-livebook.livemd"
 }
 ---
-<!-- livebook:{"persist_outputs":true} -->
-
 ## Overview
 
 While creating the curriculum for an upcoming [Elixir developer bootcamp](https://twitter.com/BrooklinJMyers/status/1480614054360018951) I've started to use Livebook to deliver interactive instruction. It's incredibly useful, and allows me to write instruction in markdown and interactive examples or exercises to ensure that students understand core concepts.
@@ -21,9 +20,6 @@ how to use :persistent_term to handle especially tricky student input.
 
 Check out the [Livebook Repository](https://github.com/livebook-dev/livebook#getting-started) If you are not already familiar with Livebook.
 There you will find how to [run livebook locally](https://fly.io/launch/livebook) or [launch a cloud instance with Fly.io](https://fly.io/launch/livebook).
-
-You can even run this blog post as a Livebook to interact with the exercises. Just press this button!
-[TODO ADD LIVEBOOK BADGE]
 
 Once you have an environment to run livebook with, you can use the following code snippet in any
 Elixir cell to setup ExUnit tests.
@@ -42,23 +38,10 @@ end
 ExUnit.run()
 ```
 
-```output
-.
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-1 test, 0 failures
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 0, skipped: 0, total: 1}
-```
-
 ## Student Input as a Variable
 
-Elixir variables cannot be access outside a module. You'll see that the following code doesn't work because my_variable
-is undefined inside of the ExampleModule example_function.
+Elixir variables cannot be access outside a module. You'll see that the following code doesn't work
+because `my_variable` is not defined inside of the `ExampleModule`'s `example_function`.
 
 ```elixir
 my_variable = 4
@@ -70,12 +53,6 @@ defmodule ExampleModule do
 end
 
 ExampleModule.example_function()
-```
-
-```output
-warning: variable "my_variable" does not exist and is being expanded to "my_variable()", please use parentheses to remove the ambiguity or change the variable name
-  livebook/writing-tests-in-livebook.livemd#cell:5: ExampleModule.example_function/0
-
 ```
 
 You can get around this via module attributes like so:
@@ -93,11 +70,7 @@ end
 ExampleModule.example_function()
 ```
 
-```output
-4
-```
-
-And here's that in an ExUnit test.
+Here's that in an ExUnit test.
 
 ```elixir
 ExUnit.start(auto_run: false)
@@ -114,19 +87,6 @@ end
 ExUnit.run()
 ```
 
-```output
-.
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-1 test, 0 failures
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 0, skipped: 0, total: 1}
-```
-
 ## Student Input as a Kino Input
 
 [Kino](https://hexdocs.pm/kino/Kino.html) creates client-driven interactive widgets in your livebook. 
@@ -141,10 +101,6 @@ Mix.install([
 ])
 ```
 
-```output
-:ok
-```
-
 Once done, you can use Kino Inputs like so:
 
 ```elixir
@@ -155,10 +111,6 @@ Then the student input can be read like so
 
 ```elixir
 example_input = Kino.Input.read(example_input)
-```
-
-```output
-"Test"
 ```
 
 You can use the variable the same way that you did above via module attributes. There used to be a bug with this
@@ -173,10 +125,6 @@ defmodule ExampleModule do
 end
 
 ExampleModule.example_function()
-```
-
-```output
-"Test"
 ```
 
 You can be more concise by simply reading the input in the module attribute. Here's that all together
@@ -201,19 +149,6 @@ end
 ExUnit.run()
 ```
 
-```output
-.
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-1 test, 0 failures
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 0, skipped: 0, total: 1}
-```
-
 ## Student Input as a Module Function
 
 Student input as a module function is fairly straightforward, because it doesn't deal 
@@ -228,10 +163,6 @@ defmodule StudentInput do
     List.first(list)
   end
 end
-```
-
-```output
-{:module, StudentInput, <<70, 79, 82, 49, 0, 0, 5, ...>>, {:answer, 1}}
 ```
 
 And then you can validate their solution with ExUnit.
@@ -256,19 +187,6 @@ defmodule ExampleTest do
 end
 
 ExUnit.run()
-```
-
-```output
-...
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-3 tests, 0 failures
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 0, skipped: 0, total: 3}
 ```
 
 ## Persistent Term Hack
@@ -316,16 +234,12 @@ end
 ExUnit.run()
 ```
 
-For cases like this, I've created a hack using persistent term that allows you to effectively handle these scenarios.
+For cases like this, I've created a hack using `:persistent_term` that allows you to effectively handle these scenarios.
 
 The student would create their function like so.
 
 ```elixir
 example_fn = fn list -> List.first(list) end
-```
-
-```output
-#Function<44.40011524/1 in :erl_eval.expr/5>
 ```
 
 Then you can store the input with the erlang :persistant_term library, and retrieve it
@@ -337,7 +251,6 @@ ExUnit.start(auto_run: false)
 :persistent_term.put("example_fn", example_fn)
 
 defmodule ExampleTest do
-  @example_fn example_fn
   use ExUnit.Case, async: false
 
   test "example_test_name" do
@@ -349,121 +262,6 @@ end
 ExUnit.run()
 ```
 
-```output
-warning: module attribute @example_fn was set but never used
-  livebook/writing-tests-in-livebook.livemd#cell:8
-
-.
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-1 test, 0 failures
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 0, skipped: 0, total: 1}
-```
-
-```output
-
-18:43:44.780 [error] ** (UndefinedFunctionError) function Code.Fragment.cursor_context/1 is undefined (module Code.Fragment is not available)
-    Code.Fragment.cursor_context("T")
-    lib/livebook/intellisense/identifier_matcher.ex:50: Livebook.Intellisense.IdentifierMatcher.completion_identifiers/3
-    lib/livebook/intellisense.ex:114: Livebook.Intellisense.get_completion_items/3
-    lib/livebook/intellisense.ex:30: Livebook.Intellisense.handle_request/3
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:43:44.889 [error] ** (UndefinedFunctionError) function Code.Fragment.cursor_context/1 is undefined (module Code.Fragment is not available)
-    Code.Fragment.cursor_context("To")
-    lib/livebook/intellisense/identifier_matcher.ex:50: Livebook.Intellisense.IdentifierMatcher.completion_identifiers/3
-    lib/livebook/intellisense.ex:114: Livebook.Intellisense.get_completion_items/3
-    lib/livebook/intellisense.ex:30: Livebook.Intellisense.handle_request/3
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:43:46.075 [error] ** (UndefinedFunctionError) function Code.Fragment.cursor_context/1 is undefined (module Code.Fragment is not available)
-    Code.Fragment.cursor_context("To i")
-    lib/livebook/intellisense/identifier_matcher.ex:50: Livebook.Intellisense.IdentifierMatcher.completion_identifiers/3
-    lib/livebook/intellisense.ex:114: Livebook.Intellisense.get_completion_items/3
-    lib/livebook/intellisense.ex:30: Livebook.Intellisense.handle_request/3
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:43:46.198 [error] ** (UndefinedFunctionError) function Code.Fragment.cursor_context/1 is undefined (module Code.Fragment is not available)
-    Code.Fragment.cursor_context("To im")
-    lib/livebook/intellisense/identifier_matcher.ex:50: Livebook.Intellisense.IdentifierMatcher.completion_identifiers/3
-    lib/livebook/intellisense.ex:114: Livebook.Intellisense.get_completion_items/3
-    lib/livebook/intellisense.ex:30: Livebook.Intellisense.handle_request/3
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:43:46.524 [error] ** (UndefinedFunctionError) function Code.Fragment.cursor_context/1 is undefined (module Code.Fragment is not available)
-    Code.Fragment.cursor_context("To imr")
-    lib/livebook/intellisense/identifier_matcher.ex:50: Livebook.Intellisense.IdentifierMatcher.completion_identifiers/3
-    lib/livebook/intellisense.ex:114: Livebook.Intellisense.get_completion_items/3
-    lib/livebook/intellisense.ex:30: Livebook.Intellisense.handle_request/3
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:44:29.045 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("  test \"example_test_name\" do", {1, 22})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:44:29.879 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("  test \"example_test_name\" do", {1, 18})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:44:30.080 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("  test \"example_test_name\" do", {1, 17})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:44:40.122 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("  test \"example_test_name\" do", {1, 14})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:44:45.841 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("  test \"example_test_name\" do", {1, 29})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-```
-
 ## Improved Test Feedback
 
 To improve feedback in tests, you may wish to create custom error messages or hints.
@@ -471,10 +269,6 @@ You can do that by passing a value into the second argument of the assert functi
 
 ```elixir
 student_input = 2
-```
-
-```output
-2
 ```
 
 ```elixir
@@ -493,63 +287,11 @@ end
 ExUnit.run()
 ```
 
-```output
+## Conclusion
 
+Livebook is enabling me to write interactive content to help people learn Elixir.
+Infact, this entire article is interactive if you'd like to run any of the examples, make sure you click the "Run in Livebook" badge at the top.
 
-  1) test example_test_name (ExampleTest)
-     livebook/writing-tests-in-livebook.livemd#cell:8
-     Hint, make sure to enter a negative number. You entered: 2
-     stacktrace:
-       livebook/writing-tests-in-livebook.livemd#cell:9: (test)
-
-
-
-Finished in 0.00 seconds (0.00s async, 0.00s sync)
-1 test, 1 failure
-
-Randomized with seed 536299
-```
-
-```output
-%{excluded: 0, failures: 1, skipped: 0, total: 1}
-```
-
-```output
-
-18:51:18.963 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("    assert @student_input <= 0, \"Hint, make sure to enter a negative number. You entered: \#{@student_input}\"", {1, 48})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:51:19.867 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("    assert @student_input <= 0, \"Hint, make sure to enter a negative number. You entered: \#{@student_input}\"", {1, 19})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:51:20.263 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("    assert @student_input <= 0, \"Hint, make sure to enter a negative number. You entered: \#{@student_input}\"", {1, 20})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-18:51:22.512 [error] ** (UndefinedFunctionError) function Code.Fragment.surround_context/2 is undefined (module Code.Fragment is not available)
-    Code.Fragment.surround_context("    assert @student_input <= 0, \"Hint, make sure to enter a negative number. You entered: \#{@student_input}\"", {1, 33})
-    lib/livebook/intellisense/identifier_matcher.ex:68: Livebook.Intellisense.IdentifierMatcher.locate_identifier/4
-    lib/livebook/intellisense.ex:325: Livebook.Intellisense.get_details/4
-    lib/livebook/evaluator.ex:270: Livebook.Evaluator.handle_cast/2
-    lib/livebook/evaluator.ex:212: Livebook.Evaluator.loop/1
-    (stdlib 3.15.1) proc_lib.erl:226: :proc_lib.init_p_do_apply/3
-
-
-```
+If you're curious about the Elixir Bootcamp, I'm working full time with DockYard now to
+help new and beginner developers learn Elixir. If you'd like to know more and/or help shape the curriculum,
+please [reach out](https://twitter.com/BrooklinJMyers).
