@@ -10,7 +10,7 @@ If you're new to github here's how to get started: https://www.freecodecamp.org/
 - [Phoenix Installation](https://hexdocs.pm/phoenix/installation.html#content)
 - [Postgresql](https://hexdocs.pm/phoenix/installation.html#postgresql)
 
-## start your Phoenix server
+## Running the Project
 - clone the git repo with
 - check .tool-versions for the current node, elixir, and erlang plugins. 
 - asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -30,6 +30,3 @@ These instructions use Escript to run livebook.
 
 Now you can visit [`localhost:8080`](http://localhost:8080) from your browser. 
 click on the `livebook` folder to view articles.
-
-## Trouble Shooting
-  * for Windows users, this project is recommended to run with WSL
