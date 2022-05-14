@@ -99,7 +99,7 @@ defmodule ElixirNewbieWeb.PodcastList do
         <article class="flex items-center">
           <img class="w-16 mr-8 rounded-lg" src={episode.artwork_url}/>
           <p class="text-2xl text-white">{episode.title}</p>
-          <p class="ml-auto text-white">{div @latest_episode.duration, 60}:{rem @latest_episode.duration, 60}</p>
+          <p class="ml-auto text-white">{div episode.duration, 60}:{rem episode.duration, 60}</p>
         </article>
       </LiveRedirect>
       <hr/>
