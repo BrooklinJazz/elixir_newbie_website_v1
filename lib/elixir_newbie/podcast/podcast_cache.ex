@@ -8,7 +8,7 @@ defmodule ElixirNewbie.PodcastCache do
 
   alias ElixirNewbie.PodcastAPI
 
-  @update_interval 1000 * 60 * 5
+  @update_interval 1000 * 60 * 60
 
   def start_link(opts) do
     server_name = Access.get(opts, :name, __MODULE__)
