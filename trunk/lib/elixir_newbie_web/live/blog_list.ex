@@ -19,7 +19,6 @@ defmodule ElixirNewbieWeb.BlogList do
 
   def mount(_params, _session, socket) do
     blogs = Blog.all_posts()
-    IO.inspect(blogs)
     tags = Blog.all_tags()
 
     {:ok,

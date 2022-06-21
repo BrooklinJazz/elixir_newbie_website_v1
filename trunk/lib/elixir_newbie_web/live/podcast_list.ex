@@ -149,8 +149,6 @@ defmodule ElixirNewbieWeb.PodcastList do
     )
   end
 
-  #{div(episode.duration, 60)} {String.pad_leading("#{rem(episode.duration, 60)}", 2, "0")}
-
   defp format_episode_duration(episode_duration) do
     minutes = div(episode_duration, 60)
     seconds = String.pad_leading("#{rem(episode_duration, 60)}", 2, "0")
