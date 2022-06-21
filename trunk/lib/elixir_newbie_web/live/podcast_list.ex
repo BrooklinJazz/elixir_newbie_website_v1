@@ -99,7 +99,7 @@ defmodule ElixirNewbieWeb.PodcastList do
         <article class="flex items-center">
           <img class="w-16 mr-8 rounded-lg" src={episode.artwork_url}/>
           <p class="text-2xl text-white">{episode.title}</p>
-          <p class="ml-auto text-white">{div episode.duration, 60}:{rem episode.duration, 60}</p>
+          <p class="ml-auto text-white">{format_episode_duration(episode.duration)}</p>
         </article>
       </LiveRedirect>
       <hr/>
@@ -148,4 +148,13 @@ defmodule ElixirNewbieWeb.PodcastList do
       Podcast.query_episodes(PodcastCache, season_number: season_number, order: order)
     )
   end
+
+  #{div(episode.duration, 60)} {String.pad_leading("#{rem(episode.duration, 60)}", 2, "0")}
+
+  defp format_episode_duration(episode_duration) do
+    minutes = div(episode_duration, 60)
+    seconds = String.pad_leading("#{rem(episode_duration, 60)}", 2, "0")
+    "#{minutes}:#{seconds}"
+  end
+
 end

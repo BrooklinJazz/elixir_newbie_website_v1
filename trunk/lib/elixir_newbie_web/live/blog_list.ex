@@ -19,6 +19,7 @@ defmodule ElixirNewbieWeb.BlogList do
 
   def mount(_params, _session, socket) do
     blogs = Blog.all_posts()
+    IO.inspect(blogs)
     tags = Blog.all_tags()
 
     {:ok,
@@ -82,8 +83,8 @@ defmodule ElixirNewbieWeb.BlogList do
           </figure>
         </article>
         <figure>
-          <img class={"animate-fade-in m-auto w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/magic_books.png")}/>
-        </figure>
+        <img class={"animate-fade-in m-auto w-3/4 my-12"} src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/magic_books.png")}/>
+      </figure>
       </ResponsiveLayout>
       <ResponsiveLayout class="mt-12" scroll_id={"all_blogs"} cols={3} spacing="full">
         {#for blog <- @blogs}
