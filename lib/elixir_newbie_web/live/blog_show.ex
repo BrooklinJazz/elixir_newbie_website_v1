@@ -24,7 +24,7 @@ defmodule ElixirNewbieWeb.BlogShow do
 
     {:ok,
      assign(socket,
-       page_title: "Blog",
+       page_title: blog.title,
        blog: blog,
        highlighted_blogs: Blog.highlighted_posts(blog.id, 6),
        loading: !connected?(socket)
