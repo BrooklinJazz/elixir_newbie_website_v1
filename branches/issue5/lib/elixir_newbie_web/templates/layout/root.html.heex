@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property='og:title' content='Elixir Newbie'/>
+    <meta property='og:image' content='https://www.elixirnewbie.com/images/default-40753a86dc7a9fdcd5b542b9705a15b3.png'/>
+    <meta property='og:description' content='Dedicated to helping developers learn Elixir.'/>
+    <meta property='og:url' content='https://www.elixirnewbie.com/'/>
+
+    <meta content="https://www.elixirnewbie.com/images/brand-9b402b6f4d8a3a9ea9ac7694051ea715.png?vsn=d" name="twitter:card">
+    <meta content="https://www.elixirnewbie.com/" name="twitter:url">
+    <meta content="Elixir Newbie" name="twitter:title">
+    <meta content="Dedecated to helping developers learn Elixir" name="twitter:description">
+    <meta content="https://www.elixirnewbie.com/images/default-40753a86dc7a9fdcd5b542b9705a15b3.png" name="twitter:image">
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "Elixir Newbie", suffix: " · Elixir Newbie" %>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <script src="https://kit.fontawesome.com/bf8cc527ea.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <%= @inner_content %>
+  </body>
+</html>
