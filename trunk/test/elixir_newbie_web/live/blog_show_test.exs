@@ -19,5 +19,10 @@ defmodule ElixirNewbieWeb.BlogShowTest do
 
       assert {:ok, %{views: 1}} = Stats.for_post(post.id)
     end
+
+    test "mount - blog title shows in browser tab", %{conn: conn} do
+      conn = get(conn, "http://localhost:4000/blog/writing-tests-in-livebook")
+      assert conn.assigns.page_title == "Writing Tests in Livebook."
+    end
   end
 end
