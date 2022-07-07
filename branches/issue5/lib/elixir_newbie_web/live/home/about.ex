@@ -12,10 +12,10 @@ defmodule ElixirNewbieWeb.Live.Home.About do
           <img
             class={"md:w-3/4 m-auto lg:m-0"}
             src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/dragons.png")}/>
-          <IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton>
-          <IconButton icon={:mail}>brooklin@elixirnewbie.com</IconButton>
-          <IconButton icon={:twitter}>@BrooklinJMyers</IconButton>
-          <IconButton id={:about_to_podcast} hook="ScrollOnClick" value="podcast" rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
+            <a href="https://www.linkedin.com/in/brooklinmyers/" target_="blank"><IconButton icon={:linkedin} class={"mt-12"}>Brooklin Myers</IconButton></a>
+            <a href="mailto:brooklin@elixirnewbie.com" target_="blank"><IconButton icon={:mail}>brooklin@elixirnewbie.com</IconButton></a>
+            <a href="https://twitter.com/BrooklinJMyers" target_="blank"><IconButton icon={:twitter}>@BrooklinJMyers</IconButton></a>
+            <IconButton id={:about_to_podcast} hook="ScrollOnClick" value="podcast" rounded={true} icon={:down_arrow} class={"mt-24"}>What I Make</IconButton>
         </article>
         <article>
           <Paragraph>I love programming as much as I do dungeons & dragons.</Paragraph>
