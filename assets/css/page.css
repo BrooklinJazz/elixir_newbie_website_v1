@@ -1,0 +1,28 @@
+.content {
+  grid-area: content;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.page {
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .page {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "navigation" "content";
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "navigation" "content" "footer";
+  }
+}

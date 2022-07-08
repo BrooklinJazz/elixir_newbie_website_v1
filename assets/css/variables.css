@@ -1,0 +1,17 @@
+:root {
+  --surface0: #1b001c;
+  --background: #1f2028;
+  --blockquote: #2f1e2e;
+  --foreground: white;
+  --primary: #a800a1;
+  --secondary: #5bdfe4;
+  --code: black;
+  --twitter: #1da1f2;
+  --linkedin: #3b5998;
+  --mobile-size: 600px;
+  --blog-spacing: 20px;
+  --header2: 1.875em;
+  --header3: 1.5em;
+  --paragraph: 1em;
+  --code-size: 1.1em;
+}

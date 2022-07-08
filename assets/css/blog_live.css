@@ -1,0 +1,71 @@
+.markdown {
+  color: var(--foreground);
+}
+
+.markdown > h2 {
+  @apply text-3xl text-white;
+  margin: var(--blog-spacing) 0;
+}
+
+.markdown > h3 {
+  font-size: var(--header3);
+  margin: var(--blog-spacing) 0;
+  color: var(--foreground);
+}
+
+.markdown > p {
+  color: var(--foreground);
+  margin: var(--blog-spacing) 0;
+  font-size: var(--paragraph);
+}
+
+.markdown > a {
+  color: var(--secondary);
+}
+
+.markdown > a:hover {
+  text-decoration: underline;
+}
+
+.markdown > blockquote {
+  color: var(--foreground);
+  margin: var(--blog-spacing) 0;
+  font-size: var(--paragraph);
+}
+
+.markdown > ul {
+  margin: var(--blog-spacing) 0;
+}
+
+.markdown > ul > li {
+  list-style-type: disc;
+  font-size: var(--paragraph);
+  margin-left: 50px;
+  color: var(--foreground);
+}
+
+.markdown > ul > li > p {
+  color: var(--foreground);
+}
+
+.markdown > ul > li > strong {
+  color: var(--foreground);
+  font-weight: bold;
+}
+
+.markdown > p > img {
+  margin: var(--blog-spacing) 0;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+.highlight::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.highlight {
+  font-size: var(--code-size);
+  overflow: scroll;
+}
