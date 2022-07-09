@@ -77,7 +77,7 @@ defmodule ElixirNewbieWeb.BlogList do
           <IconButton id={:blog_list_to_all_blogs} reverse={true} class="mt-6" hook="ScrollOnClick" value={"all_blogs"} rounded={true} icon={:down_arrow}>See Results</IconButton>
           <figure class="flex flex-wrap mt-12">
           {#for tag <- @tags}
-            <p :on-click="toggle-tag" phx-value-tag={tag} class={"flex items-center h-8 mb-4 px-6 mr-6 rounded-full cursor-pointer", "bg-secondary": tag in @selected_tags, "bg-secondary/[0.3]": tag not in @selected_tags}>{String.replace(tag, "_", " ")}</p>
+          <p :on-click="toggle-tag" phx-value-tag={tag} class={"flex items-center h-8 mb-4 px-6 mr-6 rounded-full cursor-pointer", "bg-secondary text-black": tag in @selected_tags, "bg-secondary/[0.3] text-white hover:bg-secondary/[0.5] ": tag not in @selected_tags}>{String.replace(tag, "_", " ")}</p>
           {/for}
           </figure>
         </article>
