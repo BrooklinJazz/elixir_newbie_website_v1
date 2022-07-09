@@ -18,7 +18,7 @@ defmodule ElixirNewbie.PodcastAPI do
           artwork_url: json_feed.image.url,
           audio_url: each.enclosure.url,
           published_at: Map.get(each, :"rss2:pubDate"),
-          season_number: 1,
+          season_number: season_from_episode(index + 1),
           episode_number: index + 1
         }
       end)
