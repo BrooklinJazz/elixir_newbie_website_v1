@@ -2,7 +2,7 @@ defmodule ElixirNewbie.TwitterTest do
   use ExUnit.Case, async: true
   alias ElixirNewbie.Twitter
 
-  test "get/0" do
+  test "get_tweets/0" do
     assert [
              %{
                "id" => tweet_id,
@@ -18,7 +18,7 @@ defmodule ElixirNewbie.TwitterTest do
                }
              }
              | _
-           ] = Twitter.get()
+           ] = Twitter.get_tweets()
 
     assert author_url == "https://twitter.com/#{username}"
     assert tweet_url == "https://twitter.com/#{username}/status/#{tweet_id}"
