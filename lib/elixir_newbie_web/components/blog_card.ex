@@ -12,12 +12,15 @@ defmodule ElixirNewbieWeb.Components.BlogCard do
        to={Routes.live_path(ElixirNewbieWeb.Endpoint, BlogShow, @blog.id)}
      >
        <article class="text-white">
-          <figure class="overflow-hidden h-90">
-            <img class="w-auto rounded-lg" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
-          </figure>
-          <p class="mt-6 text-2xl leading-relaxed capitalize">{@blog.title}</p>
-          <p class="mt-2 text-base leading-relaxed capitalize">{@blog.description}</p>
-          <p class="mt-2 text-gray-300">{Calendar.strftime(NaiveDateTime.new!(@blog.date, Time.utc_now()), "%B %d %Y")}</p>
+        <figure class="overflow-hidden h-90">
+        <img class="w-auto rounded-lg" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
+        </figure>
+        <p class="mt-6 text-2xl leading-relaxed capitalize">{@blog.title}</p>
+        <p class="mt-2 text-base leading-relaxed capitalize">{@blog.description}</p>
+        <p class="mt-2 text-gray-300">
+          {Calendar.strftime(NaiveDateTime.new!(@blog.date, Time.utc_now()), "%B %d %Y")}
+          <span class="float-right">{@blog.author_name}</span>
+        </p>
        </article>
      </LiveRedirect>
     """
