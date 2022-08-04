@@ -3,6 +3,8 @@
   tags: ~w(elixir livebook testing),
   description: "How to Use Variables and Kino Inputs in ExUnit Test Modules.",
   cover_image: "2022/1-14-writing-tests-in-livebook.jpg",
+  profile_picture: "brooklin-myers.png",
+  author_description: "I help people adopt Elixir and grow as developers \n I do this by documenting and sharing my experience in the Elixir industry",
   livebook_url: "https://livebook.dev/run?url=https%3A%2F%2Fgithub.com%2FBrooklinJazz%2Felixir_newbie_website%2Fblob%2Fmaster%2Flivebook%2Fwriting-tests-in-livebook.livemd"
 }
 ---
@@ -13,7 +15,7 @@ While creating the curriculum for an upcoming [Elixir developer bootcamp](https:
 [Livebook](https://github.com/livebook-dev/livebook) supports writing ExUnit tests. This empowers the students to recieve quick feedback on their answers. However, while creating these lessons, it wasn't immediately obvious to me how to connect student input with ExUnit tests.
 
 There are 3 main types of student input to accept. Input as a variable, input as module function, and input as a Kino Input.
-I'll cover how to handle all 3 and how to write effective tests that provide clear feedback to students. In addition, I'll share 
+I'll cover how to handle all 3 and how to write effective tests that provide clear feedback to students. In addition, I'll share
 how to use :persistent_term to handle especially tricky student input.
 
 ## Writing Tests in Livebook
@@ -89,7 +91,7 @@ ExUnit.run()
 
 ## Student Input as a Kino Input
 
-[Kino](https://hexdocs.pm/kino/Kino.html) creates client-driven interactive widgets in your livebook. 
+[Kino](https://hexdocs.pm/kino/Kino.html) creates client-driven interactive widgets in your livebook.
 I primarily use it to create text or number inputs in my livebook lessons.
 
 You can install Kino by including the following in an Elixir cell in your livebook.
@@ -151,7 +153,7 @@ ExUnit.run()
 
 ## Student Input as a Module Function
 
-Student input as a module function is fairly straightforward, because it doesn't deal 
+Student input as a module function is fairly straightforward, because it doesn't deal
 with any of the scoping issues that a variable or kino input do.
 
 For example, if you gave the student an exercise to create a module that returns the first element in a list,

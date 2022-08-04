@@ -38,9 +38,15 @@ defmodule ElixirNewbieWeb.BlogShow do
   def render(assigns) do
     ~F"""
     <Page loading={@loading}>
-      <section class={"mx-6 my-6 leading-loose text-white max-w-full lg:mx-60 md:mx-24"}>
-        <Title class="mb-4">{@blog.title}</Title>
-        <SubTitle class="mb-4 italic">{@blog.description}</SubTitle>
+    <section class={"mx-6 my-6 leading-loose text-white max-w-full lg:mx-60 md:mx-24"}>
+      <img class="p-1 w-20 h-20 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/authors/#{@blog.profile_picture}")}/>
+      <span class="float-left text-2xl text-slate-700 font-bold leading-normal mb-1">{@blog.author_name}</span>
+      <span class="float-left font-light leading-relaxed text-slate-600 mb-4"> {@blog.author_description}</span>
+      <p class="mt-2 text-gray-300 float-left  mr-2 text-slate-400 opacity-75"> {Calendar.strftime(NaiveDateTime.new!(@blog.date, Time.utc_now()), "%B %d %Y")} </p>
+
+      <Title class="mb-4">{@blog.title}</Title>
+      <SubTitle class="mb-4 italic">{@blog.description}</SubTitle>
+
         <img class="mb-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
         {#if @blog.livebook_url}
         <a href={@blog.livebook_url}>
