@@ -13,6 +13,7 @@ defmodule ElixirNewbieWeb.BlogShow do
   alias ElixirNewbieWeb.Components.BlogCard
   alias ElixirNewbieWeb.Components.CardContainer
   alias ElixirNewbieWeb.Components.IconButton
+  alias ElixirNewbieWeb.Components.Author
   alias ElixirNewbieWeb.Live.Home.Footer
   alias ElixirNewbieWeb.Components.SubTitle
   alias ElixirNewbieWeb.Router.Helpers, as: Routes
@@ -39,6 +40,7 @@ defmodule ElixirNewbieWeb.BlogShow do
     ~F"""
     <Page loading={@loading}>
       <section class={"mx-6 my-6 leading-loose text-white max-w-full lg:mx-60 md:mx-24"}>
+        <Author author_name={@blog.author_name} author_picture={@blog.author_picture} blog_date={@blog.date}></Author>
         <Title class="mb-4">{@blog.title}</Title>
         <SubTitle class="mb-4 italic">{@blog.description}</SubTitle>
         <img class="mb-4 rounded-2xl" src={Routes.static_path(ElixirNewbieWeb.Endpoint, "/images/posts/#{@blog.cover_image}")}/>
