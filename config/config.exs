@@ -51,6 +51,13 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :elixir_newbie, TwitterClientImpl,
+  twitter_base_url: "https://api.twitter.com",
+  search_recent_path: "/2/tweets/search/recent?query=",
+  search_recent_fields:
+    "&tweet.fields=author_id,created_at,geo,id,text&expansions=author_id,geo.place_id&user.fields=id,name,profile_image_url,username,verified&place.fields=full_name",
+  bearer_token: ""
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
