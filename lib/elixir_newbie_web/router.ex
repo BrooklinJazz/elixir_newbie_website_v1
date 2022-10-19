@@ -29,6 +29,7 @@ defmodule ElixirNewbieWeb.Router do
     live "/blog/:id", BlogShow
     live "/podcast", PodcastList
     live "/podcast/:season_number/:episode_number", PodcastShow
+    live "/twitter", TwitterFeedList
   end
 
   # Other scopes may use custom stacks.
