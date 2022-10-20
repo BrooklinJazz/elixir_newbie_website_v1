@@ -5,6 +5,7 @@ defmodule ElixirNewbieWeb.Components.Navigation do
   use Surface.LiveComponent
 
   alias ElixirNewbieWeb.BlogList
+  alias ElixirNewbieWeb.TwitterFeedList
   alias ElixirNewbieWeb.Endpoint
   alias ElixirNewbieWeb.HomeLive
   alias ElixirNewbieWeb.Components.Icon
@@ -40,6 +41,15 @@ defmodule ElixirNewbieWeb.Components.Navigation do
           }
           label="Blog"
           to={Routes.live_path(Endpoint, BlogList)}
+        />
+        <LiveRedirect
+          class={
+          "text-2xl text-gray-300 ml-8",
+          "hidden md:block ",
+          "link-underline hover:text-white"
+          }
+          label="#ElixirNewbie"
+          to={Routes.live_path(Endpoint, TwitterFeedList)}
         />
         <a
           href="https://twitter.com/BrooklinJMyers"
